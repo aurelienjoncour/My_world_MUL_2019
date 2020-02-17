@@ -18,6 +18,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include "my.h"
+#include "map_t.h"
 
 sfVector2f project_iso_point(int x, int y, int z, sfVector2f translation);
 
