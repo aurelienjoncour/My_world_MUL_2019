@@ -5,39 +5,28 @@
 ** main function
 */
 
-#include <stdlib.h>
 #include "my_world.h"
 
-extern const int WIN_HEIGHT;
-extern const int WIN_WIDTH;
-extern const int WIN_BIN_BPP;
-
-sfRenderWindow *create_windows(void)
+int run(void)
 {
-    sfVideoMode video_mode = {WIN_WIDTH, WIN_HEIGHT, 32};
-    sfRenderWindow *window;
+    window_t w;
+    sfEvent event;
 
-    window = sfRenderWindow_create(video_mode, "My World",
-            sfDefaultStyle, NULL);
-    return window;
+    if (window_create(&w) == EXIT_FAILURE) {
+        return EXIT_FAILURE;
+    }
+    map_create(&w.map, 6, 6);
+    while (sfRenderWindow_isOpen(w.window)) {
+        while (sfRenderWindow_pollEvent(w.window, &event))
+            manage_events(&w, &event);
+        map_display(w.window, &w.map);
+        sfRenderWindow_display(w.window);
+    }
+    window_destroy(&w);
+    return w.exit_status;
 }
 
 int main(void)
 {
-    sfRenderWindow *window = create_windows();
-    sfEvent event;
-    map_t map;
-
-    map_create(&map, 6, 6);
-    while (sfRenderWindow_isOpen(window)) {
-        map_display(window, &map);
-        sfRenderWindow_display(window);
-        while (sfRenderWindow_pollEvent(window, &event)) {
-            if (event.type == sfEvtClosed)
-                sfRenderWindow_close(window);
-            if (event.type == sfEvtKeyPressed && event.key.code == sfKeyEscape)
-                sfRenderWindow_close(window);
-        }
-    }
-    return EXIT_SUCCESS;
+    return run();
 }

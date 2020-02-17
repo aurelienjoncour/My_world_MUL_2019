@@ -19,6 +19,11 @@
 #include <stdlib.h>
 #include "my.h"
 #include "map_t.h"
+#include "window.h"
+#include "event.h"
+
+int window_create(window_t *w);
+void window_destroy(window_t *w);
 
 int map_create(map_t *map, int height, int width);
 int map_display(sfRenderWindow *window, map_t *map);
