@@ -7,9 +7,10 @@
 
 #include "my_world.h"
 
-const int WIN_HEIGHT = 400;
-const int WIN_WIDTH = 800;
-
-const sfVector3f MAP_INIT_SAMP = {42, 42, 21};
+const int WIN_HEIGHT = 1080;
+const int WIN_WIDTH = 1920;
+const int WIN_BPP = 32;
+extern const int WIN_BIN_BPP;
+const sfVector3f MAP_INIT_SAMP = {64, 64, 10};
 const sfVector2f MAP_INIT_ANGL = {45, 35};
 const sfVector2f MAP_INIT_ORIG = {WIN_WIDTH / 2, WIN_HEIGHT / 2};
