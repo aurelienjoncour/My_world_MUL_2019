@@ -20,7 +20,7 @@ CFLAGS	+= -Wall -Wextra -I./include
 all:	$(NAME)
 
 $(NAME):	LIB $(OBJ)
-	gcc -o $(NAME) $(OBJ) -L./lib/my -lmy
+	gcc -o $(NAME) $(OBJ) -L./lib/my -lmy -lm
 
 LIB:
 	make -C ./lib/my
