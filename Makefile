@@ -24,7 +24,7 @@ OBJ	=	$(SRC:.c=.o)
 
 NAME	=	my_world
 
-CFLAGS	+= -Wall -Wextra -I./include
+CFLAGS	+= -Wall -Wextra -I./include -g
 
 all:	$(NAME)
 
