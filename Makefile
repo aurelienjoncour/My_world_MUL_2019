@@ -9,6 +9,7 @@ DSRC	=	./src/
 
 SRC	=	$(DSRC)main.c								\
 		$(DSRC)constant.c							\
+		$(DSRC)map_tools.c							\
 		$(DSRC)map/map_vertex_create_destroy.c		\
 		$(DSRC)map/map_create_destroy.c				\
 		$(DSRC)map/map-3d_create_destroy.c			\
