@@ -11,6 +11,7 @@
 
 #define M_PI    3.1415926535
 #define DEG_TO_RAD(x) ((x * M_PI) / 180)
+#define SAMPLING 64
 
 #include <SFML/Graphics.h>
 #include <SFML/Config.h>
