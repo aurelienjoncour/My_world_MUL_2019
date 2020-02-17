@@ -7,7 +7,7 @@
 
 #include "event.h"
 
-static void event_window_close(window_t *w)
+void event_window_close(window_t *w)
 {
     sfRenderWindow_close(w->window);
 }
@@ -16,12 +16,6 @@ static void event_resize_window(window_t *w, sfEvent *event)
 {
     w->width = (int)event->size.width;
     w->height = (int)event->size.height;
-}
-
-static void event_keypressed(window_t *w, sfEvent *event)
-{
-    if (event->key.code == sfKeyEscape)
-        event_window_close(w);
 }
 
 void manage_events(window_t *w, sfEvent *event)

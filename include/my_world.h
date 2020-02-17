@@ -40,6 +40,8 @@ void destroy_2d_map(sfVector2f **map_2d, int height);
 int map_vertex_create(map_t *map);
 void map_vertex_destroy(map_t *map);
 
+int map_edit_height(map_t *map, sfVector2f *coord);
+
 int map_scale(map_t *map, float scale);
 int map_translate(map_t *map, sfVector2f *new_origin);
 int map_rotate(map_t *map, sfVector2f *angle);

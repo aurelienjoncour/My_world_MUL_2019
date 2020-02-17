@@ -15,7 +15,7 @@ int run(void)
     if (window_create(&w) == EXIT_FAILURE) {
         return EXIT_FAILURE;
     }
-    map_create(&w.map, 6, 6);
+    map_create(&w.map, 12, 12);
     while (sfRenderWindow_isOpen(w.window)) {
         while (sfRenderWindow_pollEvent(w.window, &event))
             manage_events(&w, &event);

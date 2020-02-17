@@ -15,11 +15,13 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)map/map_create_destroy.c				\
 		$(DSRC)map/map-3d_create_destroy.c			\
 		$(DSRC)map/map-2d_create_destroy.c			\
+		$(DSRC)map/map_tool_edit.c					\
 		$(DSRC)map/map_display.c					\
 		$(DSRC)map/project_iso_point.c				\
 		$(DSRC)map/map_update.c						\
 		$(DSRC)event/event_manager.c				\
 		$(DSRC)event/event_mouse.c					\
+		$(DSRC)event/event_keyboard.c				\
 
 
 SRC_UT = $(DSRC)main.c								\

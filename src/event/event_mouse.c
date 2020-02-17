@@ -7,12 +7,12 @@
 
 #include "my_world.h"
 
-
 void event_mouse_click(window_t *w, sfEvent *event)
 {
     sfMouseButtonEvent evt = event->mouseButton;
+    sfVector2f coord = {evt.x, evt.y};
 
-    //evt.x += evt.y + w->exit_status;
+    map_edit_height(&w->map, &coord);
 }
 
 void event_mouse_wheel_scroll(window_t *w, sfEvent *event)
