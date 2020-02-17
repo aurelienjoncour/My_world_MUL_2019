@@ -10,16 +10,17 @@
 
 #include "my_world.h"
 
-typedef struct {
+typedef struct world_map {
     int **map_3d;
     sfVector2f **map_2d;
-    sfVertexArray **vrtx_h;
-    sfVertexArray **vrtx_v;
+    sfVertexArray **vrtx_x;
+    sfVertexArray **vrtx_y;
     sfVector3f sampling;
     sfVector2f angle;
     sfVector2f origin;
     int height;
     int width;
-}map_t;
+    sfBool modified;
+} map_t;
 
 #endif /* !MAP_T_H_ */

@@ -9,9 +9,10 @@
 
 static void init_3d_map(int **map_3d, int height, int width)
 {
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i < height; i++) {
         for(int j = 0; j < width; j++)
             map_3d[i][j] = 0;
+    }
 }
 
 int **create_3d_map(int height, int width)

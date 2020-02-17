@@ -7,7 +7,12 @@
 
 DSRC	=	./src/
 
-SRC	=	$(DSRC)main.c		\
+SRC	=	$(DSRC)map/main.c					\
+		$(DSRC)map/map_create_destroy.c		\
+		$(DSRC)map/map-3d_create_destroy.c	\
+		$(DSRC)map/map-2d_create_destroy.c	\
+		$(DSRC)map/map_display.c			\
+		$(DSRC)map/project_iso_point.c		\
 
 SRC_UT = $(DSRC)main.c		\
 
