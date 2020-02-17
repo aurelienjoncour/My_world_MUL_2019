@@ -7,12 +7,16 @@
 
 DSRC	=	./src/
 
-SRC	=	$(DSRC)map/main.c					\
-		$(DSRC)map/map_create_destroy.c		\
-		$(DSRC)map/map-3d_create_destroy.c	\
-		$(DSRC)map/map-2d_create_destroy.c	\
-		$(DSRC)map/map_display.c			\
-		$(DSRC)map/project_iso_point.c		\
+SRC	=	$(DSRC)main.c								\
+		$(DSRC)constant.c							\
+		$(DSRC)map/map_vertex_create_destroy.c		\
+		$(DSRC)map/map_create_destroy.c				\
+		$(DSRC)map/map-3d_create_destroy.c			\
+		$(DSRC)map/map-2d_create_destroy.c			\
+		$(DSRC)map/map_display.c					\
+		$(DSRC)map/project_iso_point.c				\
+		$(DSRC)map/map_update.c
+
 
 SRC_UT = $(DSRC)main.c		\
 
@@ -25,7 +29,7 @@ CFLAGS	+= -Wall -Wextra -I./include
 all:	$(NAME)
 
 $(NAME):	LIB $(OBJ)
-	gcc -o $(NAME) $(OBJ) -L./lib/my -lmy -lm
+	gcc -o $(NAME) $(OBJ) -L./lib/my -lmy -lm -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
 
 LIB:
 	make -C ./lib/my
