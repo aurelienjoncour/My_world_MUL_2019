@@ -7,27 +7,27 @@
 
 #include "my_world.h"
 
-sfVector2f **create_2d_map(int **map_3d, int width, int height)
+int create_2d_map(map_t *map)
 {
-    sfVector2f **map = malloc(sizeof(sfVector2f *) * height);
+    map->map_2d = malloc(sizeof(sfVector2f *) * map->height);
 
-    if (!map) {
+    if (!map->map_2d) {
         my_putstr_error("create_2d_map: malloc error\n");
-        return NULL;
+        return EXIT_FAILURE;
     }
-    for (size_t i = 0; i < height; i++) {
-        map[i] = malloc(sizeof(sfVector2f) * width);
-        if (!map[i]) {
+    for (int i = 0; i < map->height; i++) {
+        map->map_2d[i] = malloc(sizeof(sfVector2f) * map->width);
+        if (!map->map_2d[i]) {
             my_putstr_error("create_2d_map: malloc error\n");
-            return NULL;
+            return EXIT_FAILURE;
         }
     }
-    for (size_t y = 0; y < height; y++) {
-        for (size_t x = 0; x < width; x++) {
-            map[y][x] = project_iso_point(x, y, map_3d[y][x], (sfVector2f){0, 450});
+    for (int y = 0; y < map->height; y++) {
+        for (int x = 0; x < map->width; x++) {
+            map->map_2d[y][x] = project_iso_point(x, y, map->map_3d[y][x], map);
         }
     }
-    return map;
+    return EXIT_SUCCESS;
 }
 
 void destroy_2d_map(sfVector2f **map_2d, int height)

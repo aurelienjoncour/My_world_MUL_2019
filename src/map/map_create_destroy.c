@@ -38,7 +38,8 @@ int map_create(map_t *map, int height, int width)
     map->map_3d = create_3d_map(height, width);
     if (!map->map_3d)
         return EXIT_FAILURE;
-    map->map_2d = create_2d_map(map->map_3d, width, height);
+    if (create_2d_map(map))
+        return EXIT_FAILURE;
     if (!map->map_2d) {
         return EXIT_FAILURE;
     } else if (map_vertex_create(map) == EXIT_FAILURE) {

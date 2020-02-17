@@ -16,4 +16,5 @@ int map_display(sfRenderWindow *window, map_t *map)
         sfRenderWindow_drawVertexArray(window, map->vrtx_y[i], NULL);
         sfRenderWindow_drawVertexArray(window, map->vrtx_x[i], NULL);
     }
+    return EXIT_SUCCESS;
 }
