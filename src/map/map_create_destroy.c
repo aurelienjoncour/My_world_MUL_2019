@@ -11,7 +11,7 @@ extern const sfVector3f MAP_INIT_SAMP;
 extern const sfVector2f MAP_INIT_ANGL;
 extern const sfVector2f MAP_INIT_ORIG;
 
-void destroy_map(map_t *map)
+void map_destroy(map_t *map)
 {
     destroy_2d_map(map->map_2d, map->height);
     destroy_3d_map(map->map_3d, map->height);

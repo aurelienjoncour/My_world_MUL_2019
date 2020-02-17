@@ -22,7 +22,7 @@
 
 int map_create(map_t *map, int height, int width);
 int map_display(sfRenderWindow *window, map_t *map);
-void destroy_map(map_t *map);
+void map_destroy(map_t *map);
 int map_update(map_t *map);
 
 int **create_3d_map(int height, int width);
