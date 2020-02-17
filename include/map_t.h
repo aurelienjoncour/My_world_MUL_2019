@@ -18,6 +18,8 @@ typedef struct {
     sfVector3f sampling;
     sfVector2f angle;
     sfVector2f origin;
-}ship_t;
+    int height;
+    int width;
+}map_t;
 
 #endif /* !MAP_T_H_ */
