@@ -23,12 +23,13 @@
 int map_create(map_t *map, int height, int width);
 int map_display(sfRenderWindow *window, map_t *map);
 void destroy_map(map_t *map);
+int map_update(map_t *map);
 
 int **create_3d_map(int height, int width);
 void destroy_3d_map(int **map_3d, int height);
 
-sfVector2f **create_2d_map(int **map_3d, int width, int height);
-sfVector2f project_iso_point(int x, int y, int z, sfVector2f translation);
+int create_2d_map(map_t *map);
+sfVector2f project_iso_point(int x, int y, int z, map_t *map);
 void destroy_2d_map(sfVector2f **map_2d, int height);
 
 int map_vertex_create(map_t *map);
