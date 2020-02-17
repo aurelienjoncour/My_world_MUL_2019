@@ -13,9 +13,12 @@ int map_rotate(map_t *map, sfVector2f *angle)
     return EXIT_SUCCESS;
 }
 
-int map_scale(map_t *map, sfVector3f *scale)
+int map_scale(map_t *map, float scale)
 {
-    map->sampling = *scale;
+    map->sampling.x += scale;
+    map->sampling.y += scale;
+    if (map->sampling.y >= 0 && scale > 0)
+        map->sampling.z += scale;
     return EXIT_SUCCESS;
 }
 
