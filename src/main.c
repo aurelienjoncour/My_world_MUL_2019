@@ -19,6 +19,7 @@ int run(void)
     while (sfRenderWindow_isOpen(w.window)) {
         while (sfRenderWindow_pollEvent(w.window, &event))
             manage_events(&w, &event);
+        sfRenderWindow_clear(w.window, sfBlack);
         map_display(w.window, &w.map);
         sfRenderWindow_display(w.window);
     }

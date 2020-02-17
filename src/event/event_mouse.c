@@ -19,5 +19,5 @@ void event_mouse_wheel_scroll(window_t *w, sfEvent *event)
 {
     sfMouseWheelScrollEvent evt = event->mouseWheelScroll;
 
-    //int evt.delta;
+    map_scale(&w->map, evt.delta);
 }
