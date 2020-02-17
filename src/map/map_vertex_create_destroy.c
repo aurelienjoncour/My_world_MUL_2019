@@ -31,8 +31,8 @@ static sfVertexArray *create_line(sfVector2f *point1, sfVector2f *point2)
 
 static int map_vertex_malloc(map_t *map)
 {
-    map->vrtx_x = malloc(sizeof(sfVertexArray *) * (map->width * map->height);
-    map->vrtx_y = malloc(sizeof(sfVertexArray *) * (map->width * map->height);
+    map->vrtx_x = malloc(sizeof(sfVertexArray *) * (map->width * map->height));
+    map->vrtx_y = malloc(sizeof(sfVertexArray *) * (map->width * map->height));
     if (!map->vrtx_x || !map->vrtx_y) {
         my_putstr_error("map_vertex_create: malloc error\n");
         return EXIT_FAILURE;
