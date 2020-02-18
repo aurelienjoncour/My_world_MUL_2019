@@ -17,6 +17,7 @@
 #include <SFML/Config.h>
 #include <math.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "my.h"
 #include "map_t.h"
 #include "window.h"
