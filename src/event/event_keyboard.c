@@ -12,4 +12,12 @@ void event_keypressed(window_t *w, sfEvent *event)
 {
     if (event->key.code == sfKeyEscape)
         event_window_close(w);
+    if (event->key.code == sfKeyUp)
+        map_translate(&w->map, &(sfVector2f){0, 10});
+    if (event->key.code == sfKeyDown)
+        map_translate(&w->map, &(sfVector2f){0, -10});
+    if (event->key.code == sfKeyLeft)
+        map_translate(&w->map, &(sfVector2f){10, 0});
+    if (event->key.code == sfKeyRight)
+        map_translate(&w->map, &(sfVector2f){-10, 0});
 }
