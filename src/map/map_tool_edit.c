@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-static int map_is_point_inrange_coord(sfVector2f *map_point, sfVector2f *coord,
+static bool map_is_point_inrange_coord(sfVector2f *map_point, sfVector2f *coord,
 float range)
 {
     float pow_x = pow((map_point->x - coord->x), 2);
@@ -15,9 +15,9 @@ float range)
     float distance = sqrt(pow_x + pow_y);
 
     if (distance <= range) {
-        return 1;
+        return true;
     } else {
-        return 0;
+        return false;
     }
 }
 
