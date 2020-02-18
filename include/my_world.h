@@ -46,5 +46,6 @@ int map_edit_height(map_t *map, sfVector2f *coord);
 int map_scale(map_t *map, float scale);
 int map_translate(map_t *map, sfVector2f *new_origin);
 int map_rotate(map_t *map, sfVector2f *angle);
+int map_reset(map_t *map);
 
 #endif /* !MY_WORLD_H_ */

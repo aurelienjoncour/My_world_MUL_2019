@@ -20,4 +20,6 @@ void event_keypressed(window_t *w, sfEvent *event)
         map_translate(&w->map, &(sfVector2f){10, 0});
     if (event->key.code == sfKeyRight)
         map_translate(&w->map, &(sfVector2f){-10, 0});
+    if (event->key.code == sfKeyR)
+        map_reset(&w->map);
 }
