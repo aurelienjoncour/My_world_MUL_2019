@@ -18,7 +18,7 @@ int window_create(window_t *w)
 {
     sfVideoMode video_mode = {WIN_WIDTH, WIN_HEIGHT, WIN_BPP};
 
-    w->window = sfRenderWindow_create(video_mode, "Nazie My World",
+    w->window = sfRenderWindow_create(video_mode, "My World",
     sfDefaultStyle, NULL);
     sfRenderWindow_setFramerateLimit(w->window, WIN_FRAMERATE);
     w->mode = ISOMETRIC;

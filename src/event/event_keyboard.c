@@ -14,6 +14,7 @@ extern const sfKeyCode KEY_MAP_TRANS_DOWN;
 extern const sfKeyCode KEY_MAP_TRANS_LEFT;
 extern const sfKeyCode KEY_MAP_TRANS_RIGHT;
 
+extern const int EVT_MAP_ROTATE_DELTA;
 extern const sfKeyCode KEY_MAP_ROT_UP;
 extern const sfKeyCode KEY_MAP_ROT_DOWN;
 extern const sfKeyCode KEY_MAP_ROT_LEFT;
@@ -34,13 +35,13 @@ void event_key_zqsd(window_t *w, sfEvent *event)
 void event_key_arrow(window_t *w, sfEvent *event)
 {
     if (event->key.code == KEY_MAP_ROT_UP)
-        map_rotate(&w->map, 0, 10);
+        map_rotate(&w->map, 0, EVT_MAP_ROTATE_DELTA);
     if (event->key.code == KEY_MAP_ROT_DOWN)
-        map_rotate(&w->map, 0, -10);
+        map_rotate(&w->map, 0, -EVT_MAP_ROTATE_DELTA);
     if (event->key.code == KEY_MAP_ROT_LEFT)
-        map_rotate(&w->map, 10, 0);
+        map_rotate(&w->map, EVT_MAP_ROTATE_DELTA, 0);
     if (event->key.code == KEY_MAP_ROT_RIGHT)
-        map_rotate(&w->map, -10, 0);
+        map_rotate(&w->map, -EVT_MAP_ROTATE_DELTA, 0);
 }
 
 void event_keypressed(window_t *w, sfEvent *event)

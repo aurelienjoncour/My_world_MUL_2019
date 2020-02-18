@@ -21,6 +21,7 @@ const int MAP_INIT_WIDTH = 13;
 const int EVT_MAP_TRANSLATE_DELTA = 10;
 const float EVT_MAP_TRANSLATE_PERC = 0.1;
 const float EVT_MAP_ROTATE_PERC = 0.03;
+const int EVT_MAP_ROTATE_DELTA = 4;
 
 const sfKeyCode KEY_MAP_TRANS_UP = sfKeyZ;
 const sfKeyCode KEY_MAP_TRANS_DOWN = sfKeyS;
