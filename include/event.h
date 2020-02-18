@@ -10,7 +10,10 @@
 
 #include "my_world.h"
 
-void manage_events(window_t *w, sfEvent *event);
+void event_manager(window_t *w, sfEvent *event);
+
+void event_window_close(window_t *w);
+void event_resize_window(window_t *w, sfEvent *event);
 
 void event_mouse_click(window_t *w, sfEvent *event);
 void event_mouse_wheel_scroll(window_t *w, sfEvent *event);

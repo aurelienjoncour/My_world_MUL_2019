@@ -21,6 +21,7 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)map/project_iso_point.c				\
 		$(DSRC)map/map_update.c						\
 		$(DSRC)event/event_manager.c				\
+		$(DSRC)event/event_misc.c					\
 		$(DSRC)event/event_mouse.c					\
 		$(DSRC)event/event_keyboard.c				\
 

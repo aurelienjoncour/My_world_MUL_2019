@@ -18,7 +18,7 @@ int run(void)
     map_create(&w.map, 12, 12);
     while (sfRenderWindow_isOpen(w.window)) {
         while (sfRenderWindow_pollEvent(w.window, &event))
-            manage_events(&w, &event);
+            event_manager(&w, &event);
         sfRenderWindow_clear(w.window, sfBlack);
         map_display(w.window, &w.map);
         sfRenderWindow_display(w.window);
