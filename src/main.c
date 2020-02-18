@@ -15,13 +15,12 @@ int run(void)
     if (window_create(&w) == EXIT_FAILURE) {
         return EXIT_FAILURE;
     }
-    map_create(&w.map, 12, 12);
     while (sfRenderWindow_isOpen(w.window)) {
         while (sfRenderWindow_pollEvent(w.window, &event))
             event_manager(&w, &event);
-        sfRenderWindow_clear(w.window, sfBlack);
-        map_display(w.window, &w.map);
-        sfRenderWindow_display(w.window);
+        event_continuous(&w);
+        if (window_run(&w) == EXIT_FAILURE)
+            return EXIT_FAILURE;
     }
     window_destroy(&w);
     return w.exit_status;

@@ -9,20 +9,23 @@ DSRC	=	./src/
 
 SRC	=	$(DSRC)main.c								\
 		$(DSRC)constant.c							\
-		$(DSRC)window_create_destroy.c				\
+		$(DSRC)window/window_create_destroy.c		\
+		$(DSRC)window/window_run.c					\
 		$(DSRC)map/map_reset.c						\
-		$(DSRC)map/map_tools.c						\
+		$(DSRC)map/map_tools_view.c					\
+		$(DSRC)map/map_tool_edit.c					\
 		$(DSRC)map/map_vertex_create_destroy.c		\
 		$(DSRC)map/map_create_destroy.c				\
 		$(DSRC)map/map_3d_create_destroy.c			\
 		$(DSRC)map/map_2d_create_destroy.c			\
-		$(DSRC)map/map_tool_edit.c					\
 		$(DSRC)map/map_display.c					\
 		$(DSRC)map/project_iso_point.c				\
 		$(DSRC)map/map_update.c						\
 		$(DSRC)event/event_manager.c				\
+		$(DSRC)event/event_init.c				\
 		$(DSRC)event/event_misc.c					\
 		$(DSRC)event/event_mouse.c					\
+		$(DSRC)event/event_mouse_clicked.c					\
 		$(DSRC)event/event_keyboard.c				\
 
 

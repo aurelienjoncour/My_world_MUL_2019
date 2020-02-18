@@ -15,6 +15,7 @@ enum projection {
 
 typedef struct window {
     map_t map;
+    struct event evt;
     sfRenderWindow *window;
     enum projection mode;
     sfBool is_fullscreen;

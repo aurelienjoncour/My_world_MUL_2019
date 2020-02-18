@@ -12,6 +12,7 @@
 
 #define M_PI 3.1415926535
 #define DEG_TO_RAD(x) ((x * M_PI) / 180)
+#define ABS(x) (x < 0) ? (-x) : (x)
 
 #include <SFML/Graphics.h>
 #include <SFML/Config.h>
@@ -20,11 +21,13 @@
 #include <stdbool.h>
 #include "my.h"
 #include "map_t.h"
+#include "event_t.h"
 #include "window.h"
 #include "event.h"
 
 int window_create(window_t *w);
 void window_destroy(window_t *w);
+int window_run(window_t *w);
 
 int map_create(map_t *map, int height, int width);
 int map_display(sfRenderWindow *window, map_t *map);
@@ -41,11 +44,13 @@ void destroy_2d_map(sfVector2f **map_2d, int height);
 int map_vertex_create(map_t *map);
 void map_vertex_destroy(map_t *map);
 
-int map_edit_height(map_t *map, sfVector2f *coord);
+int map_edit_height(map_t *map, float x, float y);
 
 int map_scale(map_t *map, float scale);
-int map_translate(map_t *map, sfVector2f *new_origin);
-int map_rotate(map_t *map, sfVector2f *angle);
+int map_translate(map_t *map, float deltax, float deltay);
+int map_rotate(map_t *map, float anglex, float angley);
+int map_set_angley(map_t *map, float angley);
+int map_set_anglex(map_t *map, float anglex);
 int map_reset(map_t *map);
 
 #endif /* !MY_WORLD_H_ */

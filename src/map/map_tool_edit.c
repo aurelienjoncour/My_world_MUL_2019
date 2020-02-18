@@ -32,11 +32,13 @@ int y, int x)
     }
 }
 
-int map_edit_height(map_t *map, sfVector2f *coord)
+int map_edit_height(map_t *map, float x, float y)
 {
+    sfVector2f coord = {x, y};
+
     for (int y = 0; y < map->height; y++) {
         for (int x = 0; x < map->width; x++) {
-            map_edit_height_edit_point(map, coord, y, x);
+            map_edit_height_edit_point(map, &coord, y, x);
         }
     }
     return EXIT_SUCCESS;
