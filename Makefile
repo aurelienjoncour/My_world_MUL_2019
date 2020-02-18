@@ -13,8 +13,8 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)map/map_tools.c						\
 		$(DSRC)map/map_vertex_create_destroy.c		\
 		$(DSRC)map/map_create_destroy.c				\
-		$(DSRC)map/map-3d_create_destroy.c			\
-		$(DSRC)map/map-2d_create_destroy.c			\
+		$(DSRC)map/map_3d_create_destroy.c			\
+		$(DSRC)map/map_2d_create_destroy.c			\
 		$(DSRC)map/map_tool_edit.c					\
 		$(DSRC)map/map_display.c					\
 		$(DSRC)map/project_iso_point.c				\
