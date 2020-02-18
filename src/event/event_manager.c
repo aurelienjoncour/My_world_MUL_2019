@@ -34,7 +34,7 @@ void event_continuous(window_t *w)
     if (w->evt.mouse_wheel_is_clicked) {
         event_mouse_wheel_clicked(w);
     } else if (w->evt.mouse_left_is_clicked) {
-        //event_mouse_left_clicked(w);
+        event_mouse_left_clicked(w);
     }
 }
 
