@@ -24,7 +24,7 @@ void button_destroy(button_t *button)
     button->is_disabled = sfTrue;
 }
 
-static int button_create_text(button_t *button, sfVector2f *position)
+static int button_create_text(button_t *button, const sfVector2f *position)
 {
     button->text = sfText_create();
     if (!button->text) {
@@ -34,7 +34,7 @@ static int button_create_text(button_t *button, sfVector2f *position)
     sfText_setCharacterSize(button->text, button->char_size);
     sfText_setColor(button->text, button->color_txt);
     sfText_setFont(button->text, button->font);
-    sfText_setPosition(button->text, &position);
+    sfText_setPosition(button->text, *position);
     sfText_setString(button->text, "NULL");
     return EXIT_SUCCESS;
 }
@@ -48,8 +48,8 @@ const sfVector2f *position, const sfVector2f *size)
         return EXIT_FAILURE;
     }
     sfRectangleShape_setFillColor(button->rect, BUTTON_INIT_COLORBG);
-    sfRectangleShape_setPosition(button->rect, &position);
-    sfRectangleShape_setSize(button->rect, &size);
+    sfRectangleShape_setPosition(button->rect, *position);
+    sfRectangleShape_setSize(button->rect, *size);
     return EXIT_SUCCESS;
 }
 
