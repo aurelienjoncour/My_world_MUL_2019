@@ -6,7 +6,6 @@
 */
 
 #include "my_world.h"
-#include "button.h"
 
 int button_set_size(button_t *button, sfVector2f *size)
 {
