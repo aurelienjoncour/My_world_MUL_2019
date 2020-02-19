@@ -5,6 +5,8 @@
 ** set state button
 */
 
+#include "my_world.h"
+
 int button_set_label(button_t *button, const char *label)
 {
     if (button) {
@@ -18,7 +20,7 @@ int button_set_label(button_t *button, const char *label)
 int button_set_charsize(button_t *button, unsigned int char_size)
 {
     if (button) {
-        button->charsize = char_size;
+        button->char_size = char_size;
         sfText_setCharacterSize(button->text, button->char_size);
     }
     return EXIT_SUCCESS;
