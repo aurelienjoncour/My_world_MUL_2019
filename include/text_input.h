@@ -26,7 +26,7 @@ int text_input_create(text_in_t *input, const char *title,
 unsigned int max_char);
 void text_input_destroy(text_in_t *input);
 
-int text_input_run(text_in_t *in);
+int text_input_run(text_in_t *in, sfRenderWindow *parent_window);
 
 char *text_input_get_input(text_in_t *input);
 

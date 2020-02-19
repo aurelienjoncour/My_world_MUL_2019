@@ -65,9 +65,9 @@ static int text_input_create_window(text_in_t *input)
 int text_input_create(text_in_t *input, const char *title,
 unsigned int max_char)
 {
-    if (!input)
+    if (!input || max_char > 100)
         return EXIT_FAILURE;
-    input->max_char = max_char;
+    input->max_char = max_char + 2;
     input->title = my_strdup(title);
     input->buffer = malloc(sizeof(char) * input->max_char);
     if (!input->buffer || !input->title) {
@@ -75,7 +75,7 @@ unsigned int max_char)
         return EXIT_FAILURE;
     }
     my_strcpy(input->buffer, ">");
-    input->i_buffer = 0;
+    input->i_buffer = 1;
     if (text_input_create_text(input) == EXIT_FAILURE)
         return EXIT_FAILURE;
     input->color_bg = TEXT_IN_INIT_BGCOLOR;
