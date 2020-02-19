@@ -25,6 +25,8 @@
 #include "window.h"
 #include "event.h"
 #include "button.h"
+#include "ui_t.h"
+#include "state_t.h"
 
 int window_create(window_t *w);
 void window_destroy(window_t *w);

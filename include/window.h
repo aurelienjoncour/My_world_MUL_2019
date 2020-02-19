@@ -8,6 +8,8 @@
 #ifndef WINDOW_H_
 #define WINDOW_H_
 
+#include "my_world.h"
+
 enum projection {
     ISOMETRIC,
     PARALLEL
