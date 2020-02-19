@@ -9,6 +9,8 @@
 
 int button_set_position(button_t *button, sfVector2f *position)
 {
+    if (!button || !position)
+        return EXIT_FAILURE;
     if (position->x < 0 || position->y < 0)
         return EXIT_FAILURE;
     button->position = *position;

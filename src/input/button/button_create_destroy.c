@@ -31,11 +31,17 @@ static int button_create_text(button_t *button, const sfVector2f *position)
         my_putstr_error("Error : create text object (button create)\n");
         return EXIT_FAILURE;
     }
+    button->char_size = BUTTON_INIT_CHARSIZE;
+    button->font = sfFont_createFromFile(BUTTON_INIT_FONT);
+    if (!button->font) {
+        my_putstr_error("Error : load font (button create)\n");
+        return EXIT_FAILURE;
+    }
     sfText_setCharacterSize(button->text, button->char_size);
     sfText_setColor(button->text, button->color_txt);
     sfText_setFont(button->text, button->font);
     sfText_setPosition(button->text, *position);
-    sfText_setString(button->text, "NULL");
+    sfText_setString(button->text, button->label);
     return EXIT_SUCCESS;
 }
 
@@ -57,12 +63,6 @@ static int button_create_init(button_t *button, const char *label,
 const sfVector2f *size, const sfVector2f *position)
 {
     button->label = my_strdup(label);
-    button->char_size = BUTTON_INIT_CHARSIZE;
-    button->font = sfFont_createFromFile(BUTTON_INIT_FONT);
-    if (!button->font) {
-        my_putstr_error("Error : load font (button create)\n");
-        return EXIT_FAILURE;
-    }
     button->color_bg = BUTTON_INIT_COLORBG;
     button->color_txt = BUTTON_INIT_COLORTXT;
     button->color_hover = BUTTON_INIT_COLORHOV;

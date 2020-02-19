@@ -9,6 +9,8 @@
 
 int button_set_size(button_t *button, sfVector2f *size)
 {
+    if (!button && !size)
+        return EXIT_FAILURE;
     if (size->x <= 0 || size->y <= 0)
         return EXIT_FAILURE;
     button->size = *size;
