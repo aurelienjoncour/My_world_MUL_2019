@@ -30,6 +30,7 @@ int window_create(window_t *w)
     if (map_create(&w->map, MAP_INIT_HEIGHT, MAP_INIT_WIDTH) == EXIT_FAILURE)
         return EXIT_FAILURE;
     event_init(&w->evt);
+    soft_state_init(&w->state);
     return EXIT_SUCCESS;
 }
 

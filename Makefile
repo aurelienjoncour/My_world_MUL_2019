@@ -11,6 +11,7 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)constant.c							\
 		$(DSRC)window/window_create_destroy.c		\
 		$(DSRC)window/window_run.c					\
+		$(DSRC)window/software_status_init.c		\
 		$(DSRC)map/map_reset.c						\
 		$(DSRC)map/map_tools_view.c					\
 		$(DSRC)map/map_tool_edit.c					\
@@ -22,10 +23,10 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)map/project_iso_point.c				\
 		$(DSRC)map/map_update.c						\
 		$(DSRC)event/event_manager.c				\
-		$(DSRC)event/event_init.c				\
+		$(DSRC)event/event_init.c					\
 		$(DSRC)event/event_misc.c					\
 		$(DSRC)event/event_mouse.c					\
-		$(DSRC)event/event_mouse_clicked.c					\
+		$(DSRC)event/event_mouse_clicked.c			\
 		$(DSRC)event/event_keyboard.c				\
 		$(DSRC)input/button/button_config_boolean.c	\
 		$(DSRC)input/button/button_config_char.c	\
@@ -35,7 +36,7 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)input/button/button_get_status.c		\
 		$(DSRC)input/button/button_poll_event.c		\
 		$(DSRC)input/button/button_set_position.c	\
-		$(DSRC)input/button/button_set_size.c
+		$(DSRC)input/button/button_set_size.c		\
 
 
 SRC_UT = $(DSRC)main.c								\

@@ -54,4 +54,6 @@ int map_set_angley(map_t *map, float angley);
 int map_set_anglex(map_t *map, float anglex);
 int map_reset(map_t *map);
 
+void soft_state_init(state_t *state);
+
 #endif /* !MY_WORLD_H_ */

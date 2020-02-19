@@ -25,6 +25,7 @@ enum tools {
 
 enum select_modes {
     PLANE,
+    EDGE,
     CORNER
 };
 

@@ -15,6 +15,8 @@ enum projection {
 
 typedef struct window {
     map_t map;
+    ui_t ui;
+    state_t state;
     struct event evt;
     sfRenderWindow *window;
     enum projection mode;
