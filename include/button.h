@@ -48,5 +48,6 @@ enum status button_get_status(button_t *button);
 sfBool button_poll_event(button_t *button, int x, int y, enum status state);
 int button_set_position(button_t *button, sfVector2f *position);
 int button_set_size(button_t *button, sfVector2f *size);
+void button_update_bg_color(button_t *button);
 
 #endif
