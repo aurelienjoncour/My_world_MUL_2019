@@ -67,8 +67,8 @@ const sfVector2f *size, const sfVector2f *position)
     button->color_txt = BUTTON_INIT_COLORTXT;
     button->color_hover = BUTTON_INIT_COLORHOV;
     button->color_active = BUTTON_INIT_COLORACT;
-    button->position = position;
-    button->size = size;
+    button->position = *position;
+    button->size = *size;
     button->is_disabled = sfFalse;
     button->is_checkbox = sfFalse;
     button->state = NULL;
