@@ -5,6 +5,8 @@
 ** check if coords are hover a button and change it state.
 */
 
+#include "my_world.h"
+
 sfBool button_poll_event(button_t *button, int x, int y, enum status state)
 {
     if (!button)

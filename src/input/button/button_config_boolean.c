@@ -5,6 +5,8 @@
 ** set state button
 */
 
+#include "my_world.h"
+
 int button_set_locked(button_t *button, sfBool is_disabled)
 {
     if (button) {

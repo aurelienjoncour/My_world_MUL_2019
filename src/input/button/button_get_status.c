@@ -5,6 +5,8 @@
 ** get state of button
 */
 
+#include "my_world.h"
+
 enum status button_get_status(button_t *button)
 {
     if (button)
