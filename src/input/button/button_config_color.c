@@ -12,7 +12,7 @@ void button_update_bg_color(button_t *button)
     if (!button)
         return;
     if (button->state == NONE) {
-        sfRectangleShape_setFillColor(button->rect, button->color_txt);
+        sfRectangleShape_setFillColor(button->rect, button->color_bg);
     } else if (button->state == HOVER) {
         sfRectangleShape_setFillColor(button->rect, button->color_hover);
     }
@@ -26,7 +26,7 @@ int button_set_color(button_t *button, sfColor *txt, sfColor *background)
     if (button && (txt || background)) {
         if (txt) {
             button->color_txt = *txt;
-            sfText_setColor(button, button->color_txt);
+            sfText_setColor(button->text, button->color_txt);
         }
         if (background) {
             button->color_bg = *background;

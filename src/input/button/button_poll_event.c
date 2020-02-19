@@ -16,5 +16,6 @@ sfBool button_poll_event(button_t *button, int x, int y, enum status state)
     if (y < button->position.y || y > button->position.y + button->size.y)
         return sfFalse;
     button->state = state;
+    button_update_bg_color(button);
     return sfTrue;
 }
