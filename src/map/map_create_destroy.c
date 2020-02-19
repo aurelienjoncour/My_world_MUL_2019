@@ -20,6 +20,7 @@ void map_destroy(map_t *map)
 
 static void map_init(map_t *map, int height, int width)
 {
+    map->name = NULL;
     map->map_3d = NULL;
     map->map_2d = NULL;
     map->vrtx_x = NULL;

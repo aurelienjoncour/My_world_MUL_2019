@@ -11,6 +11,7 @@
 #include "my_world.h"
 
 typedef struct world_map {
+    char *map_name;
     int **map_3d;
     sfVector2f **map_2d;
     sfVertexArray **vrtx_x;
