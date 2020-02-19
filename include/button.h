@@ -11,7 +11,7 @@
 typedef unsigned int uint;
 
 enum status {
-    NULL,
+    NONE,
     HOVER,
     ACTIVE
 };

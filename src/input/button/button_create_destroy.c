@@ -5,7 +5,7 @@
 ** create and destroy button
 */
 
-#include "button.h"
+#include "my_world.h"
 #include "my.h"
 
 extern const unsigned int BUTTON_INIT_CHARSIZE;
@@ -24,8 +24,37 @@ void button_destroy(button_t *button)
     button->is_disabled = sfTrue;
 }
 
-int button_create(button_t *button, const char *label, const sfVector2f *size,
-const sfVector2f *position)
+static int button_create_text(button_t *button, sfVector2f *position)
+{
+    button->text = sfText_create();
+    if (!button->text) {
+        my_putstr_error("Error : create text object (button create)\n");
+        return EXIT_FAILURE;
+    }
+    sfText_setCharacterSize(button->text, button->char_size);
+    sfText_setColor(button->text, button->color_txt);
+    sfText_setFont(button->text, button->font);
+    sfText_setPosition(button->text, &position);
+    sfText_setString(button->text, "NULL");
+    return EXIT_SUCCESS;
+}
+
+static int button_create_rectangle(button_t *button,
+const sfVector2f *position, const sfVector2f *size)
+{
+    button->rect = stRectangleShape_create();
+    if (!button->rect) {
+        my_putstr_error("Error : create rectangle object (button create)\n");
+        return EXIT_FAILURE;
+    }
+    sfRectangleShape_setFillColor(button->rect, BUTTON_INIT_COLORBG);
+    sfRectangleShape_setPosition(button->rect, &position);
+    sfRectangleShape_setSize(button->rect, &size);
+    return EXIT_SUCCESS;
+}
+
+static int button_create_init(button_t *button, const char *label,
+const sfVector2f *size, const sfVector2f *position)
 {
     button->label = my_strdup(label);
     button->char_size = BUTTON_INIT_CHARSIZE;
@@ -38,23 +67,22 @@ const sfVector2f *position)
     button->color_txt = BUTTON_INIT_COLORTXT;
     button->color_hover = BUTTON_INIT_COLORHOV;
     button->color_active = BUTTON_INIT_COLORACT;
-    button->text = sfText_create();
-    if (!button->text) {
-        my_putstr_error("Error : create text object (button create)\n");
+    button->position = position;
+    button->size = size;
+    button->is_disabled = sfFalse;
+    button->is_checkbox = sfFalse;
+    button->state = NULL;
+    return EXIT_SUCCESS;
+}
+
+int button_create(button_t *button, const char *label, const sfVector2f *size,
+const sfVector2f *position)
+{
+    if (button_create_init(button, label, size, position) == EXIT_ERROR)
         return EXIT_FAILURE;
-    }
-    sfText_setCharacterSize(button->text, button->char_size);
-    sfText_setColor(button->text, button->color_txt);
-    sfText_setFont(button->text, button->font);
-    sfText_setPosition(button->text, &position);
-    sfText_setString(button->text, "NULL");
-    button->rect = stRectangleShape_create();
-    if (!button->rect) {
-        my_putstr_error("Error : create rectangle object (button create)\n");
+    if (button_create_text(button, position) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    }
-    sfRectangleShape_setFillColor(button->rect, BUTTON_INIT_COLORBG);
-    sfRectangleShape_setPosition(button->rect, &position);
-    sfRectangleShape_setSize(button->rect, &size);
-    
+    if (button_create_rectangle(button, position, size) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }
