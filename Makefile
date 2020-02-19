@@ -37,6 +37,11 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)input/button/button_poll_event.c		\
 		$(DSRC)input/button/button_set_position.c	\
 		$(DSRC)input/button/button_set_size.c		\
+		$(DSRC)input/text/text_input_create_destroy.c	\
+		$(DSRC)input/text/text_input_config_char.c	\
+		$(DSRC)input/text/text_input_config.c		\
+		$(DSRC)input/text/text_input_get_input.c	\
+		$(DSRC)input/text/text_input_run.c			\
 
 
 SRC_UT = $(DSRC)main.c								\
