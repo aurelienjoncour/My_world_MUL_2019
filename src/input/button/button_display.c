@@ -5,6 +5,8 @@
 ** display button
 */
 
+#include "my_world.h"
+
 void button_display(button_t *button, sfRenderWindow *window)
 {
     if (!button)
