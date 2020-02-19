@@ -8,6 +8,8 @@
 #ifndef UI_T_H_
 #define UI_T_H_
 
+#include "button.h"
+
 typedef struct user_interface {
     button_t button;
 } ui_t;

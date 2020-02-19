@@ -10,7 +10,7 @@
 
 typedef unsigned int uint;
 
-enum status {
+enum button_status {
     NONE,
     HOVER,
     ACTIVE
@@ -30,7 +30,7 @@ typedef struct button_widget {
     sfVector2f size;
     sfBool is_disabled;
     sfBool is_checkbox;
-    enum status state;
+    enum button_status state;
 } button_t;
 
 int button_set_locked(button_t *button, sfBool is_disabled);

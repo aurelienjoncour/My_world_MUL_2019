@@ -8,7 +8,8 @@
 #ifndef WINDOW_H_
 #define WINDOW_H_
 
-#include "my_world.h"
+#include "ui_t.h"
+#include "state_t.h"
 
 enum projection {
     ISOMETRIC,

@@ -9,14 +9,14 @@
 #define STATE_T_H_
 
 enum view_mode {
-    NONE,
+    NONE_V,
     SCALE,
-    TRANSLATE;
+    TRANSLATE,
     ROTATE
 };
 
 enum tools {
-    NONE,
+    NONE_T,
     RAISE,
     LOWER,
     LEVEL,
@@ -30,7 +30,7 @@ enum select_modes {
 };
 
 enum status {
-    NONE,
+    NONE_S,
     MORE,
     LESS
 };

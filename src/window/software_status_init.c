@@ -11,7 +11,7 @@ void soft_state_init(state_t *state)
 {
     state->vmode = NONE;
     state->show_help_menu = sfFalse;
-    state->map_random_get = sfFalse;
+    state->map_random_gen = sfFalse;
     state->map_edit_name = sfFalse;
     state->map_load = sfFalse;
     state->map_save = sfFalse;
@@ -20,5 +20,4 @@ void soft_state_init(state_t *state)
     state->map_size_x = NONE;
     state->map_size_y = NONE;
     state->select_mode = CORNER;
-    return EXIT_SUCCESS;
 }
