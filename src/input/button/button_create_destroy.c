@@ -48,7 +48,7 @@ static int button_create_text(button_t *button, const sfVector2f *position)
 static int button_create_rectangle(button_t *button,
 const sfVector2f *position, const sfVector2f *size)
 {
-    button->rect = stRectangleShape_create();
+    button->rect = sfRectangleShape_create();
     if (!button->rect) {
         my_putstr_error("Error : create rectangle object (button create)\n");
         return EXIT_FAILURE;
@@ -71,7 +71,7 @@ const sfVector2f *size, const sfVector2f *position)
     button->size = *size;
     button->is_disabled = sfFalse;
     button->is_checkbox = sfFalse;
-    button->state = NULL;
+    button->state = NONE;
     return EXIT_SUCCESS;
 }
 
