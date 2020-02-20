@@ -8,6 +8,8 @@
 #include "my_world.h"
 
 static const sfKeyCode KEY_ENTER = 58;
+static const sfKeyCode KEY_4 = 51;
+static const sfKeyCode KEY_6 = 56;
 
 static const char ASCII_KEY[] =
 {
@@ -46,7 +48,18 @@ static const char ASCII_KEY[] =
     '6',
     '7',
     '8',
-    '9'
+    '9',
+    '0',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '_'
 };
 
 static const sfKeyCode CSFML_KEY[] =
@@ -81,15 +94,26 @@ static const sfKeyCode CSFML_KEY[] =
     sfKeyNum1,
     sfKeyNum2,
     sfKeyNum3,
-    sfKeyNum4,
+    KEY_4,
     sfKeyNum5,
-    sfKeyNum6,
+    KEY_6,
     sfKeyNum7,
     sfKeyNum8,
-    sfKeyNum9
+    sfKeyNum9,
+    sfKeyNumpad0,
+    sfKeyNumpad1,
+    sfKeyNumpad2,
+    sfKeyNumpad3,
+    sfKeyNumpad4,
+    sfKeyNumpad5,
+    sfKeyNumpad6,
+    sfKeyNumpad7,
+    sfKeyNumpad8,
+    sfKeyNumpad9,
+    sfKeySpace
 };
 
-static const int KEY_ARRAY_SIZE = 36;
+static const int KEY_ARRAY_SIZE = 47;
 
 static int get_index(sfKeyCode code)
 {
@@ -112,6 +136,7 @@ static void text_input_keypressed(text_in_t *in, sfKeyCode code)
     } else if (code == KEY_ENTER) {
         sfRenderWindow_close(in->window);
     } else {
+        printf("code : %d - %d \n", code, sfKeySpace);
         index = get_index(code);
         if (index != -1 && in->i_buffer < (int)(in->max_char - 1)) {
             in->buffer[in->i_buffer++] = ASCII_KEY[index];

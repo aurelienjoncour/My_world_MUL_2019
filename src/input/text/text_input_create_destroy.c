@@ -14,7 +14,7 @@ static const sfColor TEXT_IN_INIT_TXTCOLOR = (sfColor){255, 255, 255, 255};
 static const sfColor TEXT_IN_INIT_BGCOLOR = (sfColor){55, 55, 55, 255};
 static const char *TEXT_IN_INIT_FONT = "./asset/font/BebasNeue-Regular.ttf";
 static const unsigned int TEXT_IN_INIT_HEIGHT = 60;
-static const unsigned int TEXT_IN_INIT_CHAR_WIDTH = 30;
+static const unsigned int TEXT_IN_INIT_CHAR_WIDTH = 28;
 static const unsigned int TEXT_IN_INIT_WIN_FPS = 30;
 // <<<<<<<<<<<<<<<<<<<
 extern const int WIN_BPP;
