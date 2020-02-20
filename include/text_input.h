@@ -23,7 +23,7 @@ typedef struct text_input_widget {
 } text_in_t;
 
 int text_input_create(text_in_t *input, const char *title,
-unsigned int max_char);
+unsigned int max_char, const char *init_buffer);
 void text_input_destroy(text_in_t *input);
 
 int text_input_run(text_in_t *in, sfRenderWindow *parent_window);

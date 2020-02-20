@@ -7,6 +7,11 @@
 
 #include "my_world.h"
 
+extern const unsigned int TEXT_IN_INIT_CHAR_WIDTH;
+extern const unsigned int TEXT_IN_INIT_WIN_FPS;
+extern const unsigned int TEXT_IN_INIT_HEIGHT;
+extern const int WIN_BPP;
+
 static const sfKeyCode KEY_ENTER = 58;
 static const sfKeyCode KEY_4 = 51;
 static const sfKeyCode KEY_6 = 56;
@@ -136,7 +141,6 @@ static void text_input_keypressed(text_in_t *in, sfKeyCode code)
     } else if (code == KEY_ENTER) {
         sfRenderWindow_close(in->window);
     } else {
-        printf("code : %d - %d \n", code, sfKeySpace);
         index = get_index(code);
         if (index != -1 && in->i_buffer < (int)(in->max_char - 1)) {
             in->buffer[in->i_buffer++] = ASCII_KEY[index];
@@ -155,11 +159,29 @@ static void text_input_event_manager(text_in_t *in, sfEvent *event)
     }
 }
 
+static int text_input_create_window(text_in_t *input)
+{
+    sfVideoMode mode = {0, TEXT_IN_INIT_HEIGHT, WIN_BPP};
+
+    mode.width = TEXT_IN_INIT_CHAR_WIDTH * input->max_char;
+    input->window = sfRenderWindow_create(mode, input->title, sfTitlebar,
+    sfContextDefault);
+    if (!input->window) {
+        my_putstr_error("text_input_create : error create window object.\n");
+        return EXIT_FAILURE;
+    }
+    sfRenderWindow_setMouseCursorVisible(input->window, sfFalse);
+    sfRenderWindow_setFramerateLimit(input->window, TEXT_IN_INIT_WIN_FPS);
+    return EXIT_SUCCESS;
+}
+
 int text_input_run(text_in_t *in, sfRenderWindow *parent_window)
 {
     sfEvent event;
-    sfVector2i pos = {700, 400};
+    sfVector2i pos = {200, 200};
 
+    if (text_input_create_window(in) == EXIT_FAILURE)
+        return EXIT_FAILURE;
     sfRenderWindow_setVisible(parent_window, sfFalse);
     sfRenderWindow_setPosition(in->window, pos);
     while (sfRenderWindow_isOpen(in->window)) {
@@ -170,5 +192,6 @@ int text_input_run(text_in_t *in, sfRenderWindow *parent_window)
         sfRenderWindow_display(in->window);
     }
     sfRenderWindow_setVisible(parent_window, sfTrue);
+    sfRenderWindow_destroy(in->window);
     return EXIT_SUCCESS;
 }
