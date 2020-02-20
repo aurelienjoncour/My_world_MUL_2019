@@ -29,7 +29,7 @@ int map_resize(map_t *map, sfVector2i resize)
         return EXIT_ERROR;
     if (map_create(&new_map, map->height + resize.y, map->width + resize.x))
         return EXIT_FAILURE;
-    if (resize.x == -1 || resize.y == -1)
+    if (resize.x < 0 || resize.y < 0)
         map_remove_tiles(map, &new_map, resize);
     else
         map_add_tiles(map, &new_map);
