@@ -65,5 +65,6 @@ int gui_create(window_t *w)
     create_viewbar(w);
     create_headbar(w);
     create_other(w);
+    gui_mouse_shapes_create(w);
     return 0;
 }

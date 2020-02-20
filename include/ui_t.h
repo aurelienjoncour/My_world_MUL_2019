@@ -11,6 +11,8 @@
 #include "button.h"
 
 typedef struct user_interface {
+    sfCircleShape *click_pointer;
+    sfVertexArray *mouse_line;
     button_t save;
     button_t reset;
     button_t load;

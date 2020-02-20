@@ -24,10 +24,12 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)map/map_update.c						\
 		$(DSRC)map/map_resize.c						\
 		$(DSRC)event/event_manager.c				\
+		$(DSRC)event/event_continuous.c				\
 		$(DSRC)event/event_init.c					\
 		$(DSRC)event/event_misc.c					\
 		$(DSRC)event/event_mouse.c					\
 		$(DSRC)event/event_mouse_clicked.c			\
+		$(DSRC)event/event_show_click.c				\
 		$(DSRC)event/event_keyboard.c				\
 		$(DSRC)input/button/button_config_boolean.c	\
 		$(DSRC)input/button/button_config_char.c	\
@@ -38,7 +40,7 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)input/button/button_poll_event.c		\
 		$(DSRC)input/button/button_set_position.c	\
 		$(DSRC)input/button/button_set_size.c		\
-		$(DSRC)input/text/text_input_create_destroy.c	\
+		$(DSRC)input/text/text_input_create_destroy.c \
 		$(DSRC)input/text/text_input_config_char.c	\
 		$(DSRC)input/text/text_input_config.c		\
 		$(DSRC)input/text/text_input_get_input.c	\
@@ -46,7 +48,8 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)gui/gui_create.c						\
 		$(DSRC)gui/gui_destroy.c					\
 		$(DSRC)gui/gui_display.c					\
-		$(DSRC)gui/button_sizes.c
+		$(DSRC)gui/button_sizes.c					\
+		$(DSRC)gui/gui_shapes_create_destroy.c		\
 
 
 SRC_UT = $(DSRC)main.c								\

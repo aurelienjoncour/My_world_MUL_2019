@@ -30,4 +30,6 @@ void event_window_close(window_t *w);
 void event_mouse_wheel_clicked(window_t *w);
 void event_mouse_left_clicked(window_t *w);
 
+void event_show_click(window_t *w);
+
 #endif

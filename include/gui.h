@@ -22,4 +22,7 @@ enum BUTTON_SIZES {
 
 extern const sfVector2f button_sizes[];
 
+int gui_mouse_shapes_create(window_t *w);
+void gui_mouse_shapes_destroy(ui_t *ui);
+
 #endif /* !GUI_H_ */

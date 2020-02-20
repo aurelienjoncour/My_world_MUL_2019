@@ -19,7 +19,6 @@ int run(void)
     while (sfRenderWindow_isOpen(w.window)) {
         while (sfRenderWindow_pollEvent(w.window, &event))
             event_manager(&w, &event);
-        event_continuous(&w);
         if (window_run(&w) == EXIT_FAILURE)
             return EXIT_FAILURE;
     }

@@ -48,3 +48,5 @@ const char *TEXT_IN_INIT_FONT = "./asset/font/BebasNeue-Regular.ttf";
 const unsigned int TEXT_IN_INIT_HEIGHT = 60;
 const unsigned int TEXT_IN_INIT_CHAR_WIDTH = 28;
 const unsigned int TEXT_IN_INIT_WIN_FPS = 30;
+
+const float CIRCLE_CLICK_RADIUS = 5.0f;

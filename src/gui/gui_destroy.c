@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-int gui_destroy(ui_t *ui)
+void gui_destroy_button(ui_t *ui)
 {
     button_destroy(&ui->save);
     button_destroy(&ui->reset);
@@ -27,5 +27,11 @@ int gui_destroy(ui_t *ui)
     button_destroy(&ui->map_y_p);
     button_destroy(&ui->menu_texture);
     button_destroy(&ui->select_mode);
+}
+
+int gui_destroy(ui_t *ui)
+{
+    gui_destroy_button(ui);
+    gui_mouse_shapes_destroy(ui);
     return 0;
 }
