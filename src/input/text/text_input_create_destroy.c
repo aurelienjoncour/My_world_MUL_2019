@@ -7,16 +7,14 @@
 
 #include "my_world.h"
 
-// >>>>>>>>>>>>> MODE THOSE IN constant.c DEBUG
-static const sfVector2f TEXT_IN_INIT_POS = (sfVector2f){4, 4};
-static const unsigned int TEXT_IN_INIT_CHARSIZE = 50;
-static const sfColor TEXT_IN_INIT_TXTCOLOR = (sfColor){255, 255, 255, 255};
-static const sfColor TEXT_IN_INIT_BGCOLOR = (sfColor){55, 55, 55, 255};
-static const char *TEXT_IN_INIT_FONT = "./asset/font/BebasNeue-Regular.ttf";
-static const unsigned int TEXT_IN_INIT_HEIGHT = 60;
-static const unsigned int TEXT_IN_INIT_CHAR_WIDTH = 28;
-static const unsigned int TEXT_IN_INIT_WIN_FPS = 30;
-// <<<<<<<<<<<<<<<<<<<
+extern const sfVector2f TEXT_IN_INIT_POS;
+extern const unsigned int TEXT_IN_INIT_CHARSIZE;
+extern const sfColor TEXT_IN_INIT_TXTCOLOR;
+extern const sfColor TEXT_IN_INIT_BGCOLOR;
+extern const char *TEXT_IN_INIT_FONT;
+extern const unsigned int TEXT_IN_INIT_HEIGHT;
+extern const unsigned int TEXT_IN_INIT_CHAR_WIDTH;
+extern const unsigned int TEXT_IN_INIT_WIN_FPS;
 extern const int WIN_BPP;
 
 void text_input_destroy(text_in_t *input)
@@ -30,7 +28,7 @@ void text_input_destroy(text_in_t *input)
     sfRenderWindow_destroy(input->window);
 }
 
-static int text_input_create_text(text_in_t *input)
+extern int text_input_create_text(text_in_t *input)
 {
     input->font = sfFont_createFromFile(TEXT_IN_INIT_FONT);
     input->text = sfText_create();
@@ -46,7 +44,7 @@ static int text_input_create_text(text_in_t *input)
     return EXIT_SUCCESS;
 }
 
-static int text_input_create_window(text_in_t *input)
+extern int text_input_create_window(text_in_t *input)
 {
     sfVideoMode mode = {0, TEXT_IN_INIT_HEIGHT, WIN_BPP};
 

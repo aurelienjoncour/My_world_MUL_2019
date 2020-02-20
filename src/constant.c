@@ -39,3 +39,12 @@ const sfColor BUTTON_INIT_COLORTXT = (sfColor){255, 255, 255, 255};
 const sfColor BUTTON_INIT_COLORHOV = (sfColor){0, 0, 255, 255};
 const sfColor BUTTON_INIT_COLORACT = (sfColor){255, 0, 0, 255};
 const char *BUTTON_INIT_FONT = "./asset/font/BebasNeue-Regular.ttf";
+
+const sfVector2f TEXT_IN_INIT_POS = (sfVector2f){4, 4};
+const unsigned int TEXT_IN_INIT_CHARSIZE = 50;
+const sfColor TEXT_IN_INIT_TXTCOLOR = (sfColor){255, 255, 255, 255};
+const sfColor TEXT_IN_INIT_BGCOLOR = (sfColor){55, 55, 55, 255};
+const char *TEXT_IN_INIT_FONT = "./asset/font/BebasNeue-Regular.ttf";
+const unsigned int TEXT_IN_INIT_HEIGHT = 60;
+const unsigned int TEXT_IN_INIT_CHAR_WIDTH = 28;
+const unsigned int TEXT_IN_INIT_WIN_FPS = 30;
