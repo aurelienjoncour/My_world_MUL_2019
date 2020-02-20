@@ -9,13 +9,16 @@
 #define UI_T_H_
 
 #include "button.h"
+#include "text_input.h"
 
 typedef struct user_interface {
     sfCircleShape *click_pointer;
     sfVertexArray *mouse_line;
+    text_in_t edit_map_name;
     button_t save;
     button_t reset;
     button_t load;
+    button_t change_map_name;
     button_t generate_random;
     button_t help_menu;
     button_t scale;

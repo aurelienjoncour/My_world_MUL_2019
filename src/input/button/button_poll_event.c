@@ -7,15 +7,39 @@
 
 #include "my_world.h"
 
-sfBool button_poll_event(button_t *button, int x, int y, enum status state)
+static sfBool button_check_coordinate(button_t *button, int x, int y)
+{
+    if (x < button->position.x || x > button->position.x + button->size.x) {
+        if (button->state == HOVER) {
+            button->state = NONE;
+            button_update_bg_color(button);
+        }
+        return sfFalse;
+    }
+    if (y < button->position.y || y > button->position.y + button->size.y) {
+        if (button->state == HOVER) {
+            button->state = NONE;
+            button_update_bg_color(button);
+        }
+        return sfFalse;
+    }
+    return sfTrue;
+}
+
+sfBool button_poll_event(button_t *button, int x, int y,
+enum button_status state, enum button_status active_status)
 {
     if (!button)
         return sfFalse;
-    if (x < button->position.x || x > button->position.x + button->size.x)
+    else if (!button_check_coordinate(button, x, y))
         return sfFalse;
-    if (y < button->position.y || y > button->position.y + button->size.y)
+    if (state == NONE && button->is_checkbox)
         return sfFalse;
     button->state = state;
+    if (state == NONE)
+        button->state = HOVER;
     button_update_bg_color(button);
-    return sfTrue;
+    if (state == active_status)
+        return sfTrue;
+    return sfFalse;
 }

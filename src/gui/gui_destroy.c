@@ -12,6 +12,7 @@ void gui_destroy_button(ui_t *ui)
     button_destroy(&ui->save);
     button_destroy(&ui->reset);
     button_destroy(&ui->load);
+    button_destroy(&ui->change_map_name);
     button_destroy(&ui->generate_random);
     button_destroy(&ui->help_menu);
     button_destroy(&ui->scale);
@@ -33,5 +34,6 @@ int gui_destroy(ui_t *ui)
 {
     gui_destroy_button(ui);
     gui_mouse_shapes_destroy(ui);
+    text_input_destroy(&ui->edit_map_name);
     return 0;
 }

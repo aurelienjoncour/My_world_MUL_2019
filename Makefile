@@ -28,6 +28,8 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)event/event_misc.c					\
 		$(DSRC)event/event_mouse.c					\
 		$(DSRC)event/event_keyboard.c				\
+		$(DSRC)event/event_mouse_gui_button.c		\
+		$(DSRC)event/event_gui_button_leftbutton.c 	\
 		$(DSRC)event_action/action_mouse_clicked.c	\
 		$(DSRC)event_action/action_show_click.c		\
 		$(DSRC)event_action/action_manager.c		\
@@ -40,6 +42,7 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)input/button/button_poll_event.c		\
 		$(DSRC)input/button/button_set_position.c	\
 		$(DSRC)input/button/button_set_size.c		\
+		$(DSRC)input/button/button_set_status.c		\
 		$(DSRC)input/text/text_input_create_destroy.c \
 		$(DSRC)input/text/text_input_config_char.c	\
 		$(DSRC)input/text/text_input_config.c		\

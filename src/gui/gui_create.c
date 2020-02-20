@@ -7,6 +7,8 @@
 
 #include "my_world.h"
 
+extern const char *DEFAULT_MAP_NAME;
+
 static void create_headbar(window_t *w)
 {
     button_create(&(w->ui.save), " Save", &button_sizes[SMALL_B],
@@ -15,6 +17,8 @@ static void create_headbar(window_t *w)
                                             &(sfVector2f){470, 0});
     button_create(&(w->ui.load), " Load", &button_sizes[SMALL_B],
                                             &(sfVector2f){540, 0});
+    button_create(&(w->ui.change_map_name), "      Edit map name",
+                &(sfVector2f){200, 35}, &(sfVector2f){800, 0});
     button_create(&(w->ui.generate_random), "  Generate random",
                 &(sfVector2f){200, 35}, &(sfVector2f){1300, 0});
 }
@@ -61,10 +65,13 @@ static void create_other(window_t *w)
 
 int gui_create(window_t *w)
 {
+    if (text_input_create(&w->ui.edit_map_name, "New map name", 30,
+    DEFAULT_MAP_NAME))
+        return EXIT_FAILURE;
     create_toolbar(w);
     create_viewbar(w);
     create_headbar(w);
     create_other(w);
     gui_mouse_shapes_create(w);
-    return 0;
+    return EXIT_SUCCESS;
 }

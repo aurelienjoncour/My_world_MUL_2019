@@ -12,6 +12,7 @@ int gui_display(window_t *w)
     button_display(&(w->ui.save), w->window);
     button_display(&(w->ui.reset), w->window);
     button_display(&(w->ui.load), w->window);
+    button_display(&(w->ui.change_map_name), w->window);
     button_display(&(w->ui.generate_random), w->window);
     button_display(&(w->ui.help_menu), w->window);
     button_display(&(w->ui.scale), w->window);

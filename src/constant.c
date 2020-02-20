@@ -12,6 +12,8 @@ const int WIN_WIDTH = 1920;
 const int WIN_BPP = 32;
 const unsigned int WIN_FRAMERATE = 30;
 
+const char *DEFAULT_MAP_NAME = "undefined";
+
 const sfVector3f MAP_INIT_SAMP = {64, 64, 10};
 const sfVector2f MAP_INIT_ANGL = {45, 35};
 const sfVector2f MAP_INIT_ORIG = {WIN_WIDTH / 2, WIN_HEIGHT / 8};
