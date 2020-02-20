@@ -49,14 +49,14 @@ static void create_other(window_t *w)
 {
     button_create(&(w->ui.help_menu), " Help Menu", &button_sizes[MEDIUM_B],
                                                     &(sfVector2f){1800, 0});
-    button_create(&(w->ui.map_x_m), "map x -", &button_sizes[SQUARE_B],
-                                                &(sfVector2f){0, 600});
-    button_create(&(w->ui.map_x_p), "map x +", &button_sizes[SQUARE_B],
-                                                &(sfVector2f){135, 600});
-    button_create(&(w->ui.map_y_m), "map y -", &button_sizes[SQUARE_B],
-                                                &(sfVector2f){0, 735});
-    button_create(&(w->ui.map_y_p), "map y +", &button_sizes[SQUARE_B],
-                                                &(sfVector2f){135, 735});
+    button_create(&(w->ui.map_x_m), "x -", &button_sizes[SQUARE_B],
+                                                &(sfVector2f){0, 645});
+    button_create(&(w->ui.map_x_p), "x +", &button_sizes[SQUARE_B],
+                                                &(sfVector2f){65, 645});
+    button_create(&(w->ui.map_y_m), "y -", &button_sizes[SQUARE_B],
+                                                &(sfVector2f){0, 715});
+    button_create(&(w->ui.map_y_p), "y +", &button_sizes[SQUARE_B],
+                                                &(sfVector2f){65, 715});
     button_create(&(w->ui.menu_texture), "Menu Texture", &button_sizes[LARGE_B],
                                                 &(sfVector2f){0, 875});
     button_create(&(w->ui.select_mode), "Select Mode", &button_sizes[LARGE_B],
