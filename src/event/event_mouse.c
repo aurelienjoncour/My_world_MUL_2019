@@ -7,6 +7,17 @@
 
 #include "my_world.h"
 
+void event_mouse_in_out_window(window_t *w, sfEvent *event)
+{
+    if (!event || !w)
+        return;
+    if (event->type == sfEvtMouseEntered) {
+        w->evt.cursor_in_window = sfTrue;
+    } else if (event->type == sfEvtMouseLeft) {
+        w->evt.cursor_in_window = sfFalse;
+    }
+}
+
 void event_mouse_button_pressed(window_t *w, sfEvent *event)
 {
     sfMouseButtonEvent evt = event->mouseButton;

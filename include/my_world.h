@@ -23,7 +23,7 @@
 #include "map_t.h"
 #include "event_t.h"
 #include "window.h"
-#include "event.h"
+#include "event_action.h"
 #include "button.h"
 #include "text_input.h"
 #include "gui.h"

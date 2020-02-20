@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** MUL_my_world_2019
 ** File description:
-** event manager
+** if is clicked
 */
 
 #include "my_world.h"
@@ -11,7 +11,7 @@ extern const int EVT_MAP_TRANSLATE_DELTA;
 extern const float EVT_MAP_TRANSLATE_PERC;
 extern const float EVT_MAP_ROTATE_PERC;
 
-void event_mouse_wheel_clicked(window_t *w)
+void action_mouse_wheel_clicked(window_t *w)
 {
     sfVector2i delta_coord;
     int x = 0;
@@ -28,7 +28,7 @@ void event_mouse_wheel_clicked(window_t *w)
     map_translate(&w->map, x, y);
 }
 
-void event_mouse_left_clicked(window_t *w)
+void action_mouse_left_clicked(window_t *w)
 {
     sfVector2i delta_coord;
     int x = 0;

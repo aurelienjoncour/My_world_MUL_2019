@@ -5,7 +5,7 @@
 ** event manager
 */
 
-#include "event.h"
+#include "event_action.h"
 
 static void (* const EVENT_HANDLER[])(window_t *, sfEvent *) =
 {
@@ -14,7 +14,9 @@ static void (* const EVENT_HANDLER[])(window_t *, sfEvent *) =
     &event_mouse_wheel_scroll,
     &event_keypressed,
     &event_resize_window,
-    &event_mouse_move
+    &event_mouse_move,
+    &event_mouse_in_out_window,
+    &event_mouse_in_out_window
 };
 
 static const sfEventType EVENT_TYPE[] =
@@ -24,10 +26,12 @@ static const sfEventType EVENT_TYPE[] =
     sfEvtMouseWheelScrolled,
     sfEvtKeyPressed,
     sfEvtResized,
-    sfEvtMouseMoved
+    sfEvtMouseMoved,
+    sfEvtMouseEntered,
+    sfEvtMouseLeft
 };
 
-static int EVENT_ARRAY_SIZE = 6;
+static int EVENT_ARRAY_SIZE = 8;
 
 void event_manager(window_t *w, sfEvent *event)
 {

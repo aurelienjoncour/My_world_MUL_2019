@@ -6,7 +6,6 @@
 */
 
 #include "my_world.h"
-#include "event.h"
 
 extern const int EVT_MAP_TRANSLATE_DELTA;
 extern const sfKeyCode KEY_MAP_TRANS_UP;

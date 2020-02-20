@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-void event_show_click(window_t *w)
+void action_show_click(window_t *w)
 {
     sfVector2i *click_coord = &w->evt.mouse_click_coord;
     sfVector2i *mouse_coord = &w->evt.mouse_coord;

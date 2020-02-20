@@ -5,16 +5,15 @@
 ** execute activated events
 */
 
-#include "event.h"
+#include "event_action.h"
 
-
-void event_continuous(window_t *w)
+void action_manager(window_t *w)
 {
     if (w->evt.mouse_wheel_is_clicked) {
-        event_show_click(w);
-        event_mouse_wheel_clicked(w);
+        action_show_click(w);
+        action_mouse_wheel_clicked(w);
     } else if (w->evt.mouse_left_is_clicked) {
-        event_show_click(w);
-        event_mouse_left_clicked(w);
+        action_show_click(w);
+        action_mouse_left_clicked(w);
     }
 }

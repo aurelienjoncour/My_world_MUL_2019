@@ -5,7 +5,7 @@
 ** event manager
 */
 
-#include "event.h"
+#include "event_action.h"
 
 void event_window_close(window_t *w)
 {

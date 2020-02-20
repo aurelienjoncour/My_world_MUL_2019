@@ -24,13 +24,13 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)map/map_update.c						\
 		$(DSRC)map/map_resize.c						\
 		$(DSRC)event/event_manager.c				\
-		$(DSRC)event/event_continuous.c				\
 		$(DSRC)event/event_init.c					\
 		$(DSRC)event/event_misc.c					\
 		$(DSRC)event/event_mouse.c					\
-		$(DSRC)event/event_mouse_clicked.c			\
-		$(DSRC)event/event_show_click.c				\
 		$(DSRC)event/event_keyboard.c				\
+		$(DSRC)event_action/action_mouse_clicked.c	\
+		$(DSRC)event_action/action_show_click.c		\
+		$(DSRC)event_action/action_manager.c		\
 		$(DSRC)input/button/button_config_boolean.c	\
 		$(DSRC)input/button/button_config_char.c	\
 		$(DSRC)input/button/button_config_color.c	\
