@@ -25,6 +25,7 @@
 #include "window.h"
 #include "event.h"
 #include "button.h"
+#include "gui.h"
 #include "ui_t.h"
 #include "state_t.h"
 

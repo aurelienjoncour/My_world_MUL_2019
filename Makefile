@@ -37,6 +37,10 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)input/button/button_poll_event.c		\
 		$(DSRC)input/button/button_set_position.c	\
 		$(DSRC)input/button/button_set_size.c		\
+		$(DSRC)gui/gui_create.c						\
+		$(DSRC)gui/gui_destroy.c					\
+		$(DSRC)gui/gui_display.c					\
+		$(DSRC)gui/button_sizes.c
 
 
 SRC_UT = $(DSRC)main.c								\
