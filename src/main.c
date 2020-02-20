@@ -15,6 +15,7 @@ int run(void)
     if (window_create(&w) == EXIT_FAILURE) {
         return EXIT_FAILURE;
     }
+    gui_create(&w);
     while (sfRenderWindow_isOpen(w.window)) {
         while (sfRenderWindow_pollEvent(w.window, &event))
             event_manager(&w, &event);

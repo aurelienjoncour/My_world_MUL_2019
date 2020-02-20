@@ -33,9 +33,9 @@ const sfKeyCode KEY_MAP_ROT_DOWN = sfKeyDown;
 const sfKeyCode KEY_MAP_ROT_LEFT = sfKeyLeft;
 const sfKeyCode KEY_MAP_ROT_RIGHT = sfKeyRight;
 
-const unsigned int BUTTON_INIT_CHARSIZE = 10;
-const sfColor BUTTON_INIT_COLORBG = (sfColor){0, 0, 0, 255};
-const sfColor BUTTON_INIT_COLORTXT = (sfColor){255, 255, 255, 255};
+const unsigned int BUTTON_INIT_CHARSIZE = 30;
+const sfColor BUTTON_INIT_COLORBG = (sfColor){255, 255, 255, 255};
+const sfColor BUTTON_INIT_COLORTXT = (sfColor){0, 0, 0, 255};
 const sfColor BUTTON_INIT_COLORHOV = (sfColor){0, 0, 255, 255};
 const sfColor BUTTON_INIT_COLORACT = (sfColor){255, 0, 0, 255};
 const char *BUTTON_INIT_FONT = "./asset/font/BebasNeue-Regular.ttf";
