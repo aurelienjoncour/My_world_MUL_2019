@@ -12,6 +12,7 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)window/window_create_destroy.c		\
 		$(DSRC)window/window_run.c					\
 		$(DSRC)window/software_status_init.c		\
+		$(DSRC)map/filemap/load_map.c				\
 		$(DSRC)map/map_reset.c						\
 		$(DSRC)map/map_tools_view.c					\
 		$(DSRC)map/map_tool_edit.c					\

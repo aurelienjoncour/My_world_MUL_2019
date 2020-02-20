@@ -19,6 +19,9 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include "my.h"
 #include "map_t.h"
 #include "event_t.h"
@@ -58,6 +61,8 @@ int map_set_angley(map_t *map, float angley);
 int map_set_anglex(map_t *map, float anglex);
 int map_reset(map_t *map);
 int map_resize(map_t *map, sfVector2i resize);
+
+int load_map(const char *filepath, map_t *map);
 
 void soft_state_init(state_t *state);
 

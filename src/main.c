@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-int run(void)
+int run(int ac, char **av)
 {
     window_t w;
     sfEvent event;
@@ -15,6 +15,8 @@ int run(void)
     if (window_create(&w) == EXIT_FAILURE) {
         return EXIT_FAILURE;
     }
+    if (ac == 2)
+        load_map(av[1], &w.map);
     gui_create(&w);
     while (sfRenderWindow_isOpen(w.window)) {
         while (sfRenderWindow_pollEvent(w.window, &event))
@@ -26,7 +28,7 @@ int run(void)
     return w.exit_status;
 }
 
-int main(void)
+int main(int ac, char **av)
 {
-    return run();
+    return run(ac, av);
 }
