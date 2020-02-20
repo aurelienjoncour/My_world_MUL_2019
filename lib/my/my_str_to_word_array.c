@@ -1,78 +1,52 @@
 /*
 ** EPITECH PROJECT, 2019
-** CPool_Day08_2019
+** my_str_word_array
 ** File description:
-** Task04
+** split a string into words
 */
 
 #include <stdlib.h>
+#include <stdbool.h>
+#include "my.h"
 
-static int is_alphanum(char c)
+static bool is_itdelim(char c, char *delim)
 {
-    if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90))
-        return (1);
-    if (c >= 97 && c <= 122)
-        return (1);
-    return (0);
+    for (int i = 0; delim[i] != '\0'; i++)
+        if (delim[i] == c)
+            return true;
+    return false;
 }
 
-static void count_word_let(char const *str, int *cword, int *calphanum)
+static char **my_str_to_word_array_rec(char *str, char *delim, int j)
 {
-    int can_word = 0;
-    int i = -1;
+    char **word_array = NULL;
+    int y = 0;
 
-    while (str[++i] != '\0') {
-        if (is_alphanum(str[i]) == 1) {
-            can_word++;
-        } else if (can_word > *calphanum) {
-            *calphanum = can_word;
+    for (int i = 0; str[i] != '\0'; i++)
+        if (is_itdelim(str[i], delim) && !is_itdelim(str[i+1], delim)
+            && str[i+1] != '\0') {
+            word_array = my_str_to_word_array_rec(str+i+1, delim, j + 1);
+            break;
         }
-        if (is_alphanum(str[i]) != 1 && can_word != 0 && str[i + 1] != '\0') {
-            can_word = 0;
-            (*cword)++;
-        }
+    if (word_array == NULL) {
+        word_array = malloc(sizeof(char *) * (j + 2));
+        if (word_array == NULL)
+            return NULL;
+        word_array[j+1] = NULL;
     }
-    *calphanum += can_word;
-    (*cword)++;
+    for (y = 0; str[y] != '\0'; y++)
+        if (is_itdelim(str[y], delim))
+            break;
+    word_array[j] = my_strndup(str, y);
+    return word_array;
 }
 
-static void fill_array(int cword, char const *str, char **ret)
+char **my_str_to_word_array(char *str, char *delim)
 {
-    int i_word = 0;
-    int j = 0;
+    char **word_array;
+    size_t i;
 
-    for (int i = 0; i < cword; i++) {
-        while (is_alphanum(str[j]) == 1) {
-            ret[i][i_word] = str[j];
-            j++;
-            i_word++;
-        }
-        if (i_word == 0) {
-            j++;
-            i--;
-        } else {
-            i_word = 0;
-        }
-    }
-    ret[cword] = 0;
-}
-
-char **my_str_to_word_array(char const *str)
-{
-    int cword = 0;
-    int calphanum = 0;
-    char **ret;
-
-    count_word_let(str, &cword, &calphanum);
-    ret = malloc(sizeof(char *) * (1 + cword));
-    if (calphanum == 0) {
-        ret[0] = NULL;
-        return (ret);
-    }
-    for (int i = 0; i < (cword + 1); i++)
-        ret[i] = malloc(sizeof(char) * calphanum);
-    if (ret == NULL)
-        return (ret);
-    fill_array(cword, str, ret);
-    return (ret);
+    for (i = 0; is_itdelim(str[i], delim); i++);
+    word_array = my_str_to_word_array_rec(str+i, delim, 0);
+    return word_array;
 }

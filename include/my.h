@@ -42,12 +42,17 @@ int my_showstr(char const *str);
 char *my_strcat(char *dest, char *src);
 char *my_strncat(char *dest, char const *src, int nb);
 char *my_strdup(char const *str);
-char **my_str_to_word_array(char const *str);
+char **my_str_to_word_array(char *str, char *delim);
+char *my_strndup(char const *src, int n);
 int my_show_word_array(char * const *tab);
 int my_sort_word_array(char **tab);
 int my_advanced_sort_word_array(char **tab,
 int (*cmp)(char const *, char const *));
-
+void free_2d_array(char **array);
+int word_array_len(char **array);
+char **word_array_dup(char **env);
+char **word_array_realloc(char **env);
+char **read_entiere_file(const char *filepath);
 
 char *my_putnbr_base_str(int nbr, char const *base);
 int my_sqrt(int nb);
