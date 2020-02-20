@@ -58,7 +58,10 @@ SRC	=	my_compute_power_rec.c			\
 		my_printf_disp_misc.c   \
 		my_printf_misc.c        \
 		my_printf_search.c	\
-		quick_sort.c
+		quick_sort.c		\
+		my_strndup.c		\
+		word_array.c		\
+		read_entiere_file.c
 
 DINCLUDE = ../../include
 
