@@ -5,94 +5,84 @@
 ** get next line
 */
 
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdbool.h>
 #include "get_next_line.h"
+#include <stdio.h>
 
-static int alloc_buffer(char **buffer, int nb_bloc, int size_buffer)
+static int my_strcpylen(char *dest, char const *src, bool c)
 {
-    char *new_buffer = malloc(sizeof(char) * READ_SIZE * nb_bloc);
+    int i = 0;
 
-    if (!new_buffer)
-        return MEXIT_ERROR;
-    if (*buffer != NULL) {
-        for (int i = 0; i < size_buffer; i++)
-            new_buffer[i] = (*buffer)[i];
-        free(*buffer);
+    if (c) {
+        if (dest == NULL)
+            return 0;
+        for (i = 0; src[i] != '\0'; i++)
+            dest[i] = src[i];
+        dest[i] = '\0';
+        return i;
     }
-    *buffer = new_buffer;
-    return EXIT_SUCCESS;
+    else {
+        for (i = 0; dest[i] != '\0'; i++);
+        return i;
+    }
 }
 
-static int get_newline_idx(char *buffer, int size, int ret)
+static char *my_realloc(char *src, size_t bytes)
 {
-    for (int i = 0; i < size; i++) {
-        if (buffer[i] == '\n')
+    char *str = malloc(sizeof(char) * bytes);
+
+    if (str == NULL)
+        return NULL;
+    my_strcpylen(str, src, true);
+    free(src);
+    return str;
+}
+
+static int check_end_line(char const *str)
+{
+    for (int i = 0; str[i] != '\0'; i++)
+        if (str[i] == '\n')
             return i;
-    }
-    if (ret != READ_SIZE)
-        return size;
     return -1;
 }
 
-static int read_file(int fd, char **buffer, int *idx, int nb_bloc)
+static char *return_str(char *str, char *tampon)
 {
-    static int ret = READ_SIZE;
-    int ret_alloc = 0;
-    int new_line_idx = 0;
-
-    while (!(new_line_idx == -1 && ret != READ_SIZE)) {
-        if (ret == READ_SIZE && get_newline_idx(*buffer, *idx, ret) == -1) {
-            ret = read(fd, ((*buffer) + (*idx)), READ_SIZE);
-            (*idx) += ret;
-        }
-        if (ret == -1 || (ret == 0 && *idx == 0))
-            return MEXIT_ERROR;
-        new_line_idx = get_newline_idx(*buffer, *idx, ret);
-        if (new_line_idx != -1)
-            return new_line_idx;
-        else if (ret == READ_SIZE)
-            ret_alloc = alloc_buffer(buffer, (++nb_bloc), *idx);
-        if (ret_alloc == MEXIT_ERROR)
-            return MEXIT_ERROR;
+    if (check_end_line(str) > -1) {
+        my_strcpylen(tampon, str+check_end_line(str)+1, true);
+        str[check_end_line(str)] = '\0';
+        return str;
     }
-    return *idx;
-}
-
-static char *get_line_and_clean_buffer(char *buffer, int *size_buffer,
-int idx_newline_char)
-{
-    char *line = malloc(sizeof(char) * idx_newline_char + 1);
-
-    if (!line || !(*size_buffer))
-        return NULL;
-    for (int i = 0; i < idx_newline_char; i++)
-        line[i] = buffer[i];
-    line[idx_newline_char] = '\0';
-    *size_buffer -= (idx_newline_char + 1);
-    for (int i = 0; i < (*size_buffer); i++)
-        buffer[i] = buffer[i + idx_newline_char + 1];
-    return line;
+    else {
+        if (my_strcpylen(str, NULL, false) == 0) {
+            free(str);
+            return NULL;
+        }
+        else
+            return str;
+    }
 }
 
 char *get_next_line(int fd)
 {
-    static char *buffer = NULL;
-    static int size_buffer = 0;
-    int nb_bloc;
-    int idx_newline_char;
+    static char tampon[READ_SIZE] = {0};
+    char *str = malloc(READ_SIZE + my_strcpylen(tampon, NULL, 0) + 1);
+    int len = my_strcpylen(str, tampon, true);
 
-    if (size_buffer == -1)
+    tampon[0] = '\0';
+    if (fd == -1 || str == NULL)
         return NULL;
-    nb_bloc = (size_buffer / READ_SIZE) + 1;
-    if ((size_buffer % READ_SIZE) != 0)
-        nb_bloc++;
-    if (alloc_buffer(&buffer, nb_bloc, size_buffer) == MEXIT_ERROR)
-        return NULL;
-    idx_newline_char = read_file(fd, &buffer, &size_buffer, nb_bloc);
-    if (idx_newline_char == MEXIT_ERROR) {
-        free(buffer);
-        buffer = NULL;
-        return NULL;
-    } else if (idx_newline_char == EXIT_END)
-        size_buffer = -1;
-    return get_line_and_clean_buffer(buffer, &size_buffer, idx_newline_char);
+    for (int n = 0; n >= 0;) {
+        if (check_end_line(str) == -1) {
+            n = read(fd, str+len, READ_SIZE);
+            len += n;
+        }
+        str[len] = '\0';
+        if (check_end_line(str) > -1 || n < READ_SIZE)
+            return return_str(str, tampon);
+        str = my_realloc(str, my_strcpylen(str, NULL, false) + READ_SIZE + 1);
+    }
+    return NULL;
 }
