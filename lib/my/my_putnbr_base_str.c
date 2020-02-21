@@ -62,5 +62,9 @@ char *my_putnbr_base_str(int nbr, char const *base)
     int len_base = my_strlen(base);
     char *ret = allocate_memory(len_base, &nbr);
 
+    if (nbr == 0) {
+        free(ret);
+        return my_strdup("0");
+    }
     return (base_conv(nbr, len_base, base, ret));
 }
