@@ -9,6 +9,7 @@ DSRC	=	./src/
 
 SRC	=	$(DSRC)main.c								\
 		$(DSRC)constant.c							\
+		$(DSRC)math.c								\
 		$(DSRC)window/window_create_destroy.c		\
 		$(DSRC)window/window_run.c					\
 		$(DSRC)window/software_status_init.c		\

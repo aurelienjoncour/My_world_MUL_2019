@@ -67,4 +67,6 @@ int save_map(const char *filename, map_t *map);
 
 void soft_state_init(state_t *state);
 
+bool point_is_on_triangle(sfVector2f a, sfVector2f b, sfVector2f c, sfVector2f p);
+
 #endif /* !MY_WORLD_H_ */
