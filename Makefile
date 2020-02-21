@@ -10,7 +10,8 @@ DSRC	=	./src/
 SRC	=	$(DSRC)main.c								\
 		$(DSRC)constant.c							\
 		$(DSRC)math.c								\
-		$(DSRC)tool.c							\
+		$(DSRC)tool.c								\
+		$(DSRC)perlin_noise.c						\
 		$(DSRC)window/window_create_destroy.c		\
 		$(DSRC)window/window_run.c					\
 		$(DSRC)window/software_status_init.c		\
@@ -27,6 +28,7 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)map/project_iso_point.c				\
 		$(DSRC)map/map_update.c						\
 		$(DSRC)map/map_resize.c						\
+		$(DSRC)map/map_generator.c					\
 		$(DSRC)event/event_manager.c				\
 		$(DSRC)event/event_init.c					\
 		$(DSRC)event/event_misc.c					\

@@ -26,9 +26,10 @@ void event_mouse_button_pressed(window_t *w, sfEvent *event)
     if (event->mouseButton.button == sfMouseMiddle) {
         w->evt.mouse_wheel_is_clicked = sfTrue;
     } else if (event->mouseButton.button == sfMouseLeft) {
-        if (!map_edit_height(&w->map, evt.x, evt.y)) {
+        if (event_mouse_guibutton(w, event)) {
+            return;
+        } else if (!map_edit_height(&w->map, evt.x, evt.y)) {
             w->evt.mouse_left_is_clicked = sfTrue;
-            event_mouse_guibutton(w, event);
         }
     }
 }

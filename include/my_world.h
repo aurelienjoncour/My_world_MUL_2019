@@ -73,4 +73,8 @@ bool point_is_on_triangle(sfVector2f a, sfVector2f b, sfVector2f c, sfVector2f p
 
 char *my_str_concat(const char *stra, const char *strb);
 
+void map_generator(map_t *map);
+double perlin(double x, double y, int res, unsigned int *perm);
+void mix_permutation_table(unsigned int *permutation_table);
+
 #endif /* !MY_WORLD_H_ */

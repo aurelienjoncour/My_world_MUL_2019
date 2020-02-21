@@ -17,11 +17,11 @@ const unsigned int WIN_FRAMERATE = 30;
 const char *DEFAULT_MAP_NAME = "undefined";
 const char *MAP_EXTENSION = ".world";
 
-const sfVector3f MAP_INIT_SAMP = {64, 64, 10};
+const sfVector3f MAP_INIT_SAMP = {32, 32, 5};
 const sfVector2f MAP_INIT_ANGL = {45, 35};
 const sfVector2f MAP_INIT_ORIG = {WIN_WIDTH / 2, WIN_HEIGHT / 8};
-const int MAP_INIT_HEIGHT = 13;
-const int MAP_INIT_WIDTH = 13;
+const int MAP_INIT_HEIGHT = 30;
+const int MAP_INIT_WIDTH = 30;
 
 const int EVT_MAP_TRANSLATE_DELTA = 10;
 const float EVT_MAP_TRANSLATE_PERC = 0.1;
