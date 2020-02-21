@@ -14,43 +14,43 @@ extern const char *HELP_MENU_FILEPATH;
 static void create_headbar(window_t *w)
 {
     button_create(&(w->ui.save), "Save", &button_sizes[SMALL_B],
-                                            &(sfVector2f){400, 0});
+                                            &(sfVector2f){640, 0});
     button_create(&(w->ui.reset), "Reset", &button_sizes[SMALL_B],
-                                            &(sfVector2f){470, 0});
+                                            &(sfVector2f){710, 0});
     button_create(&(w->ui.load), "Load", &button_sizes[SMALL_B],
-                                            &(sfVector2f){540, 0});
+                                            &(sfVector2f){780, 0});
     button_create(&(w->ui.change_map_name), "Edit map name",
-                &(sfVector2f){200, 35}, &(sfVector2f){800, 0});
+                &(sfVector2f){200, 35}, &(sfVector2f){850, 0});
     button_create(&(w->ui.generate_random), "Generate random",
-                &(sfVector2f){200, 35}, &(sfVector2f){1300, 0});
+                &(sfVector2f){200, 35}, &(sfVector2f){1060, 0});
 }
 
 static void create_viewbar(window_t *w)
 {
     button_create(&(w->ui.scale), "Scale", &button_sizes[MEDIUM_B],
-                                                &(sfVector2f){1800, 450});
+                                                &(sfVector2f){0, 150});
     button_create(&(w->ui.translate), "Translate", &button_sizes[MEDIUM_B],
-                                                &(sfVector2f){1800, 500});
+                                                &(sfVector2f){0, 200});
     button_create(&(w->ui.rotate), "Rotate", &button_sizes[MEDIUM_B],
-                                                &(sfVector2f){1800, 550});
+                                                &(sfVector2f){0, 250});
 }
 
 static void create_toolbar(window_t *w)
 {
     button_create(&(w->ui.raise), "Raise", &button_sizes[MEDIUM_B],
-                                            &(sfVector2f){0, 450});
+                                            &(sfVector2f){0, 350});
     button_create(&(w->ui.lower), "Lower", &button_sizes[MEDIUM_B],
-                                            &(sfVector2f){0, 500});
+                                            &(sfVector2f){0, 400});
     button_create(&(w->ui.level), "Level", &button_sizes[MEDIUM_B],
-                                            &(sfVector2f){0, 550});
+                                            &(sfVector2f){0, 450});
     button_create(&(w->ui.texture), "Texture", &button_sizes[MEDIUM_B],
-                                            &(sfVector2f){0, 600});
+                                            &(sfVector2f){0, 500});
 }
 
 static void create_other(window_t *w)
 {
     button_create(&(w->ui.help_menu), "Help Menu", &button_sizes[MEDIUM_B],
-                                                    &(sfVector2f){1800, 0});
+                &(sfVector2f){w->width - button_sizes[MEDIUM_B].x, 0});
     button_create(&(w->ui.map_x_m), "x -", &button_sizes[SQUARE_B],
                                                 &(sfVector2f){0, 645});
     button_create(&(w->ui.map_x_p), "x +", &button_sizes[SQUARE_B],
