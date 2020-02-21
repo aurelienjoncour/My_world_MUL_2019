@@ -17,6 +17,7 @@ void map_destroy(map_t *map)
     destroy_2d_map(map->map_2d, map->height);
     destroy_3d_map(map->map_3d, map->height);
     map_vertex_destroy(map);
+    free(map->map_name);
 }
 
 static void map_init(map_t *map, int height, int width)

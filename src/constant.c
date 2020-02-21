@@ -62,3 +62,9 @@ const float CIRCLE_CLICK_RADIUS = 5.0f;
 // Help menu
 const char *HELP_MENU_TITLE = "Help menu";
 const char *HELP_MENU_FILEPATH = "./asset/img/man.jpg";
+
+
+// GUI text
+const char *GUI_TEXT_FONT = "./asset/font/monofonto.ttf";
+const unsigned int GUI_TEXT_SIZE = 20;
+const sfColor GUI_TEXT_COLOR = (sfColor){255, 255, 255, 255};

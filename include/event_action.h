@@ -38,5 +38,7 @@ void action_mouse_left_clicked(window_t *w);
 
 void action_map_save(window_t *w);
 void action_map_load(window_t *w);
+void update_mape_name(window_t *w, char *new_name);
+void update_select_mode(window_t *w);
 
 #endif

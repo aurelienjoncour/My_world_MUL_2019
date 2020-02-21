@@ -81,5 +81,7 @@ int gui_create(window_t *w)
     create_headbar(w);
     create_other(w);
     gui_mouse_shapes_create(w);
+    if (gui_label_create(w) == EXIT_FAILURE)
+        return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

@@ -24,5 +24,9 @@ extern const sfVector2f button_sizes[];
 
 int gui_mouse_shapes_create(window_t *w);
 void gui_mouse_shapes_destroy(ui_t *ui);
+int gui_label_create(window_t *w);
+int gui_destroy(ui_t *ui);
+
+int gui_panel_update(window_t *w);
 
 #endif /* !GUI_H_ */

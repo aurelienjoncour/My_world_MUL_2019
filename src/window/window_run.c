@@ -13,6 +13,7 @@ int window_run(window_t *w)
     map_display(w->window, &w->map);
     gui_display(w);
     action_manager(w);
+    gui_panel_update(w);
     sfRenderWindow_display(w->window);
     return EXIT_SUCCESS;
 }

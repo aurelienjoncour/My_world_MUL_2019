@@ -37,9 +37,7 @@ void action_map_load(window_t *w)
             my_printf("Error : fail to load map file :: (%s)\n", map_file);
             free(map_file);
         } else {
-            free(w->map.map_name);
-            w->map.map_name = map_name;
-            text_input_set_content(&w->ui.edit_map_name, w->map.map_name);
+            update_mape_name(w, map_name);
         }
     } else {
         my_putstr_error("action_map_load() : error: map file name\n");

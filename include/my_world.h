@@ -12,6 +12,7 @@
 
 #define M_PI 3.1415926535
 #define DEG_TO_RAD(x) ((x * M_PI) / 180)
+#define RAD_TO_DEG(x) (int)(x * (180 / M_PI))
 #define ABS(x) (x < 0) ? (-x) : (x)
 
 #include <SFML/Graphics.h>

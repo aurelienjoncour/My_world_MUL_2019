@@ -21,8 +21,7 @@ int x, int y)
     }
     if (button_poll_event(&w->ui.change_map_name, x, y, status, NONE)) {
         text_input_run(&w->ui.edit_map_name, w->window);
-        free(w->map.map_name);
-        w->map.map_name = text_input_get_input(&w->ui.edit_map_name);
+        update_mape_name(w, text_input_get_input(&w->ui.edit_map_name));
     }
     if (button_poll_event(&w->ui.generate_random, x, y, status, ACTIVE)) {
 

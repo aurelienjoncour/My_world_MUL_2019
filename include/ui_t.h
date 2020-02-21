@@ -37,6 +37,13 @@ typedef struct user_interface {
     button_t map_x_p;
     button_t menu_texture;
     button_t select_mode;
+    sfText *txt_map_name;
+    sfText *txt_select_mode;
+    sfText *txt_angle;
+    sfText *txt_origin;
+    sfText *txt_scale;
+    sfText *txt_size;
+    sfFont *font;
 } ui_t;
 
 #endif

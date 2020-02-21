@@ -16,5 +16,5 @@ void soft_state_init(state_t *state)
     state->tool = NONE;
     state->map_size_x = NONE;
     state->map_size_y = NONE;
-    state->select_mode = CORNER;
+    state->select_mode = TILE;
 }

@@ -67,7 +67,7 @@ DINCLUDE = ../../include
 
 OBJ	=	$(SRC:.c=.o)
 
-CFLAGS	=	-Wall -Wextra -I$(DINCLUDE)
+CFLAGS	=	-Wall -Wextra -I$(DINCLUDE) -g
 
 NAME	=	libmy.a
 

@@ -23,7 +23,7 @@ int x, int y)
 
     }
     if (button_poll_event(&w->ui.select_mode, x, y, status, ACTIVE)) {
-
+        update_select_mode(w);
     }
 }
 

@@ -38,4 +38,5 @@ void window_destroy(window_t *w)
 {
     sfRenderWindow_destroy(w->window);
     map_destroy(&w->map);
+    gui_destroy(&w->ui);
 }

@@ -21,38 +21,39 @@ static int count_nbr_digit(int nb, int base)
 
 static char *base_conv(int nb, int base, char const *base_str, char *ret)
 {
-    int len_res = count_nbr_digit(nb, base);
-    int *res = malloc(sizeof(int) * len_res);
-    int i = 0;
-    int k = 0;
+    int nb_digit = count_nbr_digit(nb, base);
+    int *digit = malloc(sizeof(int) * (nb_digit));
+    int i_digita = 0;
+    int i_digitb = 0;
 
-    if (ret[0] == '-') {
-        i++;
-        k++;
-    }
     while (nb != 0) {
-        res[i++] = (nb % base);
+        digit[i_digita++] = (nb % base);
         nb /= base;
     }
-    for (int j = (i - 1); j >= 0; j--)
-        ret[k++] = base_str[res[j]];
-    free(res);
+    if (ret[0] == '-') {
+        i_digitb++;
+    }
+    for (int j = (nb_digit - 1); j >= 0; j--) {
+        ret[i_digitb++] = base_str[digit[j]];
+    }
+    free(digit);
     return (ret);
 }
 
 static char *allocate_memory(int base, int *nbr)
 {
-    int len_ret = count_nbr_digit(*nbr, base);
+    int nb_digit = count_nbr_digit(*nbr, base);
     char *ret;
 
     if (*nbr < 0) {
-        ret = malloc(sizeof(char) * (len_ret + 2));
+        ret = malloc(sizeof(char) * (nb_digit + 2));
         ret[0] = '-';
         *nbr = (-(*nbr));
-        ret[len_ret + 1] = '\0';
+        ret[nb_digit + 1] = '\0';
     } else {
-        ret = malloc(sizeof(char) * (len_ret + 1));
-        ret[len_ret] = '\0';
+        ret = malloc(sizeof(char) * (nb_digit + 1));
+        ret[0] = '0';
+        ret[nb_digit] = '\0';
     }
     return (ret);
 }

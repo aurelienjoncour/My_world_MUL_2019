@@ -38,6 +38,7 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)event_action/action_show_click.c		\
 		$(DSRC)event_action/action_manager.c		\
 		$(DSRC)event_action/action_map_file.c		\
+		$(DSRC)event_action/action_update_text_gui.c \
 		$(DSRC)input/button/button_config_boolean.c	\
 		$(DSRC)input/button/button_config_char.c	\
 		$(DSRC)input/button/button_config_color.c	\
@@ -58,6 +59,8 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)gui/gui_create.c						\
 		$(DSRC)gui/gui_destroy.c					\
 		$(DSRC)gui/gui_display.c					\
+		$(DSRC)gui/gui_label_create.c				\
+		$(DSRC)gui/gui_panel_update.c				\
 		$(DSRC)gui/button_sizes.c					\
 		$(DSRC)gui/gui_shapes_create_destroy.c		\
 

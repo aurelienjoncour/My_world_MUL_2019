@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-int gui_display(window_t *w)
+static void gui_display_button(window_t *w)
 {
     button_display(&(w->ui.save), w->window);
     button_display(&(w->ui.reset), w->window);
@@ -28,5 +28,21 @@ int gui_display(window_t *w)
     button_display(&(w->ui.map_y_p), w->window);
     button_display(&(w->ui.menu_texture), w->window);
     button_display(&(w->ui.select_mode), w->window);
-    return 0;
+}
+
+static void gui_display_text(ui_t *ui, sfRenderWindow *window)
+{
+    sfRenderWindow_drawText(window, ui->txt_map_name, NULL);
+    sfRenderWindow_drawText(window, ui->txt_select_mode, NULL);
+    sfRenderWindow_drawText(window, ui->txt_angle, NULL);
+    sfRenderWindow_drawText(window, ui->txt_origin, NULL);
+    sfRenderWindow_drawText(window, ui->txt_scale, NULL);
+    sfRenderWindow_drawText(window, ui->txt_size, NULL);
+}
+
+int gui_display(window_t *w)
+{
+    gui_display_button(w);
+    gui_display_text(&w->ui, w->window);
+    return EXIT_SUCCESS;
 }
