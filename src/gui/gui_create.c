@@ -38,7 +38,7 @@ static void create_viewbar(window_t *w)
 static void create_toolbar(window_t *w)
 {
     button_create(&(w->ui.raise), "Raise", &button_sizes[MEDIUM_B],
-                                            &(sfVector2f){0, 4000});
+                                            &(sfVector2f){0, 400});
     button_create(&(w->ui.lower), "Lower", &button_sizes[MEDIUM_B],
                                             &(sfVector2f){0, 450});
     button_create(&(w->ui.level), "Level", &button_sizes[MEDIUM_B],
