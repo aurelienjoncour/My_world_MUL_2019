@@ -9,11 +9,21 @@
 
 void map_vertex_destroy(map_t *map)
 {
-    for (int i = 0; i < (map->width - 1) * map->height; i++)
-        sfVertexArray_destroy(map->vrtx_x[i]);
-    for (int i = 0; i < map->width * (map->height - 1); i++)
-        sfVertexArray_destroy(map->vrtx_y[i]);
+    for (int i = 0; i < map->height; i++) {
+        for (int j = 0; j < map->width - 1; j++) {
+            sfVertexArray_destroy(map->vrtx_x[i][j]);
+        }
+    }
+    for (int i = 0; i < map->height; i++)
+        free(map->vrtx_x[i]);
     free(map->vrtx_x);
+    for (int i = 0; i < map->height - 1; i++) {
+        for (int j = 0; j < map->width; j++) {
+            sfVertexArray_destroy(map->vrtx_y[i][j]);
+        }
+    }
+    for (int i = 0; i < map->height - 1; i++)
+        free(map->vrtx_y[i]);
     free(map->vrtx_y);
 }
 
@@ -31,34 +41,41 @@ static sfVertexArray *create_line(sfVector2f *point1, sfVector2f *point2)
 
 static int map_vertex_malloc(map_t *map)
 {
-    map->vrtx_x = malloc(sizeof(sfVertexArray *) *
-                    ((map->width - 1) * map->height));
-    map->vrtx_y = malloc(sizeof(sfVertexArray *) *
-                    (map->width * (map->height - 1)));
-    if (!map->vrtx_x || !map->vrtx_y) {
-        my_putstr_error("map_vertex_create: malloc error\n");
+    map->vrtx_x = malloc(sizeof(sfVertexArray **) * map->height);
+    if (!map->vrtx_x)
         return EXIT_FAILURE;
+    map->vrtx_y = malloc(sizeof(sfVertexArray **) * map->height - 1);
+    if (!map->vrtx_y)
+        return EXIT_FAILURE;
+    for (int i = 0; i < map->height; i++) {
+        map->vrtx_x[i] = malloc(sizeof(sfVertexArray *) * (map->width - 1));
+        if (!map->vrtx_x[i])
+            return EXIT_FAILURE;
+    }
+    for (int i = 0; i < map->height - 1; i++) {
+        map->vrtx_y[i] = malloc(sizeof(sfVertexArray *) * (map->width));
+        if (!map->vrtx_y[i])
+            return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
 }
 
 int map_vertex_create(map_t *map)
 {
-    int i = 0;
     sfVector2f **map_2d = map->map_2d;
 
     if (map_vertex_malloc(map) == EXIT_FAILURE) {
+        my_putstr_error("map_vertex_create: malloc error\n");
         return EXIT_FAILURE;
     }
     for (int y = 0; y < map->height; y++) {
         for (int x = 0; x < map->width - 1; x++) {
-            map->vrtx_x[i++] = create_line(&map_2d[y][x], &map_2d[y][x + 1]);
+            map->vrtx_x[y][x] = create_line(&map_2d[y][x], &map_2d[y][x + 1]);
         }
     }
-    i = 0;
     for (int y = 0; y < map->height - 1; y++) {
         for (int x = 0; x < map->width; x++) {
-            map->vrtx_y[i++] = create_line(&map_2d[y][x], &map_2d[y + 1][x]);
+            map->vrtx_y[y][x] = create_line(&map_2d[y][x], &map_2d[y + 1][x]);
         }
     }
     return EXIT_SUCCESS;

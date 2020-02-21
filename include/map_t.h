@@ -14,8 +14,10 @@ typedef struct world_map {
     char *map_name;
     int **map_3d;
     sfVector2f **map_2d;
-    sfVertexArray **vrtx_x;
-    sfVertexArray **vrtx_y;
+    // sfVertexArray **vrtx_x;
+    // sfVertexArray **vrtx_y;
+    sfVertexArray ***vrtx_x;
+    sfVertexArray ***vrtx_y;
     sfVector3f sampling;
     sfVector2f angle;
     sfVector2f origin;
