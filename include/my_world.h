@@ -31,6 +31,7 @@
 #include "text_input.h"
 #include "gui.h"
 #include "ui_t.h"
+#include "image_viewer.h"
 #include "state_t.h"
 
 int window_create(window_t *w);

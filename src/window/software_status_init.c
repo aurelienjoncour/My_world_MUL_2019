@@ -13,9 +13,6 @@ void soft_state_init(state_t *state)
     state->show_help_menu = sfFalse;
     state->map_random_gen = sfFalse;
     state->map_edit_name = sfFalse;
-    state->map_load = sfFalse;
-    state->map_save = sfFalse;
-    state->map_reset = sfFalse;
     state->tool = NONE;
     state->map_size_x = NONE;
     state->map_size_y = NONE;

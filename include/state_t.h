@@ -40,9 +40,6 @@ typedef struct software_status {
     sfBool show_help_menu;
     sfBool map_random_gen;
     sfBool map_edit_name;
-    sfBool map_load;
-    sfBool map_save;
-    sfBool map_reset;
     enum tools tool;
     enum status map_size_x;
     enum status map_size_y;
