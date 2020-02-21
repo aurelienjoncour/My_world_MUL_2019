@@ -58,3 +58,7 @@ const unsigned int TEXT_IN_INIT_WIN_FPS = 30;
 
 // GUI PARAMETERS : Cursor circle
 const float CIRCLE_CLICK_RADIUS = 5.0f;
+
+// Help menu
+const char *HELP_MENU_TITLE = "Help menu";
+const char *HELP_MENU_FILEPATH = "./asset/img/man.jpg";

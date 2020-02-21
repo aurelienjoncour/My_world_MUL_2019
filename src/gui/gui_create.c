@@ -8,6 +8,8 @@
 #include "my_world.h"
 
 extern const char *DEFAULT_MAP_NAME;
+extern const char *HELP_MENU_TITLE;
+extern const char *HELP_MENU_FILEPATH;
 
 static void create_headbar(window_t *w)
 {
@@ -70,6 +72,9 @@ int gui_create(window_t *w)
         return EXIT_FAILURE;
     if (text_input_create(&w->ui.load_map_file, "Load: map name", 30,
     ""))
+        return EXIT_FAILURE;
+    if (image_viewer_create(&w->ui.help_menu_viewer, HELP_MENU_FILEPATH,
+    HELP_MENU_TITLE))
         return EXIT_FAILURE;
     create_toolbar(w);
     create_viewbar(w);

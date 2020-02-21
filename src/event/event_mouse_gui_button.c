@@ -32,8 +32,8 @@ int x, int y)
 static void check_event_button_rightbar(window_t *w, enum button_status status,
 int x, int y)
 {
-    if (button_poll_event(&w->ui.help_menu, x, y, status, ACTIVE)) {
-
+    if (button_poll_event(&w->ui.help_menu, x, y, status, NONE)) {
+        image_viewer_run(&w->ui.help_menu_viewer, w->window);
     }
     if (button_poll_event(&w->ui.scale, x, y, status, ACTIVE)) {
 
