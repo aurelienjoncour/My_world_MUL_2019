@@ -7,12 +7,23 @@
 
 #include "my_world.h"
 
+static void button_center_label(button_t *button)
+{
+    sfFloatRect bound = sfText_getGlobalBounds(button->text);
+    float marginx = button->size.x - bound.width;
+    float marginy = (button->size.y - bound.height) / 4;
+
+    sfText_setPosition(button->text, button->position);;
+    sfText_move(button->text, (sfVector2f){marginx / 2, marginy / 2});
+}
+
 int button_set_label(button_t *button, const char *label)
 {
     if (button) {
         free(button->label);
         button->label = my_strdup(label);
         sfText_setString(button->text, button->label);
+        button_center_label(button);
     }
     return EXIT_SUCCESS;
 }
