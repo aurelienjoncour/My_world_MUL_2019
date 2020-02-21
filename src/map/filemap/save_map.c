@@ -27,7 +27,7 @@ static int write_matrix_size(int fd, map_t *map)
 
 int save_map(const char *filename, map_t *map)
 {
-    int fd = open(filename, O_TRUNC | O_CREAT | O_RDWR);
+    int fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
     char *str;
 
     if (fd == -1)

@@ -46,8 +46,9 @@ static int fill_map(map_t *map_load, char *data)
 
 static int error_handling(char **file)
 {
-    if (!file || word_array_len(file) < 1)
+    if (!file || word_array_len(file) < 1) {
         return EXIT_FAILURE;
+    }
     for (int i = 0; file[i] != NULL; i++)
         if (allow_char(file[i], " \t0123456789"))
             return EXIT_FAILURE;
@@ -80,8 +81,10 @@ int load_map(const char *filepath, map_t *map)
 
     if (error_handling(file))
         return EXIT_FAILURE;
-    if (get_size_map(&size_map, file))
+    if (get_size_map(&size_map, file)) {
+        my_putstr_error("load_map : error size map\n");
         return EXIT_FAILURE;
+    }
     if (map_create(&map_load, size_map.y, size_map.x))
         return EXIT_FAILURE;
     if (word_array_len(file) > 1)

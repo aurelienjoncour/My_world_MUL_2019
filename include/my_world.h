@@ -67,4 +67,6 @@ int save_map(const char *filename, map_t *map);
 
 void soft_state_init(state_t *state);
 
+char *my_str_concat(const char *stra, const char *strb);
+
 #endif /* !MY_WORLD_H_ */

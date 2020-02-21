@@ -36,4 +36,7 @@ void action_show_click(window_t *w);
 void action_mouse_wheel_clicked(window_t *w);
 void action_mouse_left_clicked(window_t *w);
 
+void action_map_save(window_t *w);
+void action_map_load(window_t *w);
+
 #endif

@@ -15,6 +15,7 @@ typedef struct user_interface {
     sfCircleShape *click_pointer;
     sfVertexArray *mouse_line;
     text_in_t edit_map_name;
+    text_in_t load_map_file;
     button_t save;
     button_t reset;
     button_t load;

@@ -15,7 +15,7 @@
 static char **read_entiere_file_rec(int fd, int i)
 {
     char **file = NULL;
-    char *str;
+    char *str = NULL;
 
     str = get_next_line(fd);
     if (str != NULL)

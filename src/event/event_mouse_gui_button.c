@@ -11,16 +11,17 @@ static void check_event_button_headbar(window_t *w, enum button_status status,
 int x, int y)
 {
     if (button_poll_event(&w->ui.save, x, y, status, ACTIVE)) {
-
+        action_map_save(w);
     }
     if (button_poll_event(&w->ui.reset, x, y, status, ACTIVE)) {
         map_reset(&w->map);
     }
-    if (button_poll_event(&w->ui.load, x, y, status, ACTIVE)) {
-
+    if (button_poll_event(&w->ui.load, x, y, status, NONE)) {
+        action_map_load(w);
     }
     if (button_poll_event(&w->ui.change_map_name, x, y, status, NONE)) {
         text_input_run(&w->ui.edit_map_name, w->window);
+        free(w->map.map_name);
         w->map.map_name = text_input_get_input(&w->ui.edit_map_name);
     }
     if (button_poll_event(&w->ui.generate_random, x, y, status, ACTIVE)) {
