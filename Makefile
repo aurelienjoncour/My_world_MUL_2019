@@ -10,6 +10,7 @@ DSRC	=	./src/
 SRC	=	$(DSRC)main.c								\
 		$(DSRC)constant.c							\
 		$(DSRC)math.c								\
+		$(DSRC)tool.c							\
 		$(DSRC)window/window_create_destroy.c		\
 		$(DSRC)window/window_run.c					\
 		$(DSRC)window/software_status_init.c		\
@@ -36,6 +37,7 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)event_action/action_mouse_clicked.c	\
 		$(DSRC)event_action/action_show_click.c		\
 		$(DSRC)event_action/action_manager.c		\
+		$(DSRC)event_action/action_map_file.c		\
 		$(DSRC)input/button/button_config_boolean.c	\
 		$(DSRC)input/button/button_config_char.c	\
 		$(DSRC)input/button/button_config_color.c	\

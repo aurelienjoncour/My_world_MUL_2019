@@ -10,6 +10,7 @@
 extern const sfVector3f MAP_INIT_SAMP;
 extern const sfVector2f MAP_INIT_ANGL;
 extern const sfVector2f MAP_INIT_ORIG;
+extern const char *DEFAULT_MAP_NAME;
 
 void map_destroy(map_t *map)
 {
@@ -20,7 +21,7 @@ void map_destroy(map_t *map)
 
 static void map_init(map_t *map, int height, int width)
 {
-    map->map_name = NULL;
+    map->map_name = my_strdup(DEFAULT_MAP_NAME);
     map->map_3d = NULL;
     map->map_2d = NULL;
     map->vrtx_x = NULL;

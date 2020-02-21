@@ -7,12 +7,15 @@
 
 #include "my_world.h"
 
+// WINDOW PAREMETERS
 const int WIN_HEIGHT = 1080;
 const int WIN_WIDTH = 1920;
 const int WIN_BPP = 32;
 const unsigned int WIN_FRAMERATE = 30;
 
+// MAP PARAMETERS
 const char *DEFAULT_MAP_NAME = "undefined";
+const char *MAP_EXTENSION = ".world";
 
 const sfVector3f MAP_INIT_SAMP = {64, 64, 10};
 const sfVector2f MAP_INIT_ANGL = {45, 35};
@@ -35,6 +38,7 @@ const sfKeyCode KEY_MAP_ROT_DOWN = sfKeyDown;
 const sfKeyCode KEY_MAP_ROT_LEFT = sfKeyLeft;
 const sfKeyCode KEY_MAP_ROT_RIGHT = sfKeyRight;
 
+// BUTTON PARAMETERS
 const unsigned int BUTTON_INIT_CHARSIZE = 30;
 const sfColor BUTTON_INIT_COLORBG = (sfColor){255, 255, 255, 255};
 const sfColor BUTTON_INIT_COLORTXT = (sfColor){0, 0, 0, 255};
@@ -42,6 +46,7 @@ const sfColor BUTTON_INIT_COLORHOV = (sfColor){0, 0, 255, 255};
 const sfColor BUTTON_INIT_COLORACT = (sfColor){255, 0, 0, 255};
 const char *BUTTON_INIT_FONT = "./asset/font/BebasNeue-Regular.ttf";
 
+// TEXT INPUT PARAMETERS
 const sfVector2f TEXT_IN_INIT_POS = (sfVector2f){4, 4};
 const unsigned int TEXT_IN_INIT_CHARSIZE = 50;
 const sfColor TEXT_IN_INIT_TXTCOLOR = (sfColor){255, 255, 255, 255};
@@ -51,4 +56,5 @@ const unsigned int TEXT_IN_INIT_HEIGHT = 60;
 const unsigned int TEXT_IN_INIT_CHAR_WIDTH = 28;
 const unsigned int TEXT_IN_INIT_WIN_FPS = 30;
 
+// GUI PARAMETERS : Cursor circle
 const float CIRCLE_CLICK_RADIUS = 5.0f;

@@ -68,6 +68,9 @@ int gui_create(window_t *w)
     if (text_input_create(&w->ui.edit_map_name, "New map name", 30,
     DEFAULT_MAP_NAME))
         return EXIT_FAILURE;
+    if (text_input_create(&w->ui.load_map_file, "Load: map name", 30,
+    ""))
+        return EXIT_FAILURE;
     create_toolbar(w);
     create_viewbar(w);
     create_headbar(w);

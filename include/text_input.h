@@ -34,5 +34,6 @@ int text_input_set_size(text_in_t *in, unsigned int sizex, unsigned int sizey);
 int text_input_set_color(text_in_t *in, sfColor *bg_color, sfColor *txt_color);
 int text_input_set_charsize(text_in_t *in, unsigned int size);
 int text_input_set_font(text_in_t *in, const char *path_font);
+int text_input_set_content(text_in_t *in, const char *str);
 
 #endif

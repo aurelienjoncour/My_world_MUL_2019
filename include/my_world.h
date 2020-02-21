@@ -69,4 +69,6 @@ void soft_state_init(state_t *state);
 
 bool point_is_on_triangle(sfVector2f a, sfVector2f b, sfVector2f c, sfVector2f p);
 
+char *my_str_concat(const char *stra, const char *strb);
+
 #endif /* !MY_WORLD_H_ */

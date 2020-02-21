@@ -9,5 +9,5 @@
 
 char *text_input_get_input(text_in_t *input)
 {
-    return (input->buffer + 1);
+    return my_strdup(input->buffer + 1);
 }
