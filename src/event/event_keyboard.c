@@ -22,13 +22,13 @@ extern const sfKeyCode KEY_MAP_ROT_RIGHT;
 void event_key_zqsd(window_t *w, sfEvent *event)
 {
     if (event->key.code == KEY_MAP_TRANS_UP)
-        map_translate(&w->map, 0, EVT_MAP_TRANSLATE_DELTA);
+        map_translate(&w->map, 0, EVT_MAP_TRANSLATE_DELTA, w);
     if (event->key.code == KEY_MAP_TRANS_DOWN)
-        map_translate(&w->map, 0, -EVT_MAP_TRANSLATE_DELTA);
+        map_translate(&w->map, 0, -EVT_MAP_TRANSLATE_DELTA, w);
     if (event->key.code == KEY_MAP_TRANS_LEFT)
-        map_translate(&w->map, EVT_MAP_TRANSLATE_DELTA, 0);
+        map_translate(&w->map, EVT_MAP_TRANSLATE_DELTA, 0, w);
     if (event->key.code == KEY_MAP_TRANS_RIGHT)
-        map_translate(&w->map, -EVT_MAP_TRANSLATE_DELTA, 0);
+        map_translate(&w->map, -EVT_MAP_TRANSLATE_DELTA, 0, w);
 }
 
 void event_key_arrow(window_t *w, sfEvent *event)

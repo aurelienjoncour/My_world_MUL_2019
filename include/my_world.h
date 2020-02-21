@@ -57,7 +57,7 @@ void map_vertex_destroy(map_t *map);
 int map_edit_height(map_t *map, float x, float y);
 
 int map_scale(map_t *map, float scale);
-int map_translate(map_t *map, float deltax, float deltay);
+int map_translate(map_t *map, float deltax, float deltay, window_t *w);
 int map_rotate(map_t *map, float anglex, float angley);
 int map_set_angley(map_t *map, float angley);
 int map_set_anglex(map_t *map, float anglex);

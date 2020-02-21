@@ -54,18 +54,18 @@ int map_scale(map_t *map, float scale)
     return EXIT_SUCCESS;
 }
 
-int map_translate(map_t *map, float deltax, float deltay)
+int map_translate(map_t *map, float deltax, float deltay, window_t *w)
 {
     float max_sizex = map->width * map->sampling.x;
     float max_sizey = map->height * map->sampling.y;
 
-    if (map->origin.x <= -max_sizex / 2 && deltax < 0)
+    if (map->origin.x <= -max_sizex && deltax < 0)
         return EXIT_SUCCESS;
-    else if (map->origin.x >= (max_sizex * 2.5) && deltax > 0)
+    else if (map->origin.x >= w->width + max_sizex && deltax > 0)
         return EXIT_SUCCESS;
     if (map->origin.y <= -max_sizey && deltay < 0)
         return EXIT_SUCCESS;
-    else if (map->origin.y >= (max_sizey) && deltay > 0)
+    else if (map->origin.y >= w->height && deltay > 0)
         return EXIT_SUCCESS;
     map->origin.x += deltax;
     map->origin.y += deltay;

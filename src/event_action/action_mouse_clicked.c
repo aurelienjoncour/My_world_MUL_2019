@@ -25,7 +25,7 @@ void action_mouse_wheel_clicked(window_t *w)
     if (ABS(delta_coord.y) > 10) {
         y = delta_coord.y * EVT_MAP_TRANSLATE_PERC;
     }
-    map_translate(&w->map, x, y);
+    map_translate(&w->map, x, y, w);
 }
 
 void action_mouse_left_clicked(window_t *w)
