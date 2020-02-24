@@ -7,49 +7,6 @@
 
 #include "my_world.h"
 
-// static bool map_is_point_inrange_coord(sfVector2f *map_point, sfVector2f *coord,
-// float range)
-// {
-//     float pow_x = pow((map_point->x - coord->x), 2);
-//     float pow_y = pow((map_point->y - coord->y), 2);
-//     float distance = sqrt(pow_x + pow_y);
-
-//     if (distance <= range) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
-
-// static int map_edit_height_edit_point(map_t *map, sfVector2f *coord,
-// int y, int x)
-// {
-//     sfVector2f *map_point = &map->map_2d[y][x];
-//     int ret = 0;
-
-//     if (map_is_point_inrange_coord(map_point, coord, map->sampling.x)) {
-//         map->map_3d[y][x]++;
-//         map->modified = sfTrue;
-//         ret = 1;
-//     }
-//     return ret;
-// }
-
-// int map_edit_height(map_t *map, float x, float y)
-// {
-//     sfVector2f coord = {x, y};
-//     int exit_status = 0;
-//     int ret = 0;
-
-//     for (int y = 0; y < map->height; y++) {
-//         for (int x = 0; x < map->width; x++) {
-//             ret = map_edit_height_edit_point(map, &coord, y, x);
-//             exit_status = (ret == 1) ? (1) : exit_status;
-//         }
-//     }
-//     return exit_status;
-// }
-
 static int raise_tiles(map_t *map, int i, int j)
 {
     map->map_3d[j][i]++;
@@ -60,19 +17,46 @@ static int raise_tiles(map_t *map, int i, int j)
     return 1;
 }
 
-
-int map_edit_height(map_t *map, float x, float y)
+static int corner_mode(map_t *map, sfVector2f mouse)
 {
-    sfVector2f m = {x, y};
+    float lenght = point_length(mouse, map->map_2d[0][0]);
+    sfVector2i save = {0};
 
+    for (int i = map->height - 1; i >= 0; i--) {
+        for (int j = map->width - 1; j >= 0; j--) {
+            if (point_length(mouse, map->map_2d[i][j]) < lenght) {
+                lenght = point_length(mouse, map->map_2d[i][j]);
+                save.x = j;
+                save.y = i;
+            }
+        }
+    }
+    map->map_3d[save.y][save.x]++;
+    map->modified = true;
+    return 1;
+}
+
+static int tiles_mode(map_t *map, sfVector2f mouse)
+{
     for (int j = map->height - 1; j > 0; j--)
         for (int i = map->width - 1; i > 0; i--) {
             if (point_is_on_triangle(map->map_2d[j][i], map->map_2d[j][i - 1],
-                                    map->map_2d[j - 1][i], m))
-                return raise_tiles(map, i, j);
-            if (point_is_on_triangle(map->map_2d[j - 1][i - 1],
-                map->map_2d[j][i - 1], map->map_2d[j - 1][i], m))
-                return raise_tiles(map, i, j);
+                       map->map_2d[j - 1][i], mouse))
+                    return raise_tiles(map, i, j);
+                if (point_is_on_triangle(map->map_2d[j - 1][i - 1],
+                    map->map_2d[j][i - 1], map->map_2d[j - 1][i], mouse))
+                    return raise_tiles(map, i, j);
         }
+    return 0;
+}
+
+int map_edit_height(map_t *map, state_t *state, float x, float y)
+{
+    sfVector2f mouse = {x, y};
+
+    if (state->select_mode == TILE)
+        return tiles_mode(map, mouse);
+    else if (state->select_mode == CORNER)
+        return corner_mode(map, mouse);
     return 0;
 }

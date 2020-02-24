@@ -54,7 +54,7 @@ void destroy_2d_map(sfVector2f **map_2d, int height);
 int map_vertex_create(map_t *map);
 void map_vertex_destroy(map_t *map);
 
-int map_edit_height(map_t *map, float x, float y);
+int map_edit_height(map_t *map, state_t *state, float x, float y);
 
 int map_scale(map_t *map, float scale);
 int map_translate(map_t *map, float deltax, float deltay, window_t *w);
@@ -70,6 +70,7 @@ int save_map(const char *filename, map_t *map);
 void soft_state_init(state_t *state);
 
 bool point_is_on_triangle(sfVector2f a, sfVector2f b, sfVector2f c, sfVector2f p);
+float point_length(sfVector2f a, sfVector2f b);
 
 char *my_str_concat(const char *stra, const char *strb);
 

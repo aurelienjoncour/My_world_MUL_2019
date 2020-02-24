@@ -26,3 +26,10 @@ bool point_is_on_triangle(sfVector2f a, sfVector2f b, sfVector2f c, sfVector2f p
         return true;
     return false;
 }
+
+float point_length(sfVector2f a, sfVector2f b)
+{
+    float nb = sqrt(powf(b.x - a.x, 2) + powf(b.y - a.y, 2));
+
+    return nb;
+}
