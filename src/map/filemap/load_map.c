@@ -50,7 +50,7 @@ static int error_handling(char **file)
         return EXIT_FAILURE;
     }
     for (int i = 0; file[i] != NULL; i++)
-        if (allow_char(file[i], " \t0123456789"))
+        if (allow_char(file[i], " \t0123456789-"))
             return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }
