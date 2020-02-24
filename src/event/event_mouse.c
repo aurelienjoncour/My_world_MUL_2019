@@ -28,7 +28,7 @@ void event_mouse_button_pressed(window_t *w, sfEvent *event)
     } else if (event->mouseButton.button == sfMouseLeft) {
         if (event_mouse_guibutton(w, event)) {
             return;
-        } else if (!map_edit_height(&w->map, &w->state, evt.x, evt.y)) {
+        } else if (!map_edit_height(w, evt.x, evt.y)) {
             w->evt.mouse_left_is_clicked = sfTrue;
         }
     }

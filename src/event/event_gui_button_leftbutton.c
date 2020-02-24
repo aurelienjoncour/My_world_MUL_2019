@@ -11,11 +11,11 @@ int check_event_button_toolbar(window_t *w, enum button_status status,
 int x, int y)
 {
     if (button_poll_event(&w->ui.raise, x, y, status, ACTIVE)) {
-
+        w->state.tool = RAISE;
         return 1;
     }
     if (button_poll_event(&w->ui.lower, x, y, status, ACTIVE)) {
-
+        w->state.tool = LOWER;
         return 1;
     }
     if (button_poll_event(&w->ui.level, x, y, status, ACTIVE)) {

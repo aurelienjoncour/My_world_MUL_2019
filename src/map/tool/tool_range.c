@@ -21,13 +21,13 @@ float range)
 }
 
 int map_edit_height_edit_point(map_t *map, sfVector2f *coord,
-int y, int x)
+sfVector2i indice, int coefficient)
 {
-    sfVector2f *map_point = &map->map_2d[y][x];
+    sfVector2f *map_point = &map->map_2d[indice.y][indice.x];
     int ret = 0;
 
     if (map_is_point_inrange_coord(map_point, coord, map->sampling.x)) {
-        map->map_3d[y][x]++;
+        map->map_3d[indice.y][indice.x] += coefficient;
         map->modified = sfTrue;
         ret = 1;
     }
