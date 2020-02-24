@@ -78,4 +78,7 @@ void map_generator(map_t *map);
 double perlin(double x, double y, int res, unsigned int *perm);
 void mix_permutation_table(unsigned int *permutation_table);
 
+int map_edit_height_edit_point(map_t *map, sfVector2f *coord,
+int y, int x);
+
 #endif /* !MY_WORLD_H_ */

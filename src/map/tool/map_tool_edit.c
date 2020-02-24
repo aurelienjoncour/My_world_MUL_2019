@@ -7,6 +7,20 @@
 
 #include "my_world.h"
 
+int area_mode(map_t *map, sfVector2f mouse)
+{
+    int exit_status = 0;
+    int ret = 0;
+
+    for (int y = 0; y < map->height; y++) {
+        for (int x = 0; x < map->width; x++) {
+            ret = map_edit_height_edit_point(map, &mouse, y, x);
+            exit_status = (ret == 1) ? (1) : exit_status;
+        }
+    }
+    return exit_status;
+}
+
 static int raise_tiles(map_t *map, int i, int j)
 {
     map->map_3d[j][i]++;
@@ -56,7 +70,9 @@ int map_edit_height(map_t *map, state_t *state, float x, float y)
 
     if (state->select_mode == TILE)
         return tiles_mode(map, mouse);
-    else if (state->select_mode == CORNER)
+    if (state->select_mode == CORNER)
         return corner_mode(map, mouse);
+    if (state->select_mode == AREA)
+        return area_mode(map, mouse);
     return 0;
 }
