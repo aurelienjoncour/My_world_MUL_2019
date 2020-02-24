@@ -24,6 +24,7 @@ int run(int ac, char **av)
         if (window_run(&w) == EXIT_FAILURE)
             return EXIT_FAILURE;
     }
+    auto_save(&w.map);
     window_destroy(&w);
     return w.exit_status;
 }

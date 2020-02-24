@@ -66,6 +66,7 @@ int map_resize(map_t *map, sfVector2i resize);
 
 int load_map(const char *filepath, map_t *map);
 int save_map(const char *filename, map_t *map);
+int auto_save(map_t *map);
 
 void soft_state_init(state_t *state);
 

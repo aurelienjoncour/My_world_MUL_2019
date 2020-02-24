@@ -50,3 +50,10 @@ int save_map(const char *filename, map_t *map)
     close(fd);
     return EXIT_SUCCESS;
 }
+
+int auto_save(map_t *map)
+{
+    save_map(map->map_name, map);
+    my_printf("Successfuly saved %s!\n", map->map_name);
+    return EXIT_SUCCESS;
+}
