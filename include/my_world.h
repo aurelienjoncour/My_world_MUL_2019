@@ -64,6 +64,7 @@ int map_reset(map_t *map);
 int map_resize(map_t *map, sfVector2i resize);
 
 int load_map(const char *filepath, map_t *map);
+int load_from_argv(char *filename, window_t *w);
 int save_map(const char *filename, map_t *map);
 int auto_save(map_t *map);
 
@@ -85,4 +86,5 @@ int tiles_mode(map_t *map, sfVector2f *mouse, int coefficient);
 int corner_mode(map_t *map, sfVector2f *mouse, int coefficient);
 int get_dynamical_coefficient(int point_height);
 
+int schr_extension(char *str, const char *ext);
 #endif /* !MY_WORLD_H_ */

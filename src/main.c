@@ -7,6 +7,8 @@
 
 #include "my_world.h"
 
+extern const char *MAP_EXTENSION;
+
 int run(int ac, char **av)
 {
     window_t w;
@@ -15,9 +17,9 @@ int run(int ac, char **av)
     if (window_create(&w) == EXIT_FAILURE) {
         return EXIT_FAILURE;
     }
-    if (ac == 2)
-        load_map(av[1], &w.map);
     gui_create(&w);
+    if (ac == 2)
+        load_from_argv(av[1], &w);
     while (sfRenderWindow_isOpen(w.window)) {
         while (sfRenderWindow_pollEvent(w.window, &event))
             event_manager(&w, &event);
@@ -31,5 +33,9 @@ int run(int ac, char **av)
 
 int main(int ac, char **av)
 {
+    if (ac != 1 && !schr_extension(av[1], MAP_EXTENSION)) {
+        my_putstr("Bad file extension: .world only\n");
+        return EXIT_ERROR;
+    }
     return run(ac, av);
 }

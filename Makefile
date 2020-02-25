@@ -11,12 +11,14 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)constant.c							\
 		$(DSRC)math.c								\
 		$(DSRC)tool.c								\
+		$(DSRC)schr_extension.c						\
 		$(DSRC)perlin_noise.c						\
 		$(DSRC)window/window_create_destroy.c		\
 		$(DSRC)window/window_run.c					\
 		$(DSRC)window/software_status_init.c		\
 		$(DSRC)map/filemap/load_map.c				\
 		$(DSRC)map/filemap/save_map.c				\
+		$(DSRC)map/filemap/load_from_argv.c			\
 		$(DSRC)map/tool/map_tool_edit.c				\
 		$(DSRC)map/tool/tool_mode_area.c			\
 		$(DSRC)map/tool/tool_mode_corner.c			\

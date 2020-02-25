@@ -7,6 +7,8 @@
 
 #include "my_world.h"
 
+extern const char *MAP_EXTENSION;
+
 static int write_matrix_size(int fd, map_t *map)
 {
     char *width = my_putnbr_base_str(map->width, "0123456789");
@@ -53,7 +55,15 @@ int save_map(const char *filename, map_t *map)
 
 int auto_save(map_t *map)
 {
-    save_map(map->map_name, map);
-    my_printf("Successfuly saved %s!\n", map->map_name);
+    char *filename = map->map_name;
+    char *map_file = my_str_concat(filename, MAP_EXTENSION);
+    int status;
+
+    status = save_map(map_file, map);
+    if (status == EXIT_ERROR || status == EXIT_SUCCESS)
+        my_printf("Failed to save %s!\n", map_file);
+    else
+        my_printf("Successfuly saved %s!\n", map_file);
+    free(map_file);
     return EXIT_SUCCESS;
 }
