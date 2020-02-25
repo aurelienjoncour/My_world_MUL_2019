@@ -1,0 +1,12 @@
+The map can be saved in a [.world] file.
+This map file has one or two line(s).
+
+The first line contain the height and the width of the map separated by a space.
+The second line contain a part or all the height of each map points separated by a space.
+Each missing value on the second line is considered like null.
+
+Illustration:
+------------
+[Line 1] <height> <width>
+[Line 2] <height point 0> <height point 1> <height point 2> ...
+-----------
