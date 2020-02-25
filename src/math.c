@@ -14,7 +14,8 @@ static float vectorial_product(sfVector2f p1, sfVector2f p2, sfVector2f m)
     return nb;
 }
 
-bool point_is_on_triangle(sfVector2f a, sfVector2f b, sfVector2f c, sfVector2f p)
+bool point_is_on_triangle(sfVector2f a, sfVector2f b, sfVector2f c,
+sfVector2f p)
 {
     float nb1 = vectorial_product(a, b, p);
     float nb2 = vectorial_product(b, c, p);
