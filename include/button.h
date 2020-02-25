@@ -25,6 +25,7 @@ typedef struct button_widget {
     sfColor color_hover;
     sfColor color_active;
     sfText *text;
+    sfText *help_label;
     sfRectangleShape *rect;
     sfVector2f position;
     sfVector2f size;
@@ -43,13 +44,14 @@ int button_set_color_evt(button_t *button, sfColor *hover, sfColor *active);
 int button_set_position(button_t *button, sfVector2f *position);
 int button_set_size(button_t *button, sfVector2f *size);
 void button_update_bg_color(button_t *button);
+int button_set_help_label(button_t *button, const char *label);
 
 void button_destroy(button_t *button);
 int button_create(button_t *button, const char *label, const sfVector2f *size,
 const sfVector2f *position);
 
 void button_display(button_t *button, sfRenderWindow *window);
-enum status button_get_status(button_t *button);
+enum button_status button_get_status(button_t *button);
 sfBool button_poll_event(button_t *button, int x, int y,
 enum button_status state, enum button_status active_status);
 void button_set_status(button_t *button, enum button_status state);

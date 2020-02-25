@@ -20,6 +20,7 @@ void button_destroy(button_t *button)
     free(button->label);
     sfFont_destroy(button->font);
     sfText_destroy(button->text);
+    sfText_destroy(button->help_label);
     sfRectangleShape_destroy(button->rect);
     button->is_disabled = sfTrue;
 }
@@ -28,22 +29,21 @@ static int button_create_text(button_t *button, const sfVector2f *position,
 const char *label)
 {
     button->text = sfText_create();
-    if (!button->text) {
+    button->help_label = sfText_create();
+    if (!button->text || !button->help_label) {
         my_putstr_error("Error : create text object (button create)\n");
         return EXIT_FAILURE;
     }
     button->char_size = BUTTON_INIT_CHARSIZE;
-    button->font = sfFont_createFromFile(BUTTON_INIT_FONT);
-    if (!button->font) {
-        my_putstr_error("Error : load font (button create)\n");
-        return EXIT_FAILURE;
-    }
     sfText_setCharacterSize(button->text, button->char_size);
+    sfText_setCharacterSize(button->help_label, 20);
     sfText_setColor(button->text, button->color_txt);
+    sfText_setColor(button->help_label, sfRed);
     sfText_setFont(button->text, button->font);
+    sfText_setFont(button->help_label, button->font);
     sfText_setPosition(button->text, *position);
-    //sfText_setString(button->text, button->label);
     button_set_label(button, label);
+    sfText_setString(button->help_label, "[]");
     return EXIT_SUCCESS;
 }
 
@@ -82,6 +82,11 @@ const sfVector2f *position)
 {
     if (button_create_init(button, size, position) == EXIT_ERROR)
         return EXIT_FAILURE;
+    button->font = sfFont_createFromFile(BUTTON_INIT_FONT);
+    if (!button->font) {
+        my_putstr_error("Error : load font (button create)\n");
+        return EXIT_FAILURE;
+    }
     if (button_create_text(button, position, label) == EXIT_FAILURE)
         return EXIT_FAILURE;
     if (button_create_rectangle(button, position, size) == EXIT_FAILURE)

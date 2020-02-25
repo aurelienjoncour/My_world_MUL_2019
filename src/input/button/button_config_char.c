@@ -50,3 +50,11 @@ int button_set_font(button_t *button, const char *path_font)
     }
     return EXIT_SUCCESS;
 }
+
+int button_set_help_label(button_t *button, const char *label)
+{
+    if (!button || !label)
+        return EXIT_FAILURE;
+    sfText_setString(button->help_label, label);
+    return EXIT_FAILURE;
+}

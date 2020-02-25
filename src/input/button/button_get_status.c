@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-enum status button_get_status(button_t *button)
+enum button_status button_get_status(button_t *button)
 {
     if (button)
         return button->state;
