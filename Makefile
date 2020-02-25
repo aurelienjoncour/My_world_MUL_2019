@@ -26,6 +26,7 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)map/map_reset.c						\
 		$(DSRC)map/map_tools_view.c					\
 		$(DSRC)map/map_vertex_create_destroy.c		\
+		$(DSRC)map/map_vertex_texture_create_destroy.c	\
 		$(DSRC)map/map_create_destroy.c				\
 		$(DSRC)map/map_3d_create_destroy.c			\
 		$(DSRC)map/map_2d_create_destroy.c			\
@@ -45,7 +46,7 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)event_action/action_show_click.c		\
 		$(DSRC)event_action/action_manager.c		\
 		$(DSRC)event_action/action_map_file.c		\
-		$(DSRC)event_action/action_update_text_gui.c \
+		$(DSRC)event_action/action_update_text_gui.c\
 		$(DSRC)event_action/action_ui_button_tool.c \
 		$(DSRC)input/button/button_config_boolean.c	\
 		$(DSRC)input/button/button_config_char.c	\
@@ -57,7 +58,7 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)input/button/button_set_position.c	\
 		$(DSRC)input/button/button_set_size.c		\
 		$(DSRC)input/button/button_set_status.c		\
-		$(DSRC)input/text/text_input_create_destroy.c \
+		$(DSRC)input/text/text_input_create_destroy.c	\
 		$(DSRC)input/text/text_input_config_char.c	\
 		$(DSRC)input/text/text_input_config.c		\
 		$(DSRC)input/text/text_input_get_input.c	\

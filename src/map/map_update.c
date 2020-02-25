@@ -15,5 +15,10 @@ int map_update(map_t *map)
     if (!map->map_2d)
         return EXIT_FAILURE;
     map_vertex_destroy(map);
-    return map_vertex_create(map);
+    if (map_vertex_create(map) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    map_vertex_texture_destroy(map);
+    if (map_vertex_texture_create(map) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }

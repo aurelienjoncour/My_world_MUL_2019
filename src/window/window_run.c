@@ -10,7 +10,7 @@
 int window_run(window_t *w)
 {
     sfRenderWindow_clear(w->window, sfBlack);
-    map_display(w->window, &w->map);
+    map_display(w, &w->map);
     gui_display(w);
     action_manager(w);
     gui_panel_update(w);

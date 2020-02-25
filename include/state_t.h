@@ -37,11 +37,9 @@ enum status {
 
 typedef struct software_status {
     enum view_mode vmode;
-    sfBool show_help_menu;
-    sfBool map_random_gen;
-    sfBool map_edit_name;
     enum tools tool;
     enum select_modes select_mode;
+    sfBool map_show_texture;
 } state_t;
 
 #endif

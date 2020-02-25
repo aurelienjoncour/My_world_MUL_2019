@@ -18,6 +18,7 @@ void map_destroy(map_t *map)
     destroy_3d_map(map->map_3d, map->height);
     map_vertex_destroy(map);
     free(map->map_name);
+    map_vertex_texture_destroy(map);
 }
 
 static void map_init(map_t *map, int height, int width)
@@ -41,12 +42,12 @@ int map_create(map_t *map, int height, int width)
     map->map_3d = create_3d_map(height, width);
     if (!map->map_3d)
         return EXIT_FAILURE;
-    if (create_2d_map(map))
+    if (create_2d_map(map) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    if (!map->map_2d) {
-        return EXIT_FAILURE;
-    } else if (map_vertex_create(map) == EXIT_FAILURE) {
+    if (map_vertex_create(map) == EXIT_FAILURE) {
         return EXIT_FAILURE;
     }
+    if (map_vertex_texture_create(map) == EXIT_FAILURE)
+        return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }
