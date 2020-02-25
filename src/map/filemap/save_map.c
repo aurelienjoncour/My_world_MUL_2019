@@ -60,7 +60,7 @@ int auto_save(map_t *map)
     int status;
 
     status = save_map(map_file, map);
-    if (status == EXIT_ERROR || status == EXIT_SUCCESS)
+    if (status == EXIT_ERROR || status == EXIT_FAILURE)
         my_printf("Failed to save %s!\n", map_file);
     else
         my_printf("Successfuly saved %s!\n", map_file);
