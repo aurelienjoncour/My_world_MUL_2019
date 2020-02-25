@@ -20,6 +20,8 @@ void action_map_save(window_t *w)
     }
     if (save_map(map_file, &w->map) == EXIT_FAILURE) {
         my_putstr_error("action_map_save() : save_map() error\n");
+    } else {
+        my_printf("Successfuly saved %s !\n", map_file);
     }
     free(map_file);
 }
