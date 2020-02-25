@@ -11,6 +11,7 @@ extern const unsigned int TEXT_IN_INIT_CHAR_WIDTH;
 extern const unsigned int TEXT_IN_INIT_WIN_FPS;
 extern const unsigned int TEXT_IN_INIT_HEIGHT;
 extern const int WIN_BPP;
+extern const char *DEFAULT_MAP_NAME;
 
 static const sfKeyCode KEY_ENTER = 58;
 static const sfKeyCode KEY_4 = 51;
@@ -192,6 +193,8 @@ int text_input_run(text_in_t *in, sfRenderWindow *parent_window)
         sfRenderWindow_display(in->window);
     }
     sfRenderWindow_setVisible(parent_window, sfTrue);
+    if (in->i_buffer == 1)
+         my_strcpy(in->buffer+1, DEFAULT_MAP_NAME);
     sfRenderWindow_destroy(in->window);
     return EXIT_SUCCESS;
 }
