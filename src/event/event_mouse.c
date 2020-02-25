@@ -30,6 +30,8 @@ void event_mouse_button_pressed(window_t *w, sfEvent *event)
             return;
         } else if (!map_edit_height(w, evt.x, evt.y)) {
             w->evt.mouse_left_is_clicked = sfTrue;
+        } else {
+            sound_manager_play(&w->sm, SOUND_CLICK);
         }
     }
 }

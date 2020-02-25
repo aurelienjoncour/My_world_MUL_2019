@@ -29,8 +29,9 @@
 #include "map_t.h"
 #include "event_t.h"
 #include "ui_t.h"
-#include "window.h"
 
+#include "sound_manager.h"
+#include "window.h"
 #include "button.h"
 #include "text_input.h"
 #include "image_viewer.h"

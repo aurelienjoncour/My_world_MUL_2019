@@ -17,11 +17,11 @@ const unsigned int WIN_FRAMERATE = 30;
 const char *DEFAULT_MAP_NAME = "undefined";
 const char *MAP_EXTENSION = ".world";
 
-const sfVector3f MAP_INIT_SAMP = {16, 16, 2};
+const sfVector3f MAP_INIT_SAMP = {30, 30, 3};
 const sfVector2f MAP_INIT_ANGL = {45, 35};
 const sfVector2f MAP_INIT_ORIG = {WIN_WIDTH / 2, 0};
-const int MAP_INIT_HEIGHT = 60;
-const int MAP_INIT_WIDTH = 60;
+const int MAP_INIT_HEIGHT = 40;
+const int MAP_INIT_WIDTH = 40;
 
 const int EVT_MAP_TRANSLATE_DELTA = 10;
 const float EVT_MAP_TRANSLATE_PERC = 0.1;
@@ -58,6 +58,7 @@ const unsigned int TEXT_IN_INIT_WIN_FPS = 30;
 
 // GUI PARAMETERS : Cursor circle
 const float CIRCLE_CLICK_RADIUS = 5.0f;
+const sfInt32 MS_UPDATE_PANEL = 100;
 
 // Help menu
 const char *HELP_MENU_TITLE = "Help menu";
@@ -72,5 +73,16 @@ const sfColor GUI_TEXT_COLOR = (sfColor){255, 255, 255, 255};
 
 const char *TEXTURE_PATH[] =
 {
-    "asset/img/grass.jpg"
+    "asset/img/grass.jpg",
+    "asset/img/water.jpg",
+    "asset/img/water.png",
 };
+
+// Sound
+const char *SOUND_PATH[] =
+{
+    "./asset/sound/start.ogg",
+    "./asset/sound/click.ogg"
+};
+const float SOUND_VOLUME = 80;
+const float SOUND_VOLUME_MUSIC = 50;

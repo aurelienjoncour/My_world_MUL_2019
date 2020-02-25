@@ -20,6 +20,7 @@ typedef struct window {
     map_t map;
     ui_t ui;
     state_t state;
+    sound_manager_t sm;
     struct event evt;
     sfRenderWindow *window;
     enum projection mode;
@@ -28,6 +29,9 @@ typedef struct window {
     int exit_status;
     int width;
     int height;
+    sfClock *clock;
+    sfInt32 timer;
+    sfInt32 ms_loop;
 } window_t;
 
 #endif

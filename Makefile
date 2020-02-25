@@ -73,6 +73,7 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)gui/gui_panel_update.c				\
 		$(DSRC)gui/button_sizes.c					\
 		$(DSRC)gui/gui_shapes_create_destroy.c		\
+		$(DSRC)sound/sound_manager.c				\
 
 
 SRC_UT = $(DSRC)main.c								\
