@@ -24,6 +24,7 @@ static void map_remove_tiles(map_t *map, map_t *new_map, sfVector2i resize)
 int map_resize(map_t *map, sfVector2i resize)
 {
     map_t new_map;
+    char *map_name = my_strdup(map->map_name);
 
     if (map->height + resize.y < 2 || map->width + resize.x < 2)
         return EXIT_ERROR;
@@ -36,6 +37,7 @@ int map_resize(map_t *map, sfVector2i resize)
     new_map.sampling = map->sampling;
     new_map.angle = map->angle;
     new_map.origin = map->origin;
+    new_map.map_name = map_name;
     map_destroy(map);
     new_map.modified = true;
     *map = new_map;
