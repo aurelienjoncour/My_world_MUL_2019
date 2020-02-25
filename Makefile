@@ -17,10 +17,12 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)window/software_status_init.c		\
 		$(DSRC)map/filemap/load_map.c				\
 		$(DSRC)map/filemap/save_map.c				\
+		$(DSRC)map/tool/map_tool_edit.c				\
+		$(DSRC)map/tool/tool_mode_area.c			\
+		$(DSRC)map/tool/tool_mode_corner.c			\
+		$(DSRC)map/tool/tool_mode_tiles.c			\
 		$(DSRC)map/map_reset.c						\
 		$(DSRC)map/map_tools_view.c					\
-		$(DSRC)map/tool/map_tool_edit.c				\
-		$(DSRC)map/tool/tool_range.c				\
 		$(DSRC)map/map_vertex_create_destroy.c		\
 		$(DSRC)map/map_create_destroy.c				\
 		$(DSRC)map/map_3d_create_destroy.c			\
@@ -42,6 +44,7 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)event_action/action_manager.c		\
 		$(DSRC)event_action/action_map_file.c		\
 		$(DSRC)event_action/action_update_text_gui.c \
+		$(DSRC)event_action/action_ui_button_tool.c \
 		$(DSRC)input/button/button_config_boolean.c	\
 		$(DSRC)input/button/button_config_char.c	\
 		$(DSRC)input/button/button_config_color.c	\

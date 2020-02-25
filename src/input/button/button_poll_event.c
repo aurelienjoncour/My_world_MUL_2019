@@ -33,8 +33,10 @@ enum button_status state, enum button_status active_status)
         return sfFalse;
     else if (!button_check_coordinate(button, x, y))
         return sfFalse;
-    if (state == NONE && button->is_checkbox)
+    if (state != ACTIVE && button->state == ACTIVE && button->is_checkbox)
         return sfFalse;
+    else if (state == ACTIVE && button->state == ACTIVE && button->is_checkbox)
+        state = NONE;
     button->state = state;
     if (state == NONE)
         button->state = HOVER;

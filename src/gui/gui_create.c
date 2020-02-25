@@ -39,12 +39,17 @@ static void create_toolbar(window_t *w)
 {
     button_create(&(w->ui.raise), "Raise", &button_sizes[MEDIUM_B],
                                             &(sfVector2f){0, 400});
+    button_set_ischeckbox(&w->ui.raise, sfTrue);
+    button_set_status(&w->ui.raise, ACTIVE);
     button_create(&(w->ui.lower), "Lower", &button_sizes[MEDIUM_B],
                                             &(sfVector2f){0, 450});
+    button_set_ischeckbox(&w->ui.lower, sfTrue);
     button_create(&(w->ui.level), "Level", &button_sizes[MEDIUM_B],
                                             &(sfVector2f){0, 500});
+    button_set_ischeckbox(&w->ui.level, sfTrue);
     button_create(&(w->ui.texture), "Texture", &button_sizes[MEDIUM_B],
                                             &(sfVector2f){0, 550});
+    button_set_ischeckbox(&w->ui.texture, sfTrue);
 }
 
 static void create_other(window_t *w)

@@ -54,7 +54,6 @@ void destroy_2d_map(sfVector2f **map_2d, int height);
 int map_vertex_create(map_t *map);
 void map_vertex_destroy(map_t *map);
 
-int map_edit_height(window_t *w, float x, float y);
 
 int map_scale(map_t *map, float scale);
 int map_translate(map_t *map, float deltax, float deltay, window_t *w);
@@ -79,7 +78,11 @@ void map_generator(map_t *map);
 double perlin(double x, double y, int res, unsigned int *perm);
 void mix_permutation_table(unsigned int *permutation_table);
 
-int map_edit_height_edit_point(map_t *map, sfVector2f *coord, sfVector2i indice
-, int coefficient);
+// MAP TOOLS FUNCTION
+int map_edit_height(window_t *w, float x, float y);
+int area_mode(map_t *map, sfVector2f *mouse, int coefficient);
+int tiles_mode(map_t *map, sfVector2f *mouse, int coefficient);
+int corner_mode(map_t *map, sfVector2f *mouse, int coefficient);
+int get_dynamical_coefficient(int point_height);
 
 #endif /* !MY_WORLD_H_ */
