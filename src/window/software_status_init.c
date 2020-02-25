@@ -10,6 +10,6 @@
 void soft_state_init(state_t *state)
 {
     state->vmode = NONE;
-    state->tool = NONE;
+    state->tool = RAISE;
     state->select_mode = TILE;
 }
