@@ -43,12 +43,18 @@ void event_key_arrow(window_t *w, sfEvent *event)
         map_rotate(&w->map, -EVT_MAP_ROTATE_DELTA, 0);
 }
 
-void event_keypressed(window_t *w, sfEvent *event)
+void event_shortcut(window_t *w, sfEvent *event)
 {
     if (event->key.code == sfKeyEscape)
         event_window_close(w);
     if (event->key.code == sfKeyR)
         map_reset(&w->map);
+    if (event->key.code == sfKeyT)
+        change_texture_display_mode(w);
+}
+
+void event_keypressed(window_t *w, sfEvent *event)
+{
     if (event->key.code == KEY_MAP_TRANS_UP ||
     event->key.code == KEY_MAP_TRANS_DOWN ||
     event->key.code == KEY_MAP_TRANS_LEFT ||
@@ -61,4 +67,5 @@ void event_keypressed(window_t *w, sfEvent *event)
     event->key.code == KEY_MAP_ROT_RIGHT) {
         event_key_arrow(w, event);
     }
+    event_shortcut(w, event);
 }

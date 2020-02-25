@@ -49,4 +49,6 @@ void gui_button_tool_reset_state(ui_t *ui);
 int action_gui_button_tool(button_t *button, state_t *state, ui_t *ui,
 enum tools tool);
 
+void change_texture_display_mode(window_t *w);
+
 #endif

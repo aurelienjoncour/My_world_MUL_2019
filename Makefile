@@ -44,6 +44,7 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)event/event_gui_button_leftbutton.c 	\
 		$(DSRC)event_action/action_mouse_clicked.c	\
 		$(DSRC)event_action/action_show_click.c		\
+		$(DSRC)event_action/action_texture.c		\
 		$(DSRC)event_action/action_manager.c		\
 		$(DSRC)event_action/action_map_file.c		\
 		$(DSRC)event_action/action_update_text_gui.c\
