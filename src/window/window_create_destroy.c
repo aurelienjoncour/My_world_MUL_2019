@@ -19,8 +19,9 @@ int window_create(window_t *w)
     sfVideoMode video_mode = {WIN_WIDTH, WIN_HEIGHT, WIN_BPP};
 
     w->window = sfRenderWindow_create(video_mode, "My World",
-    sfDefaultStyle, NULL);
+    sfClose, NULL);
     sfRenderWindow_setFramerateLimit(w->window, WIN_FRAMERATE);
+    sfRenderWindow_setPosition(w->window, (sfVector2i){0, 0});
     w->mode = ISOMETRIC;
     w->is_fullscreen = sfFalse;
     w->reload_window = sfFalse;
