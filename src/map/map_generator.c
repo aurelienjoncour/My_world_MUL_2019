@@ -11,7 +11,7 @@ void map_generator(map_t *map)
 {
     unsigned int *perm = malloc(sizeof(unsigned int) * 512);
 
-    for (unsigned int i = 0; i < 255; i++)
+    for (unsigned int i = 0; i < 256; i++)
         perm[i] = i;
     mix_permutation_table(perm);
     for (int y = 0; y < map->height; y++) {
