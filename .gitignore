@@ -114,5 +114,6 @@ my_world
 .vscode
 .vscode/
 *.world
+vgcore*
 
 # End of https://www.gitignore.io/api/c,emacs
