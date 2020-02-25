@@ -79,8 +79,8 @@ static int event_mouse_button_guibutton(window_t *w, sfEvent *event)
     if (event->type == sfEvtMouseButtonReleased && button == sfMouseLeft) {
         ret += check_event_button_headbar_alpha(w, NONE, button_evt.x, button_evt.y);
         ret += check_event_button_headbar_beta(w, NONE, button_evt.x, button_evt.y);
-        ret += check_event_button_rightbar(w, NONE, button_evt.x, button_evt.y);
         ret += check_event_button_toolbar(w, NONE, button_evt.x, button_evt.y);
+        ret += check_event_button_rightbar(w, NONE, button_evt.x, button_evt.y);
         ret += check_event_button_leftbar(w, NONE, button_evt.x, button_evt.y);
     }
     return ret;
@@ -94,6 +94,7 @@ int event_mouse_guibutton(window_t *w, sfEvent *event)
     if (event->type == sfEvtMouseMoved && w->evt.cursor_in_window) {
         ret += check_event_button_headbar_alpha(w, HOVER, move_evt.x, move_evt.y);
         ret += check_event_button_headbar_beta(w, HOVER, move_evt.x, move_evt.y);
+        ret += check_event_button_rightbar(w, HOVER, move_evt.x, move_evt.y);
         ret += check_event_button_toolbar(w, HOVER, move_evt.x, move_evt.y);
         ret += check_event_button_leftbar(w, HOVER, move_evt.x, move_evt.y);
     }
