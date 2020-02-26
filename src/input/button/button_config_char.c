@@ -13,7 +13,7 @@ static void button_center_label(button_t *button)
     float marginx = button->size.x - bound.width;
     float marginy = (button->size.y - bound.height) / 4;
 
-    sfText_setPosition(button->text, button->position);;
+    sfText_setPosition(button->text, button->position);
     sfText_move(button->text, (sfVector2f){marginx / 2, marginy / 2});
 }
 

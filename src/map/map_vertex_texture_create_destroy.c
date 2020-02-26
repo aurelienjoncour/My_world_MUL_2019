@@ -62,7 +62,7 @@ static int map_vertex_texture_malloc(map_t *map, sfVertexArray ****array)
 static int map_vertex_texture_construct(map_t *map)
 {
     sfVector2f position[3];
-    const char* TXR_PATH = TEXTURE_PATH[0];
+    const char *TXR_PATH = TEXTURE_PATH[0];
 
     map->render_state.shader = NULL;
     map->render_state.blendMode = sfBlendAlpha;

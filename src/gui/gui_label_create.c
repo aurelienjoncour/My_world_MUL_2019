@@ -12,7 +12,7 @@ extern const unsigned int GUI_TEXT_SIZE;
 extern const sfColor GUI_TEXT_COLOR;
 
 static int label_create(sfText **text, sfFont *font, const char *label,
-float posx, float posy)
+sfVector2f pos)
 {
     *text = sfText_create();
     if (!*text)
@@ -21,9 +21,11 @@ float posx, float posy)
     sfText_setCharacterSize(*text, GUI_TEXT_SIZE);
     sfText_setColor(*text, GUI_TEXT_COLOR);
     sfText_setString(*text, label);
-    sfText_setPosition(*text, (sfVector2f){posx, posy});
+    sfText_setPosition(*text, pos);
     return EXIT_SUCCESS;
 }
+
+#define V2F(x, y) (sfVector2f){x, y}
 
 int gui_label_create(window_t *w)
 {
@@ -31,17 +33,17 @@ int gui_label_create(window_t *w)
     if (!w->ui.font)
         return EXIT_FAILURE;
     if (label_create(&w->ui.txt_map_name, w->ui.font, w->map.map_name,
-    w->width / 2 - 50, 40))
+    V2F(w->width / 2 - 50, 40)))
         return EXIT_FAILURE;
-    if (label_create(&w->ui.txt_select_mode, w->ui.font, "TILE", 5, 940))
+    if (label_create(&w->ui.txt_select_mode, w->ui.font, "TILE", V2F(5, 940)))
         return EXIT_FAILURE;
-    if (label_create(&w->ui.txt_angle, w->ui.font, "Angle:", 5, 5))
+    if (label_create(&w->ui.txt_angle, w->ui.font, "Angle:", V2F(5, 5)))
         return EXIT_FAILURE;
-    if (label_create(&w->ui.txt_origin, w->ui.font, "Origin:", 5, 40))
+    if (label_create(&w->ui.txt_origin, w->ui.font, "Origin:", V2F(5, 40)))
         return EXIT_FAILURE;
-    if (label_create(&w->ui.txt_scale, w->ui.font, "Scale:", 5, 75))
+    if (label_create(&w->ui.txt_scale, w->ui.font, "Scale:", V2F(5, 75)))
         return EXIT_FAILURE;
-    if (label_create(&w->ui.txt_size, w->ui.font, "Size:", 5, 110))
+    if (label_create(&w->ui.txt_size, w->ui.font, "Size:", V2F(5, 110)))
         return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

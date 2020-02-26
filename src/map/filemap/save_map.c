@@ -36,18 +36,16 @@ int save_map(const char *filename, map_t *map)
         return EXIT_FAILURE;
     if (write_matrix_size(fd, map))
         return EXIT_ERROR;
-    for (int i = 0; i < map->height; i++) {
+    for (int i = 0; i < map->height; i++)
         for (int j = 0; j < map->width; j++) {
             str = my_putnbr_base_str(map->map_3d[i][j], "0123456789");
             if (!str)
                 return EXIT_FAILURE;
             write(fd, str, my_strlen(str));
             free(str);
-            if (i == map->height - 1 && j == map->width - 1);
-            else
+            if (i != map->height - 1 && j != map->width - 1);
                 write(fd, " ", 1);
         }
-    }
     write(fd, "\n", 1);
     close(fd);
     return EXIT_SUCCESS;

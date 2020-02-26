@@ -26,12 +26,12 @@ static sfBool button_check_coordinate(button_t *button, int x, int y)
     return sfTrue;
 }
 
-sfBool button_poll_event(button_t *button, int x, int y,
+sfBool button_poll_event(button_t *button, sfVector2i mouse,
 enum button_status state, enum button_status active_status)
 {
     if (!button)
         return sfFalse;
-    else if (!button_check_coordinate(button, x, y))
+    else if (!button_check_coordinate(button, mouse.x, mouse.y))
         return sfFalse;
     if (state != ACTIVE && button->state == ACTIVE && button->is_checkbox)
         state = ACTIVE;

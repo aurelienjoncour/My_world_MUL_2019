@@ -194,7 +194,7 @@ int text_input_run(text_in_t *in, sfRenderWindow *parent_window)
     }
     sfRenderWindow_setVisible(parent_window, sfTrue);
     if (in->i_buffer == 1)
-         my_strcpy(in->buffer+1, DEFAULT_MAP_NAME);
+        my_strcpy(in->buffer+1, DEFAULT_MAP_NAME);
     sfRenderWindow_destroy(in->window);
     return EXIT_SUCCESS;
 }

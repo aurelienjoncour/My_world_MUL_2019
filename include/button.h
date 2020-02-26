@@ -52,7 +52,7 @@ const sfVector2f *position);
 
 void button_display(button_t *button, sfRenderWindow *window);
 enum button_status button_get_status(button_t *button);
-sfBool button_poll_event(button_t *button, int x, int y,
+sfBool button_poll_event(button_t *button, sfVector2i mouse,
 enum button_status state, enum button_status active_status);
 void button_set_status(button_t *button, enum button_status state);
 #endif
