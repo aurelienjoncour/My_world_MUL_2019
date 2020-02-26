@@ -14,10 +14,10 @@ int run(int ac, char **av)
     window_t w;
     sfEvent event;
 
-    if (window_create(&w) == EXIT_FAILURE) {
+    if (window_create(&w) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    }
-    gui_create(&w);
+    if (gui_create(&w) == EXIT_FAILURE)
+        return EXIT_FAILURE;
     sound_manager_play(&w.sm, SOUND_START);
     if (ac == 2)
         load_from_argv(av[1], &w);

@@ -55,4 +55,7 @@ float point_length(sfVector2f a, sfVector2f b);
 char *my_str_concat(const char *stra, const char *strb);
 int schr_extension(char *str, const char *ext);
 
+//Function qui s'incluent pas dans les autres fichiers merde putain
+int create_leftbar(window_t *w);
+
 #endif
