@@ -19,12 +19,14 @@ typedef struct world_map {
     sfVertexArray ***texture_lay_a;
     sfVertexArray ***texture_lay_b;
     sfRenderStates render_state;
+    sfRenderStates rs_black;
     sfVector3f sampling;
     sfVector2f angle;
     sfVector2f origin;
     int height;
     int width;
     sfBool modified;
+    sfColor color_line;
 } map_t;
 
 #endif /* !MAP_T_H_ */

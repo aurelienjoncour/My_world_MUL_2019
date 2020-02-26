@@ -7,6 +7,8 @@
 
 #include "my_world.h"
 
+extern const sfColor MAP_LINE_COLOR;
+
 void map_vertex_destroy(map_t *map)
 {
     for (int i = 0; i < map->height; i++) {
@@ -27,11 +29,12 @@ void map_vertex_destroy(map_t *map)
     free(map->vrtx_y);
 }
 
-static sfVertexArray *create_line(sfVector2f *point1, sfVector2f *point2)
+static sfVertexArray *create_line(map_t *map, sfVector2f *point1,
+sfVector2f *point2)
 {
     sfVertexArray *vertex_array = sfVertexArray_create();
-    sfVertex vertex1 = {.position = *point1, .color = sfWhite};
-    sfVertex vertex2 = {.position = *point2, .color = sfWhite};
+    sfVertex vertex1 = {.position = *point1, .color = map->color_line};
+    sfVertex vertex2 = {.position = *point2, .color = map->color_line};
 
     sfVertexArray_append(vertex_array, vertex1);
     sfVertexArray_append(vertex_array, vertex2);
@@ -64,18 +67,21 @@ int map_vertex_create(map_t *map)
 {
     sfVector2f **map_2d = map->map_2d;
 
+    map->color_line = MAP_LINE_COLOR;
     if (map_vertex_malloc(map) == EXIT_FAILURE) {
         my_putstr_error("map_vertex_create: malloc error\n");
         return EXIT_FAILURE;
     }
     for (int y = 0; y < map->height; y++) {
         for (int x = 0; x < map->width - 1; x++) {
-            map->vrtx_x[y][x] = create_line(&map_2d[y][x], &map_2d[y][x + 1]);
+            map->vrtx_x[y][x] = create_line(map, &map_2d[y][x],
+            &map_2d[y][x + 1]);
         }
     }
     for (int y = 0; y < map->height - 1; y++) {
         for (int x = 0; x < map->width; x++) {
-            map->vrtx_y[y][x] = create_line(&map_2d[y][x], &map_2d[y + 1][x]);
+            map->vrtx_y[y][x] = create_line(map, &map_2d[y][x],
+            &map_2d[y + 1][x]);
         }
     }
     return EXIT_SUCCESS;

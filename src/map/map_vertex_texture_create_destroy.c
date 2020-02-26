@@ -68,6 +68,8 @@ static int map_vertex_texture_construct(map_t *map)
     map->render_state.blendMode = sfBlendAlpha;
     map->render_state.transform = sfTransform_Identity;
     map->render_state.texture = sfTexture_createFromFile(TXR_PATH, NULL);
+    map->rs_black = map->render_state;
+    map->rs_black.texture = sfTexture_createFromFile(TEXTURE_PATH[1], NULL);
     for (int x = 0; x < map->width - 1; x++) {
         for (int y = 0; y < map->height - 1; y++) {
             position[0] = map->map_2d[y][x];
@@ -87,6 +89,11 @@ int map_vertex_texture_create(map_t *map)
         return EXIT_FAILURE;
     if (map_vertex_texture_malloc(map, &map->texture_lay_b) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    map_vertex_texture_construct(map);
+    if (map_vertex_texture_construct(map) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (!map->render_state.texture || !map->rs_black.texture) {
+        my_putstr_error("map_vertex_texture_create : texture load\n");
+        return EXIT_FAILURE;
+    }
     return EXIT_SUCCESS;
 }
