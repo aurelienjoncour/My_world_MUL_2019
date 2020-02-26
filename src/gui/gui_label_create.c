@@ -25,8 +25,6 @@ sfVector2f pos)
     return EXIT_SUCCESS;
 }
 
-#define V2F(x, y) (sfVector2f){x, y}
-
 int gui_label_create(window_t *w)
 {
     w->ui.font = sfFont_createFromFile(GUI_TEXT_FONT);
