@@ -23,8 +23,13 @@ void destroy_2d_map(sfVector2f **map_2d, int height);
 
 int map_vertex_create(map_t *map);
 void map_vertex_destroy(map_t *map);
+
+// TEXTURE
 int map_vertex_texture_create(map_t *map);
 void map_vertex_texture_destroy(map_t *map);
+void map_texture_destroy(map_t *map);
+int map_texture_create(map_t *map);
+int map_texture_set_height(map_t *map);
 
 // VIEW TOOLS
 int map_scale(map_t *map, float scale);

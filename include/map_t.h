@@ -16,8 +16,10 @@ typedef struct world_map {
     sfVector2f **map_2d;
     sfVertexArray ***vrtx_x;
     sfVertexArray ***vrtx_y;
-    sfVertexArray ***texture_lay_a;
-    sfVertexArray ***texture_lay_b;
+    sfVertexArray ***txtr_vrtx_a;
+    sfVertexArray ***txtr_vrtx_b;
+    sfTexture ***texture_lay;
+    sfTexture **textures;
     sfRenderStates render_state;
     sfRenderStates rs_black;
     sfVector3f sampling;

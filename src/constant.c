@@ -22,7 +22,7 @@ const sfVector2f MAP_INIT_ANGL = {45, 35};
 const sfVector2f MAP_INIT_ORIG = {WIN_WIDTH / 2, 0};
 const int MAP_INIT_HEIGHT = 40;
 const int MAP_INIT_WIDTH = 40;
-const sfColor MAP_LINE_COLOR = {255, 255, 255, 90};
+const sfColor MAP_LINE_COLOR = {255, 255, 255, 255};
 
 const int EVT_MAP_TRANSLATE_DELTA = 10;
 const float EVT_MAP_TRANSLATE_PERC = 0.1;
@@ -72,13 +72,21 @@ const sfColor GUI_TEXT_COLOR = (sfColor){255, 255, 255, 255};
 
 // Texture
 
+const int TEXTURE_COUNT = 6;
 const char *TEXTURE_PATH[] =
 {
-    "asset/img/grass.jpg",
     "asset/img/black.png",
     "asset/img/water.jpg",
-    "asset/img/water.png",
+    "asset/img/dirt.png",
+    "asset/img/cobblestone.png",
+    "asset/img/stone.png",
+    "asset/img/snow.png"
 };
+const int TXTR_WATER = 1;
+const int TXTR_DIRT = 2;
+const int TXTR_COBBLESTONE = 3;
+const int TXTR_STONE = 4;
+const int TXTR_SNOW = 5;
 
 // Sound
 const char *SOUND_PATH[] =

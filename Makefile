@@ -26,7 +26,9 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)map/map_reset.c						\
 		$(DSRC)map/map_tools_view.c					\
 		$(DSRC)map/map_vertex_create_destroy.c		\
-		$(DSRC)map/map_vertex_texture_create_destroy.c	\
+		$(DSRC)map/map_texture_vertex_create_destroy.c	\
+		$(DSRC)map/map_texture_create_destroy.c		\
+		$(DSRC)map/map_texture_set_height.c			\
 		$(DSRC)map/map_create_destroy.c				\
 		$(DSRC)map/map_3d_create_destroy.c			\
 		$(DSRC)map/map_2d_create_destroy.c			\
