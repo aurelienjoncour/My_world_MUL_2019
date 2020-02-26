@@ -33,6 +33,8 @@ int x, int y);
 void event_keypressed(window_t *w, sfEvent *event);
 void event_window_close(window_t *w);
 
+void resize_shortcut(window_t *w, sfEvent *event, int coeff);
+
 // ACTION
 
 void action_manager(window_t *w);
