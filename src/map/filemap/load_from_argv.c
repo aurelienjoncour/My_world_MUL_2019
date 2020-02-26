@@ -27,5 +27,7 @@ int load_from_argv(char *filename, window_t *w)
     free(w->map.map_name);
     w->map.map_name = map_file;
     sfText_setString(w->ui.txt_map_name, w->map.map_name);
+    text_input_set_content(&w->ui.edit_map_name, w->map.map_name);
+    text_input_set_content(&w->ui.load_map_file, w->map.map_name);
     return EXIT_SUCCESS;
 }
