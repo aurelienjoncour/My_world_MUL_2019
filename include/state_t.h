@@ -35,11 +35,17 @@ enum status {
     LESS
 };
 
+enum map_display_mode {
+    TXTR,
+    LINE,
+    BOTH
+};
+
 typedef struct software_status {
     enum view_mode vmode;
     enum tools tool;
     enum select_modes select_mode;
-    sfBool map_show_texture;
+    enum map_display_mode map_display_mode;
 } state_t;
 
 #endif

@@ -60,15 +60,15 @@ int map_display(window_t *w, map_t *map)
     }
     for (int x = 0; x < map->width - 1; x++) {
         for (int y = 0; y < map->height - 1; y++) {
-            if (w->state.map_show_texture)
+            if (w->state.map_display_mode != LINE)
                 map_display_texture(w, map, y, x);
-            else {
+            if (w->state.map_display_mode != TXTR) {
                 sfRenderWindow_drawVertexArray(win, map->vrtx_x[y][x], NULL);
                 sfRenderWindow_drawVertexArray(win, map->vrtx_y[y][x], NULL);
             }
         }
     }
-    if (!w->state.map_show_texture)
+    if (w->state.map_display_mode != TXTR)
         map_display_last_line(win, map);
     return EXIT_SUCCESS;
 }

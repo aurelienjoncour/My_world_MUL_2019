@@ -9,5 +9,15 @@
 
 void change_texture_display_mode(window_t *w)
 {
-    w->state.map_show_texture = !w->state.map_show_texture;
+    switch (w->state.map_display_mode) {
+        case TXTR:
+            w->state.map_display_mode = LINE;
+            break;
+        case LINE:
+            w->state.map_display_mode = BOTH;
+            break;
+        case BOTH:
+            w->state.map_display_mode = TXTR;
+            break;
+    }
 }
