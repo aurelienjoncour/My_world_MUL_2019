@@ -43,7 +43,8 @@ int save_map(const char *filename, map_t *map)
                 return EXIT_FAILURE;
             write(fd, str, my_strlen(str));
             free(str);
-            if (i != map->height - 1 && j != map->width - 1);
+            if (i == map->height - 1 && j == map->width - 1);
+            else
                 write(fd, " ", 1);
         }
     write(fd, "\n", 1);
