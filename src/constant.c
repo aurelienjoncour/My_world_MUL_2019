@@ -17,7 +17,7 @@ const unsigned int WIN_FRAMERATE = 30;
 const char *DEFAULT_MAP_NAME = "undefined";
 const char *MAP_EXTENSION = ".world";
 
-const sfVector3f MAP_INIT_SAMP = {30, 30, 3};
+const sfVector3f MAP_INIT_SAMP = {32, 32, 5};
 const sfVector2f MAP_INIT_ANGL = {45, 35};
 const sfVector2f MAP_INIT_ORIG = {WIN_WIDTH / 2, 0};
 const int MAP_INIT_HEIGHT = 40;
