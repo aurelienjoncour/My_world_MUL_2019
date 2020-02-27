@@ -14,7 +14,8 @@ extern const float SOUND_VOLUME_MUSIC;
 void sound_manager_destroy(sound_manager_t *sm)
 {
     for (int i = 0; i < SOUND_COUNT; i++) {
-        sfMusic_destroy(sm->sounds[i]);
+        if (sm->sounds[i])
+            sfMusic_destroy(sm->sounds[i]);
     }
 }
 

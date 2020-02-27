@@ -46,6 +46,8 @@ int window_create(window_t *w)
     sfRenderWindow_setPosition(w->window, (sfVector2i){0, 0});
     if (map_create(&w->map, MAP_INIT_HEIGHT, MAP_INIT_WIDTH) == EXIT_FAILURE)
         return EXIT_FAILURE;
+    if (gui_create(w) == EXIT_FAILURE)
+        return EXIT_FAILURE;
     event_init(&w->evt);
     soft_state_init(&w->state);
     if (window_create_clock(w) == EXIT_FAILURE)

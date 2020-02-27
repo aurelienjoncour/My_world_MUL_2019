@@ -16,11 +16,11 @@ int run(int ac, char **av)
 
     if (window_create(&w) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    if (gui_create(&w) == EXIT_FAILURE)
+    if (ac == 2 && load_from_argv(av[1], &w) == EXIT_ERROR) {
+        window_destroy(&w);
         return EXIT_FAILURE;
+    }
     sound_manager_play(&w.sm, SOUND_START);
-    if (ac == 2)
-        load_from_argv(av[1], &w);
     while (sfRenderWindow_isOpen(w.window)) {
         while (sfRenderWindow_pollEvent(w.window, &event))
             event_manager(&w, &event);
