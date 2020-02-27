@@ -58,4 +58,9 @@ int tiles_mode(map_t *map, sfVector2f *mouse, int coefficient);
 int corner_mode(map_t *map, sfVector2f *mouse, int coefficient);
 int get_dynamical_coefficient(int point_height);
 
+int texture_area_mode(map_t *map, sfVector2f *mouse);
+int texture_corner_mode(map_t *map, sfVector2f *mouse);
+int texture_tiles_mode(map_t *map, sfVector2f *mouse);
+int map_edit_texture(window_t *w, float x, float y);
+
 #endif

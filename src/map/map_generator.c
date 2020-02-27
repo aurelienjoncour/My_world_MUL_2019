@@ -20,5 +20,6 @@ void map_generator(map_t *map)
         }
     }
     free(perm);
+    map_texture_set_height(map);
     map->modified = sfTrue;
 }

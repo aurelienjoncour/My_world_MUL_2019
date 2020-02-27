@@ -66,6 +66,7 @@ static int map_texture_init(map_t *map)
     map->render_state.texture = NULL;
     map->rs_black = map->render_state;
     map->rs_black.texture = map->textures[0];
+    map->selected_texture = TXTR_DIRT;
     return EXIT_SUCCESS;
 }
 

@@ -19,10 +19,14 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)map/filemap/load_map.c				\
 		$(DSRC)map/filemap/save_map.c				\
 		$(DSRC)map/filemap/load_from_argv.c			\
-		$(DSRC)map/tool/map_tool_edit.c				\
-		$(DSRC)map/tool/tool_mode_area.c			\
-		$(DSRC)map/tool/tool_mode_corner.c			\
-		$(DSRC)map/tool/tool_mode_tiles.c			\
+		$(DSRC)map/tool/height/map_tool_edit_height.c	\
+		$(DSRC)map/tool/height/tool_mode_area.c			\
+		$(DSRC)map/tool/height/tool_mode_corner.c		\
+		$(DSRC)map/tool/height/tool_mode_tiles.c		\
+		$(DSRC)map/tool/texture/map_tool_edit_texture.c	\
+		$(DSRC)map/tool/texture/tool_mode_area.c		\
+		$(DSRC)map/tool/texture/tool_mode_corner.c		\
+		$(DSRC)map/tool/texture/tool_mode_tiles.c		\
 		$(DSRC)map/map_reset.c						\
 		$(DSRC)map/map_tools_view.c					\
 		$(DSRC)map/map_vertex_create_destroy.c		\

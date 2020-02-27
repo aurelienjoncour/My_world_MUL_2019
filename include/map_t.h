@@ -20,6 +20,7 @@ typedef struct world_map {
     sfVertexArray ***txtr_vrtx_b;
     sfTexture ***texture_lay;
     sfTexture **textures;
+    int selected_texture;
     sfRenderStates render_state;
     sfRenderStates rs_black;
     sfVector3f sampling;

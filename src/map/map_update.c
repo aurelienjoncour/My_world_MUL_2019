@@ -20,6 +20,5 @@ int map_update(map_t *map)
     map_vertex_texture_destroy(map);
     if (map_vertex_texture_create(map) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    map_texture_set_height(map);
     return EXIT_SUCCESS;
 }
