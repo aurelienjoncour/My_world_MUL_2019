@@ -10,10 +10,11 @@
 
 #include <SFML/Audio.h>
 
-#define SOUND_COUNT 2
+#define SOUND_COUNT 3
 
 #define SOUND_START 0
 #define SOUND_CLICK 1
+#define SOUND_MUSIC 2
 
 typedef struct sound_manager {
     sfMusic *sounds[SOUND_COUNT];

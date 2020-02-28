@@ -19,6 +19,9 @@ int window_run(window_t *w)
         while (w->timer >= w->ms_loop)
             w->timer -= w->ms_loop;
         gui_panel_update(w);
+        if (sfMusic_getStatus(w->sm.sounds[SOUND_MUSIC]) != sfPlaying) {
+            sound_manager_play(&w->sm, SOUND_MUSIC);
+        }
     }
     sfRenderWindow_display(w->window);
     return EXIT_SUCCESS;

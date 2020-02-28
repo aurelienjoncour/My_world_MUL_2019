@@ -40,5 +40,6 @@ int sound_manager_create(sound_manager_t *sm)
         sfMusic_setVolume(sm->sounds[i], SOUND_VOLUME);
     }
     sfMusic_setVolume(sm->sounds[SOUND_START], SOUND_VOLUME_MUSIC);
+    sfMusic_setVolume(sm->sounds[SOUND_MUSIC], SOUND_VOLUME_MUSIC * 10);
     return EXIT_SUCCESS;
 }

@@ -76,7 +76,7 @@ const int TEXTURE_COUNT = 6;
 const char *TEXTURE_PATH[] =
 {
     "asset/img/black.png",
-    "asset/img/water.jpg",
+    "asset/img/water.png",
     "asset/img/dirt.png",
     "asset/img/cobblestone.png",
     "asset/img/stone.png",
@@ -92,7 +92,8 @@ const int TXTR_SNOW = 5;
 const char *SOUND_PATH[] =
 {
     "./asset/sound/start.ogg",
-    "./asset/sound/click.ogg"
+    "./asset/sound/click.ogg",
+    "./asset/sound/minecraft.ogg"
 };
-const float SOUND_VOLUME = 80;
-const float SOUND_VOLUME_MUSIC = 50;
+const float SOUND_VOLUME = 20;
+const float SOUND_VOLUME_MUSIC = 60;
