@@ -26,7 +26,7 @@ sfVector2i indice)
     sfVector2f *map_point = &map->map_2d[indice.y][indice.x];
     sfTexture *ptr = NULL;
 
-    if (map_is_point_inrange_coord(map_point, coord, map->sampling.x)) {
+    if (map_is_point_inrange_coord(map_point, coord, map->sampling.x * 2)) {
         ptr = map->textures[map->selected_texture];
         map->texture_lay[indice.y][indice.x] = ptr;
         map->modified = sfTrue;
