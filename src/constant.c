@@ -71,16 +71,17 @@ const unsigned int GUI_TEXT_SIZE = 20;
 const sfColor GUI_TEXT_COLOR = (sfColor){255, 255, 255, 255};
 
 // Texture
-
-const int TEXTURE_COUNT = 6;
+const int foo = 0;
+const int TEXTURE_COUNT = 7;
 const char *TEXTURE_PATH[] =
 {
     "asset/img/black.png",
-    "asset/img/water.png",
     "asset/img/dirt.png",
+    "asset/img/grass.jpg",
     "asset/img/cobblestone.png",
     "asset/img/stone.png",
-    "asset/img/snow.png"
+    "asset/img/snow.png",
+    "asset/img/water.png"
 };
 const int TXTR_WATER = 1;
 const int TXTR_DIRT = 2;
