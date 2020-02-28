@@ -43,8 +43,8 @@ enum button_status status, sfVector2i mouse)
 static int check_event_button_rightbar(window_t *w, enum button_status status,
 sfVector2i mouse)
 {
-    if (button_poll_event(&w->ui.help_menu, mouse, status, NONE)) {
-        image_viewer_run(&w->ui.help_menu_viewer, w->window);
+    if (button_poll_event(&w->ui.help_menu, mouse, status, ACTIVE)) {
+        image_viewer_status(&w->ui.help_menu_viewer, &w->state.help_menu);
         return 1;
     }
     if (button_poll_event(&w->ui.scale, mouse, status, ACTIVE)) {

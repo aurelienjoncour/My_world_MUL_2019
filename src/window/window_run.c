@@ -12,9 +12,9 @@ int window_run(window_t *w)
     w->timer += sfTime_asMilliseconds(sfClock_getElapsedTime(w->clock));
     sfClock_restart(w->clock);
     sfRenderWindow_clear(w->window, sfBlack);
+    action_manager(w);
     map_display(w, &w->map);
     gui_display(w);
-    action_manager(w);
     if (w->timer >= w->ms_loop) {
         while (w->timer >= w->ms_loop)
             w->timer -= w->ms_loop;

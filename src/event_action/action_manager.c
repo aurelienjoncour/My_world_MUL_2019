@@ -16,4 +16,6 @@ void action_manager(window_t *w)
         action_show_click(w);
         action_mouse_left_clicked(w);
     }
+    if (w->state.help_menu)
+        image_viewer_display(&w->ui.help_menu_viewer, &w->state.help_menu);
 }

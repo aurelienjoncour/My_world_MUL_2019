@@ -46,6 +46,7 @@ typedef struct software_status {
     enum tools tool;
     enum select_modes select_mode;
     enum map_display_mode map_display_mode;
+    sfBool help_menu;
 } state_t;
 
 #endif

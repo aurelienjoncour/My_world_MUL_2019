@@ -72,7 +72,8 @@ SRC	=	$(DSRC)main.c								\
 		$(DSRC)input/text/text_input_get_input.c	\
 		$(DSRC)input/text/text_input_run.c			\
 		$(DSRC)input/image_viewer/image_viewer_create_destroy.c	\
-		$(DSRC)input/image_viewer/image_viewer_run.c			\
+		$(DSRC)input/image_viewer/image_viewer_display.c			\
+		$(DSRC)input/image_viewer/image_viewer_update_status.c		\
 		$(DSRC)gui/gui_create.c						\
 		$(DSRC)gui/gui_destroy.c					\
 		$(DSRC)gui/gui_display.c					\

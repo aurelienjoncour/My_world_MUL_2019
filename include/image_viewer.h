@@ -21,6 +21,6 @@ int image_viewer_create(img_view_t *self, const char *file_name,
 const char *title);
 void image_viewer_destroy(img_view_t *self);
 
-int image_viewer_run(img_view_t *self, sfRenderWindow *parent_window);
-
+int image_viewer_display(img_view_t *self, sfBool *is_active);
+int image_viewer_status(img_view_t *self, sfBool *state);
 #endif

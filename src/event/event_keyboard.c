@@ -52,7 +52,7 @@ static void event_shortcut(window_t *w, sfEvent *event)
     if (event->key.code == sfKeyT)
         change_texture_display_mode(w);
     if (event->key.code == sfKeyH)
-        image_viewer_run(&w->ui.help_menu_viewer, w->window);
+        image_viewer_status(&w->ui.help_menu_viewer, &w->state.help_menu);
     if (event->key.code == sfKeyP)
         map_scale(&w->map, 1);
     if (event->key.code == sfKeyM)
