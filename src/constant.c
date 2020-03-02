@@ -79,7 +79,7 @@ const char *TEXTURE_PATH[] =
 {
     "asset/img/black.png",
     "asset/img/dirt.png",
-    "asset/img/grass.jpg",
+    "asset/img/grass.png",
     "asset/img/cobblestone.png",
     "asset/img/stone.png",
     "asset/img/snow.png",

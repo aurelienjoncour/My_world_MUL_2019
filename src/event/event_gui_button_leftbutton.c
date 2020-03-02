@@ -46,7 +46,7 @@ enum button_status status, sfVector2i mouse)
         return 1;
     }
     if (button_poll_event(&w->ui.menu_texture, mouse, status, ACTIVE)) {
-
+        texture_menu_status(&w->ui.txr_menu, &w->state.texture_menu);
         return 1;
     }
     return 0;

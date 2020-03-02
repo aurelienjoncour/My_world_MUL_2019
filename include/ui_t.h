@@ -11,9 +11,11 @@
 #include "button.h"
 #include "text_input.h"
 #include "image_viewer.h"
+#include "texture_menu.h"
 
 typedef struct user_interface {
     img_view_t help_menu_viewer;
+    texture_menu_t txr_menu;
     sfCircleShape *click_pointer;
     sfVertexArray *mouse_line;
     text_in_t edit_map_name;

@@ -92,6 +92,8 @@ int gui_create(window_t *w)
     if (text_input_create(&w->ui.load_map_file, "Load: map name", 30,
     ""))
         return EXIT_FAILURE;
+    if (texture_menu_create(&w->ui.txr_menu, &w->map) == EXIT_FAILURE)
+        return EXIT_FAILURE;
     if (image_viewer_create(&w->ui.help_menu_viewer, HELP_MENU_FILEPATH,
     HELP_MENU_TITLE))
         return EXIT_FAILURE;

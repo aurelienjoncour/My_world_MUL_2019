@@ -34,6 +34,7 @@
 #include "sound_manager.h"
 #include "window.h"
 #include "button.h"
+#include "texture_menu.h"
 #include "text_input.h"
 #include "image_viewer.h"
 #include "gui.h"
