@@ -54,6 +54,7 @@ void event_mouse_wheel_scroll(window_t *w, sfEvent *event)
     sfMouseWheelScrollEvent evt = event->mouseWheelScroll;
 
     map_scale(&w->map, evt.delta);
+    map_scale(&w->map_water, evt.delta);
 }
 
 void event_mouse_move(window_t *w, sfEvent *event)

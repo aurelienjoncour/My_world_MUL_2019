@@ -10,7 +10,7 @@
 void resize_shortcut(window_t *w, sfEvent *event, int coeff)
 {
     if (event->key.shift)
-        map_resize(&w->map, (sfVector2i){0, coeff});
+        map_resize_all(w, (sfVector2i){0, coeff});
     else
-        map_resize(&w->map, (sfVector2i){coeff, 0});
+        map_resize_all(w, (sfVector2i){coeff, 0});
 }

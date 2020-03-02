@@ -56,19 +56,19 @@ int check_event_button_leftbar(window_t *w, enum button_status status,
 sfVector2i mouse)
 {
     if (button_poll_event(&w->ui.map_y_p, mouse, status, ACTIVE)) {
-        map_resize(&w->map, (sfVector2i){0, 1});
+        map_resize_all(w, (sfVector2i){0, 1});
         return 1;
     }
     if (button_poll_event(&w->ui.map_y_m, mouse, status, ACTIVE)) {
-        map_resize(&w->map, (sfVector2i){0, -1});
+        map_resize_all(w, (sfVector2i){0, -1});
         return 1;
     }
     if (button_poll_event(&w->ui.map_x_m, mouse, status, ACTIVE)) {
-        map_resize(&w->map, (sfVector2i){-1, 0});
+        map_resize_all(w, (sfVector2i){-1, 0});
         return 1;
     }
     if (button_poll_event(&w->ui.map_x_p, mouse, status, ACTIVE)) {
-        map_resize(&w->map, (sfVector2i){1, 0});
+        map_resize_all(w, (sfVector2i){1, 0});
         return 1;
     }
     if (check_event_button_leftbar_sub(w, status, mouse) != 0)

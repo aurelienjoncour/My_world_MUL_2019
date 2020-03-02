@@ -7,6 +7,17 @@
 
 #include "my_world.h"
 
+int map_update_all(window_t *w, map_t *map)
+{
+    if (map_update(map) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    map->modified = sfFalse;
+    if (map_update(&w->map_water) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    w->map_water.modified = sfFalse;
+    return EXIT_SUCCESS;
+}
+
 int map_update(map_t *map)
 {
     destroy_2d_map(map->map_2d, map->height);

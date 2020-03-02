@@ -43,4 +43,5 @@ void action_mouse_left_clicked(window_t *w)
         y = delta_coord.y * EVT_MAP_ROTATE_PERC;
     }
     map_rotate(&w->map, x, y);
+    map_rotate(&w->map_water, x, y);
 }

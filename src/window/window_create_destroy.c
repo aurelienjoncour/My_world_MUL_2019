@@ -44,6 +44,7 @@ int window_create(window_t *w)
     sfClose, NULL);
     sfRenderWindow_setFramerateLimit(w->window, WIN_FRAMERATE);
     sfRenderWindow_setPosition(w->window, (sfVector2i){0, 0});
+    map_create(&w->map_water, MAP_INIT_HEIGHT, MAP_INIT_WIDTH);
     if (map_create(&w->map, MAP_INIT_HEIGHT, MAP_INIT_WIDTH) == EXIT_FAILURE)
         return EXIT_FAILURE;
     if (gui_create(w) == EXIT_FAILURE)

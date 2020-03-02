@@ -20,6 +20,7 @@ int run(int ac, char **av)
         window_destroy(&w);
         return EXIT_FAILURE;
     }
+    map_create(&w.map_water, w.map.height, w.map.width);
     sound_manager_play(&w.sm, SOUND_START);
     while (sfRenderWindow_isOpen(w.window)) {
         while (sfRenderWindow_pollEvent(w.window, &event))
