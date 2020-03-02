@@ -20,5 +20,5 @@ void action_manager(window_t *w)
     if (w->state.help_menu)
         image_viewer_display(&w->ui.help_menu_viewer, &w->state.help_menu);
     if (w->state.texture_menu)
-        texture_menu_display(&w->ui.txr_menu, &w->state.texture_menu);
+        texture_menu_display(&w->ui.txr_menu, &w->map, &w->state.texture_menu);
 }

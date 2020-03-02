@@ -7,6 +7,18 @@
 
 #include "my_world.h"
 
+static void update_sprite(texture_menu_t *self, map_t *map)
+{
+    self->map = map;
+    self->select_idx = &map->selected_texture;
+    for (int i = 0; i < self->count_sprite; i++) {
+        sfSprite_setTexture(self->spr_available[i], self->map->textures[i + 1],
+        sfTrue);
+    }
+    sfSprite_setTexture(self->spr_selected,
+    self->map->textures[(*self->select_idx)], sfFalse);
+}
+
 static void switch_selected_texture(texture_menu_t *self, int sens)
 {
     if (sens != -1 && sens != 1)
@@ -26,7 +38,7 @@ sfBool *is_active)
     if (event->type == sfEvtClosed) {
         texture_menu_status(self, is_active);
     } else if (event->type == sfEvtKeyPressed) {
-        if (event->key.code == sfKeyEscape)
+        if (event->key.code == sfKeyEscape || event->key.code == 58)
             texture_menu_status(self, is_active);
         if (event->key.code == sfKeyLeft) {
             switch_selected_texture(self, -1);
@@ -36,12 +48,13 @@ sfBool *is_active)
     }
 }
 
-int texture_menu_display(texture_menu_t *self, sfBool *is_active)
+int texture_menu_display(texture_menu_t *self, map_t *map, sfBool *is_active)
 {
     sfEvent event;
 
     if (!self || !is_active)
         return EXIT_FAILURE;
+    update_sprite(self, map);
     while (sfRenderWindow_pollEvent(self->window, &event))
         texture_menu_event_manager(self, &event, is_active);
     sfRenderWindow_clear(self->window, self->color_bg);

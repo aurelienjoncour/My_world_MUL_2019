@@ -27,7 +27,7 @@ int texture_menu_create_sprite(texture_menu_t *self);
 
 void texture_menu_destroy(texture_menu_t *self);
 
-int texture_menu_display(texture_menu_t *self, sfBool *is_active);
+int texture_menu_display(texture_menu_t *self, map_t *map, sfBool *is_active);
 
 int texture_menu_status(texture_menu_t *self, sfBool *state);
 
