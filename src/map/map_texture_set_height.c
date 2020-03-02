@@ -14,6 +14,7 @@ extern const int TXTR_DIRT;
 extern const int TXTR_COBBLESTONE;
 extern const int TXTR_STONE;
 extern const int TXTR_SNOW;
+extern const int TXTR_GRASS;
 
 static int texture(int height)
 {
@@ -22,9 +23,9 @@ static int texture(int height)
     if (TEXTURE_COUNT < 5)
         return 0;
     if (height < -8)
-        return TXTR_WATER;
-    if (height < 2) {
         return TXTR_DIRT;
+    if (height < 2) {
+        return TXTR_GRASS;
     } else if (height < 4) {
         return TXTR_COBBLESTONE;
     }

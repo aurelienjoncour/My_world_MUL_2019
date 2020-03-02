@@ -10,6 +10,7 @@
 extern const char *TEXTURE_PATH[];
 extern const int TEXTURE_COUNT;
 extern const int TXTR_DIRT;
+extern const int TXTR_GRASS;
 
 void map_texture_destroy(map_t *map)
 {
@@ -45,7 +46,7 @@ static int map_texture_init(map_t *map)
     map->render_state.texture = NULL;
     map->rs_black = map->render_state;
     map->rs_black.texture = map->textures[0];
-    map->selected_texture = TXTR_DIRT;
+    map->selected_texture = TXTR_GRASS;
     return EXIT_SUCCESS;
 }
 

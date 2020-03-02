@@ -26,6 +26,7 @@ void action_mouse_wheel_clicked(window_t *w)
         y = delta_coord.y * EVT_MAP_TRANSLATE_PERC;
     }
     map_translate(&w->map, x, y, w);
+    map_translate(&w->map_water, x, y, w);
 }
 
 void action_mouse_left_clicked(window_t *w)
