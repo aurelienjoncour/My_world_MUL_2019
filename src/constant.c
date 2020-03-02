@@ -17,6 +17,9 @@ const unsigned int WIN_FRAMERATE = 30;
 const char *DEFAULT_MAP_NAME = "undefined";
 const char *MAP_EXTENSION = ".world";
 
+const float MAP_SHADOW_SUM = 10.00f;
+const float MAP_SHADOW_MUL = 00.1f;
+
 const sfVector3f MAP_INIT_SAMP = {32, 32, 5};
 const sfVector2f MAP_INIT_ANGL = {45, 35};
 const sfVector2f MAP_INIT_ORIG = {WIN_WIDTH / 2, 0};

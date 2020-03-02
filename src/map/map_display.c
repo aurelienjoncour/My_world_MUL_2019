@@ -7,16 +7,19 @@
 
 #include "my_world.h"
 
+extern const float MAP_SHADOW_SUM;
+extern const float MAP_SHADOW_MUL;
+
 static int get_delta(int **map_3d, int x, int y, int size)
 {
     if (x == size - 1 || y == 0)
         return 0;
     if (map_3d[y][x] > map_3d[y][x + 1] &&
         map_3d[y - 1][x] > map_3d[y - 1][x + 1])
-        return (map_3d[y][x] + 10) * 0.1;
+        return (map_3d[y][x] + MAP_SHADOW_SUM) * MAP_SHADOW_MUL;
     if (map_3d[y][x] > map_3d[y][x + 1] &&
         map_3d[y + 1][x] > map_3d[y + 1][x + 1])
-        return (map_3d[y][x] + 10) * 0.1;
+        return (map_3d[y][x] + MAP_SHADOW_SUM) * MAP_SHADOW_MUL;
     return 0;
 }
 
