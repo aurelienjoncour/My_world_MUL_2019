@@ -23,8 +23,8 @@ const float MAP_SHADOW_MUL = 00.1f;
 const sfVector3f MAP_INIT_SAMP = {32, 32, 5};
 const sfVector2f MAP_INIT_ANGL = {45, 35};
 const sfVector2f MAP_INIT_ORIG = {WIN_WIDTH / 2, 0};
-const int MAP_INIT_HEIGHT = 40;
-const int MAP_INIT_WIDTH = 40;
+const int MAP_INIT_HEIGHT = 60;
+const int MAP_INIT_WIDTH = 60;
 const sfColor MAP_LINE_COLOR = {255, 255, 255, 255};
 
 const int EVT_MAP_TRANSLATE_DELTA = 10;

@@ -22,14 +22,14 @@ static int texture(int height)
         return 0;
     if (TEXTURE_COUNT < 5)
         return 0;
-    if (height < -8)
+    if (height < -2)
         return TXTR_DIRT;
-    if (height < 2) {
+    if (height < 15) {
         return TXTR_GRASS;
-    } else if (height < 4) {
+    } else if (height < 20) {
         return TXTR_COBBLESTONE;
     }
-    if (height < 6) {
+    if (height < 40) {
         return TXTR_STONE;
     } else
         return TXTR_SNOW;

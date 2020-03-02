@@ -16,7 +16,8 @@ void map_generator(map_t *map)
     mix_permutation_table(perm);
     for (int y = 0; y < map->height; y++) {
         for (int x = 0; x < map->width; x++) {
-            map->map_3d[y][x] = perlin(x, y, 10, perm) * 50;
+            map->map_3d[y][x] = perlin(x, y, 15, perm) * 100;
+            map->map_3d[y][x] += abs((int)(perlin(x, y, 40, perm) * 120));
         }
     }
     free(perm);
