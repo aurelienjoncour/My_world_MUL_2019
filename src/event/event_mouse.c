@@ -26,14 +26,19 @@ void event_mouse_button_pressed(window_t *w, sfEvent *event)
     if (event->mouseButton.button == sfMouseMiddle) {
         w->evt.mouse_wheel_is_clicked = sfTrue;
     } else if (event->mouseButton.button == sfMouseLeft) {
-        if (event_mouse_guibutton(w, event))
+        if (event_mouse_guibutton(w, event)) {
+            sound_manager_play(&w->sm, SOUND_CLICK);
             return;
-        if (w->state.tool != TEXTURE && map_edit_height(w, evt.x, evt.y))
+        }
+        if (w->state.tool != TEXTURE && map_edit_height(w, evt.x, evt.y)) {
+            sound_manager_play(&w->sm, SOUND_CLICK);
             return;
-        if (w->state.tool == TEXTURE && map_edit_texture(w, evt.x, evt.y))
+        }
+        if (w->state.tool == TEXTURE && map_edit_texture(w, evt.x, evt.y)) {
+            sound_manager_play(&w->sm, SOUND_CLICK);
             return;
+        }
         w->evt.mouse_left_is_clicked = sfTrue;
-        sound_manager_play(&w->sm, SOUND_CLICK);
     }
 }
 
