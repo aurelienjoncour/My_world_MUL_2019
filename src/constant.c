@@ -71,7 +71,6 @@ const unsigned int GUI_TEXT_SIZE = 20;
 const sfColor GUI_TEXT_COLOR = (sfColor){255, 255, 255, 255};
 
 // Texture
-const int foo = 0;
 const int TEXTURE_COUNT = 7;
 const char *TEXTURE_PATH[] =
 {
@@ -83,11 +82,12 @@ const char *TEXTURE_PATH[] =
     "asset/img/snow.png",
     "asset/img/water.png"
 };
-const int TXTR_WATER = 1;
-const int TXTR_DIRT = 2;
+const int TXTR_DIRT = 1;
+const int TXTR_GRASS = 2;
 const int TXTR_COBBLESTONE = 3;
 const int TXTR_STONE = 4;
 const int TXTR_SNOW = 5;
+const int TXTR_WATER = 6;
 
 // Sound
 const char *SOUND_PATH[] =
