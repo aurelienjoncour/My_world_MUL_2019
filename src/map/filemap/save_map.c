@@ -27,15 +27,10 @@ static int write_matrix_size(int fd, map_t *map)
     return EXIT_SUCCESS;
 }
 
-int save_map(const char *filename, map_t *map)
+static int save_map_position(int fd, map_t *map)
 {
-    int fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
     char *str;
 
-    if (fd == -1)
-        return EXIT_FAILURE;
-    if (write_matrix_size(fd, map))
-        return EXIT_ERROR;
     for (int i = 0; i < map->height; i++)
         for (int j = 0; j < map->width; j++) {
             str = my_putnbr_base_str(map->map_3d[i][j], "0123456789");
@@ -47,6 +42,39 @@ int save_map(const char *filename, map_t *map)
                 write(fd, " ", 1);
         }
     write(fd, "\n", 1);
+    return EXIT_SUCCESS;
+}
+
+static int save_map_texture(int fd, map_t *map)
+{
+    char *str;
+
+    for (int i = 0; i < map->height; i++)
+        for (int j = 0; j < map->width; j++) {
+            str = my_putnbr_base_str(map->texture_const[i][j], "0123456789");
+            if (!str)
+                return EXIT_FAILURE;
+            write(fd, str, my_strlen(str));
+            free(str);
+            if (i * j != (map->height - 1) * (map->width - 1))
+                write(fd, " ", 1);
+        }
+    write(fd, "\n", 1);
+    return EXIT_SUCCESS;
+}
+
+int save_map(const char *filename, map_t *map)
+{
+    int fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
+
+    if (fd == -1)
+        return EXIT_FAILURE;
+    if (write_matrix_size(fd, map))
+        return EXIT_ERROR;
+    if (save_map_position(fd, map) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (save_map_texture(fd, map) == EXIT_FAILURE)
+        return EXIT_FAILURE;
     close(fd);
     return EXIT_SUCCESS;
 }

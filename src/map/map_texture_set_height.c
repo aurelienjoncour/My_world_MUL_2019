@@ -15,31 +15,30 @@ extern const int TXTR_COBBLESTONE;
 extern const int TXTR_STONE;
 extern const int TXTR_SNOW;
 
-static sfTexture *get_texture(int height, map_t *map)
+static int texture(int height)
 {
     if (TEXTURE_COUNT < 1)
-        return NULL;
+        return 0;
     if (TEXTURE_COUNT < 5)
-        return map->textures[0];
+        return 0;
     if (height < -8)
-        return map->textures[TXTR_WATER];
+        return TXTR_WATER;
     if (height < 2) {
-        return map->textures[TXTR_DIRT];
+        return TXTR_DIRT;
     } else if (height < 4) {
-        return map->textures[TXTR_COBBLESTONE];
+        return TXTR_COBBLESTONE;
     }
     if (height < 6) {
-        return map->textures[TXTR_STONE];
+        return TXTR_STONE;
     } else
-        return map->textures[TXTR_SNOW];
+        return TXTR_SNOW;
 }
 
 int map_texture_set_height(map_t *map)
 {
     for (int x = 0; x < map->width - 1; x++) {
-        for (int y = 0; y < map->height - 1; y++) {
-            map->texture_lay[y][x] = get_texture(map->map_3d[y][x], map);
-        }
+        for (int y = 0; y < map->height - 1; y++)
+            map->texture_const[y][x] = texture(map->map_3d[y][x]);
     }
     return EXIT_SUCCESS;
 }

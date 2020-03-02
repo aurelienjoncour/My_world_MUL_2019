@@ -36,7 +36,7 @@ void display_texture(window_t *w, map_t *map, sfVector2i p, int v)
 {
     int delta = get_delta(map->map_3d, p.x, p.y, map->width);
 
-    map->render_state.texture = map->texture_lay[p.y][p.x];
+    map->render_state.texture = map->textures[map->texture_const[p.y][p.x]];
     if (v == 1) {
     sfRenderWindow_drawVertexArray(w->window, map->txtr_vrtx_a[p.y][p.x],
                                     &map->render_state);
@@ -50,7 +50,6 @@ void display_texture(window_t *w, map_t *map, sfVector2i p, int v)
         for (int i = 0; i < delta; i++)
             sfRenderWindow_drawVertexArray(w->window,
             map->txtr_vrtx_b[p.y][p.x], &map->rs_black);
-
     }
 }
 
@@ -62,10 +61,8 @@ void display_line(sfRenderWindow *win, map_t *map, int x, int y)
 
 int map_display(window_t *w, map_t *map)
 {
-    if (map->modified) {
-        map_update(map);
-        map->modified = sfFalse;
-    }
+    if (map->modified)
+        map_update_all(w, map);
     for (int x = 0; x < map->width - 1; x++) {
         for (int y = 0; y < map->height - 1; y++) {
             if (w->state.map_display_mode != LINE)
@@ -74,6 +71,8 @@ int map_display(window_t *w, map_t *map)
                 display_line(w->window, map, x, y);
             if (w->state.map_display_mode != LINE)
                 display_texture(w, map, (sfVector2i){x, y}, 2);
+            if (w->map.map_3d[y][x] < w->map_water.map_3d[y][x])
+                display_texture_water(w, &w->map_water, (sfVector2i){x, y});
         }
     }
     if (w->state.map_display_mode != TXTR)

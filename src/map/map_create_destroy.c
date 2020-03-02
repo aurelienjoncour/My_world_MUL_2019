@@ -19,6 +19,9 @@ void map_destroy(map_t *map)
     map_vertex_destroy(map);
     free(map->map_name);
     map_texture_destroy(map);
+    for (int i = 0; i < map->height; i++)
+        free(map->texture_const[i]);
+    free(map->texture_const);
 }
 
 static void map_init(map_t *map, int height, int width)
@@ -40,6 +43,12 @@ int map_create(map_t *map, int height, int width)
 {
     map_init(map, height, width);
     map->map_3d = create_3d_map(height, width);
+    map->texture_const = malloc(sizeof(int *) * map->height);
+    for (int i = 0; i < map->height; i++) {
+        map->texture_const[i] = malloc(sizeof(int) * map->width);
+        for (int j = 0; j < map->width; j++)
+            map->texture_const[i][j] = 2;
+    }
     if (!map->map_3d)
         return EXIT_FAILURE;
     if (create_2d_map(map) == EXIT_FAILURE)

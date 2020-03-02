@@ -25,25 +25,6 @@ bool allow_char(char *script, char *allow_char)
     return false;
 }
 
-static int fill_map(map_t *map_load, char *data)
-{
-    char **coord_z = my_str_to_word_array(data, " ");
-    int foo = 0;
-
-    if (!coord_z)
-        return EXIT_FAILURE;
-    for (int i = 0; i < map_load->height; i++) {
-        for (int j = 0; j < map_load->width; j++) {
-            if (coord_z[foo] == NULL)
-                return EXIT_FAILURE;
-            map_load->map_3d[i][j] = my_getnbr(coord_z[foo]);
-            foo++;
-        }
-    }
-    free_2d_array(coord_z);
-    return EXIT_SUCCESS;
-}
-
 static int error_handling(char **file)
 {
     if (!file || word_array_len(file) < 1) {
@@ -73,6 +54,15 @@ static int get_size_map(sfVector2i *size_map, char **file)
     return EXIT_SUCCESS;
 }
 
+static int load_map_data(map_t *map_load, char **file)
+{
+    if (word_array_len(file) > 1)
+        fill_map(map_load, file[1]);
+    if (word_array_len(file) > 2)
+        fill_map_texture(map_load, file[2]);
+    return EXIT_SUCCESS;
+}
+
 int load_map(const char *filepath, map_t *map)
 {
     map_t map_load;
@@ -87,8 +77,7 @@ int load_map(const char *filepath, map_t *map)
     }
     if (map_create(&map_load, size_map.y, size_map.x))
         return EXIT_FAILURE;
-    if (word_array_len(file) > 1)
-        fill_map(&map_load, file[1]);
+    load_map_data(&map_load, file);
     free_2d_array(file);
     map_destroy(map);
     map_load.modified = true;

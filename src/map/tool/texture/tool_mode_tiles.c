@@ -9,7 +9,7 @@
 
 static void set_point_texture(int y, int x, map_t *map)
 {
-    map->texture_lay[y][x] = map->textures[map->selected_texture];
+    map->texture_const[y][x] = map->selected_texture;
 }
 
 static int raise_tiles(map_t *map, int i, int j)

@@ -17,27 +17,11 @@ void map_texture_destroy(map_t *map)
         sfTexture_destroy(map->textures[i]);
     }
     free(map->textures);
-    for (int y = 0; y < map->height - 1; y++) {
-        free(map->texture_lay[y]);
-    }
-    free(map->texture_lay);
     map_vertex_texture_destroy(map);
 }
 
 static int map_texture_malloc(map_t *map)
 {
-    map->texture_lay = malloc(sizeof(sfTexture **) * map->height);
-    if (!map->texture_lay) {
-        my_putstr_error("map_texture_create : malloc error\n");
-        return EXIT_FAILURE;
-    }
-    for (int y = 0; y < map->height; y++) {
-        map->texture_lay[y] = malloc(sizeof(sfTexture *) * map->width);
-        if (!map->texture_lay[y]) {
-            my_putstr_error("map_texture_create : malloc error\n");
-            return EXIT_FAILURE;
-        }
-    }
     map->textures = malloc(sizeof(sfTexture *) * TEXTURE_COUNT);
     if (!map->textures) {
         my_putstr_error("map_texture_create : malloc error\n");
@@ -53,11 +37,6 @@ static int map_texture_init(map_t *map)
         if (!map->textures[i]) {
             my_putstr_error("map_texture : load texture\n");
             return EXIT_FAILURE;
-        }
-    }
-    for (int x = 0; x < map->width; x++) {
-        for (int y = 0; y < map->height; y++) {
-            map->texture_lay[y][x] = map->textures[TXTR_DIRT];
         }
     }
     map->render_state.shader = NULL;

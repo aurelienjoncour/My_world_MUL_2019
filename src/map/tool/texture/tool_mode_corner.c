@@ -21,7 +21,7 @@ int texture_corner_mode(map_t *map, sfVector2f *mouse)
             }
         }
     }
-    map->texture_lay[save.y][save.x] = map->textures[map->selected_texture];
+    map->texture_const[save.y][save.x] = map->selected_texture;
     map->modified = true;
     return 1;
 }

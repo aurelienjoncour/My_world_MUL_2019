@@ -10,15 +10,19 @@
 static void map_add_tiles(map_t *map, map_t *new_map)
 {
     for (int i = 0; i < map->height; i++)
-        for (int j = 0; j < map->width; j++)
+        for (int j = 0; j < map->width; j++) {
             new_map->map_3d[i][j] = map->map_3d[i][j];
+            new_map->texture_const[i][j] = map->texture_const[i][j];
+        }
 }
 
 static void map_remove_tiles(map_t *map, map_t *new_map, sfVector2i resize)
 {
     for (int i = 0; i < map->height + resize.y; i++)
-        for (int j = 0; j < map->width + resize.x; j++)
+        for (int j = 0; j < map->width + resize.x; j++) {
             new_map->map_3d[i][j] = map->map_3d[i][j];
+            new_map->texture_const[i][j] = map->texture_const[i][j];
+        }
 }
 
 int map_resize(map_t *map, sfVector2i resize)
@@ -41,5 +45,14 @@ int map_resize(map_t *map, sfVector2i resize)
     map_destroy(map);
     new_map.modified = true;
     *map = new_map;
+    return EXIT_SUCCESS;
+}
+
+int map_resize_all(window_t *w, sfVector2i resize)
+{
+    if (map_resize(&w->map, resize) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (map_resize(&w->map_water, resize) == EXIT_FAILURE)
+        return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }
