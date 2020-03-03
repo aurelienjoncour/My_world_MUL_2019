@@ -46,6 +46,7 @@
 int window_create(window_t *w);
 void window_destroy(window_t *w);
 int window_run(window_t *w);
+int window_reload(window_t *w);
 
 void soft_state_init(state_t *state);
 

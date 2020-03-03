@@ -9,10 +9,27 @@
 
 extern const char *MAP_EXTENSION;
 
+static int main_loop(window_t *w)
+{
+    sfEvent event;
+
+    while (sfRenderWindow_isOpen(w->window)) {
+        while (sfRenderWindow_pollEvent(w->window, &event))
+            event_manager(w, &event);
+        if (window_run(w) == EXIT_FAILURE)
+            return EXIT_FAILURE;
+    }
+    if (w->reload_window) {
+        w->reload_window = sfFalse;
+        window_reload(w);
+        main_loop(w);
+    }
+    return EXIT_SUCCESS;
+}
+
 int run(int ac, char **av)
 {
     window_t w;
-    sfEvent event;
 
     if (window_create(&w) == EXIT_FAILURE)
         return EXIT_FAILURE;
@@ -20,14 +37,10 @@ int run(int ac, char **av)
         window_destroy(&w);
         return EXIT_FAILURE;
     }
-    map_create(&w.map_water, w.map.height, w.map.width);
+    if (map_create(&w.map_water, w.map.height, w.map.width))
+        return EXIT_FAILURE;
     sound_manager_play(&w.sm, SOUND_START);
-    while (sfRenderWindow_isOpen(w.window)) {
-        while (sfRenderWindow_pollEvent(w.window, &event))
-            event_manager(&w, &event);
-        if (window_run(&w) == EXIT_FAILURE)
-            return EXIT_FAILURE;
-    }
+    main_loop(&w);
     auto_save(&w.map);
     window_destroy(&w);
     return w.exit_status;

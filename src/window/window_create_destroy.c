@@ -41,7 +41,7 @@ int window_create(window_t *w)
 
     window_create_init(w);
     w->window = sfRenderWindow_create(video_mode, "My World",
-    sfClose, NULL);
+    sfClose | sfResize, NULL);
     sfRenderWindow_setFramerateLimit(w->window, WIN_FRAMERATE);
     sfRenderWindow_setPosition(w->window, (sfVector2i){0, 0});
     map_create(&w->map_water, MAP_INIT_HEIGHT, MAP_INIT_WIDTH);
