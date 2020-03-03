@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-void map_generator(map_t *map)
+void map_generator_default(map_t *map)
 {
     unsigned int *perm = malloc(sizeof(unsigned int) * 512);
 

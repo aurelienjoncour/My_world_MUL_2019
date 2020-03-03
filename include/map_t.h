@@ -32,4 +32,9 @@ typedef struct world_map {
     sfColor color_line;
 } map_t;
 
+enum map_generator_mode {
+    DEFAULT,
+    SQUARE
+};
+
 #endif /* !MAP_T_H_ */

@@ -21,6 +21,9 @@ SRC	=	$(DSRC)main.c										\
 		$(DSRC)map/filemap/save_map.c						\
 		$(DSRC)map/filemap/load_from_argv.c					\
 		$(DSRC)map/filemap/fill_map.c						\
+		$(DSRC)map/generator/map_generator.c				\
+		$(DSRC)map/generator/map_generator_default.c		\
+		$(DSRC)map/generator/map_generator_square.c			\
 		$(DSRC)map/tool/height/map_tool_edit_height.c		\
 		$(DSRC)map/tool/height/tool_mode_area.c				\
 		$(DSRC)map/tool/height/tool_mode_corner.c			\
@@ -44,7 +47,6 @@ SRC	=	$(DSRC)main.c										\
 		$(DSRC)map/project_iso_point.c						\
 		$(DSRC)map/map_update.c								\
 		$(DSRC)map/map_resize.c								\
-		$(DSRC)map/map_generator.c							\
 		$(DSRC)event/event_manager.c						\
 		$(DSRC)event/event_init.c							\
 		$(DSRC)event/event_misc.c							\
