@@ -57,6 +57,8 @@ int fill_map_texture(map_t *map_load, char *data);
 void map_generator(map_t *map);
 void map_generator_default(map_t *map);
 void map_generator_square(map_t *map);
+void map_generator_square_two(map_t *map);
+void map_generator_line(map_t *map);
 double perlin(double x, double y, int res, unsigned int *perm);
 void mix_permutation_table(unsigned int *permutation_table);
 

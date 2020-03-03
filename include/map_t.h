@@ -34,7 +34,9 @@ typedef struct world_map {
 
 enum map_generator_mode {
     DEFAULT,
-    SQUARE
+    SQUARE,
+    SQUARE2,
+    GEN_LINE
 };
 
 #endif /* !MAP_T_H_ */

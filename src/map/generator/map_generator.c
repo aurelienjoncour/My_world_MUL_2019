@@ -9,11 +9,15 @@
 
 void map_generator(map_t *map)
 {
-    static enum map_generator_mode mode = DEFAULT;
+    static enum map_generator_mode mode = SQUARE;
 
     switch (mode) {
         case SQUARE:
             map_generator_square(map);
+            mode = SQUARE2;
+            break;
+        case SQUARE2:
+            map_generator_square_two(map);
             mode = DEFAULT;
             break;
         default:

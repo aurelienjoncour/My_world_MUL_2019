@@ -24,6 +24,7 @@ SRC	=	$(DSRC)main.c										\
 		$(DSRC)map/generator/map_generator.c				\
 		$(DSRC)map/generator/map_generator_default.c		\
 		$(DSRC)map/generator/map_generator_square.c			\
+		$(DSRC)map/generator/map_texture_set_height.c		\
 		$(DSRC)map/tool/height/map_tool_edit_height.c		\
 		$(DSRC)map/tool/height/tool_mode_area.c				\
 		$(DSRC)map/tool/height/tool_mode_corner.c			\
@@ -38,7 +39,6 @@ SRC	=	$(DSRC)main.c										\
 		$(DSRC)map/map_vertex_create_destroy.c				\
 		$(DSRC)map/map_texture_vertex_create_destroy.c		\
 		$(DSRC)map/map_texture_create_destroy.c				\
-		$(DSRC)map/map_texture_set_height.c					\
 		$(DSRC)map/map_create_destroy.c						\
 		$(DSRC)map/map_3d_create_destroy.c					\
 		$(DSRC)map/map_2d_create_destroy.c					\
