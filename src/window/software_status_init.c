@@ -14,4 +14,5 @@ void soft_state_init(state_t *state)
     state->select_mode = TILE;
     state->map_display_mode = TXTR;
     state->help_menu = sfFalse;
+    state->texture_menu = sfFalse;
 }

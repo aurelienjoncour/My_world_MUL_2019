@@ -72,14 +72,14 @@ int texture_menu_create(texture_menu_t *self, map_t *map)
     self->map = map;
     self->select_idx = &map->selected_texture;
     self->size = WINDOW_SIZE;
-    self->color_bg = sfBlack;
+    self->color_bg = (sfColor){40, 40, 40, 255};
     self->color_txt = sfWhite;
-    if (texture_menu_create_window(self) == EXIT_FAILURE)
-        return EXIT_FAILURE;
     if (texture_menu_create_sprite(self) == EXIT_FAILURE)
         return EXIT_FAILURE;
     texture_menu_compute_window_height(self);
     if (texture_menu_create_text(self) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (texture_menu_create_window(self) == EXIT_FAILURE)
         return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

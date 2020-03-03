@@ -23,8 +23,8 @@ const float MAP_SHADOW_MUL = 00.1f;
 const sfVector3f MAP_INIT_SAMP = {32, 32, 5};
 const sfVector2f MAP_INIT_ANGL = {45, 35};
 const sfVector2f MAP_INIT_ORIG = {WIN_WIDTH / 2, 0};
-const int MAP_INIT_HEIGHT = 60;
-const int MAP_INIT_WIDTH = 60;
+const int MAP_INIT_HEIGHT = 50;
+const int MAP_INIT_WIDTH = 50;
 const sfColor MAP_LINE_COLOR = {255, 255, 255, 255};
 
 const int EVT_MAP_TRANSLATE_DELTA = 10;
@@ -74,7 +74,7 @@ const unsigned int GUI_TEXT_SIZE = 20;
 const sfColor GUI_TEXT_COLOR = (sfColor){255, 255, 255, 255};
 
 // Texture
-const int TEXTURE_COUNT = 7;
+const int TEXTURE_COUNT = 11;
 const char *TEXTURE_PATH[] =
 {
     "asset/img/black.png",
@@ -83,7 +83,11 @@ const char *TEXTURE_PATH[] =
     "asset/img/cobblestone.png",
     "asset/img/stone.png",
     "asset/img/snow.png",
-    "asset/img/water.png"
+    "asset/img/water.png",
+    "asset/img/red.png",
+    "asset/img/real_black.png",
+    "asset/img/green.png",
+    "asset/img/blue.png"
 };
 const int TXTR_DIRT = 1;
 const int TXTR_GRASS = 2;

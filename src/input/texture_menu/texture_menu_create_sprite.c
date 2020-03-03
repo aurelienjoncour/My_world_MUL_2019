@@ -23,7 +23,7 @@ static void set_sprite_position(texture_menu_t *self)
     for (int i = 0; i < self->count_sprite; i++) {
         sfSprite_setPosition(self->spr_available[i], second_pos);
         second_pos.x += (SECO_SPRITE_SIZE.x + 10);
-        if ((int)second_pos.x >= (int)win_size.x) {
+        if ((int)second_pos.x >= (int)(win_size.x - SECO_SPRITE_SIZE.x)) {
             second_pos.x = 10;
             second_pos.y += (SECO_SPRITE_SIZE.y + 10);
         }
@@ -45,7 +45,7 @@ static void set_sprite_scale(texture_menu_t *self)
 
 int texture_menu_create_sprite(texture_menu_t *self)
 {
-    self->count_sprite = TEXTURE_COUNT - 1;
+    self->count_sprite = TEXTURE_COUNT;
     self->spr_available = malloc(sizeof(sfSprite *) * self->count_sprite);
     if (!self->spr_available) {
         my_putstr_error("texture_menu_create : malloc error.\n");
@@ -53,7 +53,7 @@ int texture_menu_create_sprite(texture_menu_t *self)
     }
     for (int i = 0; i < self->count_sprite; i++) {
         self->spr_available[i] = sfSprite_create();
-        sfSprite_setTexture(self->spr_available[i], self->map->textures[i + 1],
+        sfSprite_setTexture(self->spr_available[i], self->map->textures[i],
         sfTrue);
     }
     self->spr_selected = sfSprite_create();
