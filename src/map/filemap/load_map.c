@@ -66,7 +66,7 @@ static int load_map_data(map_t *map_load, char **file)
 int load_map(const char *filepath, map_t *map)
 {
     map_t map_load;
-    char **file = read_entiere_file(filepath);
+    char **file = read_file(filepath);
     sfVector2i size_map = {0};
 
     if (error_handling(file))

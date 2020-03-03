@@ -13,6 +13,7 @@ SRC	=	$(DSRC)main.c										\
 		$(DSRC)tool.c										\
 		$(DSRC)schr_extension.c								\
 		$(DSRC)perlin_noise.c								\
+		$(DSRC)read_file.c									\
 		$(DSRC)window/window_create_destroy.c				\
 		$(DSRC)window/window_run.c							\
 		$(DSRC)window/software_status_init.c				\
