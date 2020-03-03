@@ -39,16 +39,22 @@ static void map_init(map_t *map, int height, int width)
     map->modified = sfFalse;
 }
 
-int map_create(map_t *map, int height, int width)
+static void map_texture_const_create(map_t *map)
 {
-    map_init(map, height, width);
-    map->map_3d = create_3d_map(height, width);
     map->texture_const = malloc(sizeof(int *) * map->height);
     for (int i = 0; i < map->height; i++) {
         map->texture_const[i] = malloc(sizeof(int) * map->width);
         for (int j = 0; j < map->width; j++)
             map->texture_const[i][j] = 2;
     }
+
+}
+
+int map_create(map_t *map, int height, int width)
+{
+    map_init(map, height, width);
+    map_texture_const_create(map);
+    map->map_3d = create_3d_map(height, width);
     if (!map->map_3d)
         return EXIT_FAILURE;
     if (create_2d_map(map) == EXIT_FAILURE)

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** MUL_my_world_2019
 ** File description:
-** map_t
+** map
 */
 
 #include "my_world.h"

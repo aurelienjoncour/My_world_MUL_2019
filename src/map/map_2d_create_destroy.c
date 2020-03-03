@@ -9,8 +9,9 @@
 
 int create_2d_map(map_t *map)
 {
-    map->map_2d = malloc(sizeof(sfVector2f *) * map->height);
+    int map_point;
 
+    map->map_2d = malloc(sizeof(sfVector2f *) * map->height);
     if (!map->map_2d) {
         my_putstr_error("create_2d_map: malloc error\n");
         return EXIT_FAILURE;
@@ -24,7 +25,8 @@ int create_2d_map(map_t *map)
     }
     for (int y = 0; y < map->height; y++) {
         for (int x = 0; x < map->width; x++) {
-            map->map_2d[y][x] = project_iso_point(x, y, map->map_3d[y][x], map);
+            map_point = map->map_3d[y][x];
+            map->map_2d[y][x] = project_iso_point(x, y, map_point, map);
         }
     }
     return EXIT_SUCCESS;
