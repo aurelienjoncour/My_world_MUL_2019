@@ -38,7 +38,7 @@ const char *label)
     sfText_setCharacterSize(button->text, button->char_size);
     sfText_setCharacterSize(button->help_label, 20);
     sfText_setColor(button->text, button->color_txt);
-    sfText_setColor(button->help_label, sfRed);
+    sfText_setColor(button->help_label, sfWhite);
     sfText_setFont(button->text, button->font);
     sfText_setFont(button->help_label, button->font);
     sfText_setPosition(button->text, *position);

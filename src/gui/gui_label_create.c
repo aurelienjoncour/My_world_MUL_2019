@@ -31,9 +31,9 @@ int gui_label_create(window_t *w)
     if (!w->ui.font)
         return EXIT_FAILURE;
     if (label_create(&w->ui.txt_map_name, w->ui.font, w->map.map_name,
-    V2F(w->width / 2 - 50, 40)))
+    V2F(w->width / 2 - 50, 50)))
         return EXIT_FAILURE;
-    if (label_create(&w->ui.txt_select_mode, w->ui.font, "TILE", V2F(5, 940)))
+    if (label_create(&w->ui.txt_select_mode, w->ui.font, "TILE", V2F(5, 920)))
         return EXIT_FAILURE;
     if (label_create(&w->ui.txt_angle, w->ui.font, "Angle:", V2F(5, 5)))
         return EXIT_FAILURE;

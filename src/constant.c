@@ -43,12 +43,12 @@ const sfKeyCode KEY_MAP_ROT_LEFT = sfKeyLeft;
 const sfKeyCode KEY_MAP_ROT_RIGHT = sfKeyRight;
 
 // BUTTON PARAMETERS
-const unsigned int BUTTON_INIT_CHARSIZE = 30;
-const sfColor BUTTON_INIT_COLORBG = (sfColor){255, 255, 255, 255};
-const sfColor BUTTON_INIT_COLORTXT = (sfColor){0, 0, 0, 255};
-const sfColor BUTTON_INIT_COLORHOV = (sfColor){128, 128, 128, 255};
-const sfColor BUTTON_INIT_COLORACT = (sfColor){75, 75, 75, 255};
-const char *BUTTON_INIT_FONT = "./asset/font/BebasNeue-Regular.ttf";
+const unsigned int BUTTON_INIT_CHARSIZE = 19;
+const sfColor BUTTON_INIT_COLORBG = (sfColor){235, 47, 6, 255};
+const sfColor BUTTON_INIT_COLORTXT = (sfColor){255, 255, 255, 255};
+const sfColor BUTTON_INIT_COLORHOV = (sfColor){229, 80, 57, 255};
+const sfColor BUTTON_INIT_COLORACT = (sfColor){183, 21, 64, 255};
+const char *BUTTON_INIT_FONT = "./asset/font/MADETOMMY.ttf";
 
 // TEXT INPUT PARAMETERS
 const sfVector2f TEXT_IN_INIT_POS = (sfVector2f){4, 4};
