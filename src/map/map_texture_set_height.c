@@ -32,6 +32,8 @@ static int texture(int height)
     }
     if (height < 40) {
         return TXTR_STONE;
+    } else if (height < 50) {
+        return TXTR_GRASS;
     } else
         return TXTR_SNOW;
 }
