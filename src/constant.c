@@ -74,7 +74,7 @@ const unsigned int GUI_TEXT_SIZE = 20;
 const sfColor GUI_TEXT_COLOR = (sfColor){255, 255, 255, 255};
 
 // Texture
-const int TEXTURE_COUNT = 11;
+const int TEXTURE_COUNT = 12;
 const char *TEXTURE_PATH[] =
 {
     "asset/img/black.png",
@@ -87,7 +87,8 @@ const char *TEXTURE_PATH[] =
     "asset/img/red.png",
     "asset/img/real_black.png",
     "asset/img/green.png",
-    "asset/img/blue.png"
+    "asset/img/blue.png",
+    "asset/img/sand.png"
 };
 const int TXTR_DIRT = 1;
 const int TXTR_GRASS = 2;
@@ -95,6 +96,7 @@ const int TXTR_COBBLESTONE = 3;
 const int TXTR_STONE = 4;
 const int TXTR_SNOW = 5;
 const int TXTR_WATER = 6;
+const int TXTR_SAND = 11;
 
 // Sound
 const char *SOUND_PATH[] =
