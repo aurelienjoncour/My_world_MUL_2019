@@ -9,19 +9,21 @@
 
 int texture_corner_mode(map_t *map, sfVector2f *mouse)
 {
-    float distance = point_length(*mouse, map->map_2d[0][0]);
-    sfVector2i save = {0};
-
-    for (int i = map->height - 1; i >= 0; i--) {
-        for (int j = map->width - 1; j >= 0; j--) {
-            if (point_length(*mouse, map->map_2d[i][j]) < distance) {
-                distance = point_length(*mouse, map->map_2d[i][j]);
-                save.x = j;
-                save.y = i;
+    for (int j = map->height - 1; j > 0; j--) {
+        for (int i = map->width - 1; i > 0; i--) {
+            if (point_is_on_triangle(map->map_2d[j][i], map->map_2d[j][i - 1],
+                map->map_2d[j - 1][i], *mouse)) {
+                map->texture_const[j - 1][i - 1] = map->selected_texture;
+                map->modified = true;
+                return 1;
+            }
+            if (point_is_on_triangle(map->map_2d[j - 1][i - 1],
+                    map->map_2d[j][i - 1], map->map_2d[j - 1][i], *mouse)) {
+                map->texture_const[j - 1][i - 1] = map->selected_texture;
+                map->modified = true;
+                return 1;
             }
         }
     }
-    map->texture_const[save.y][save.x] = map->selected_texture;
-    map->modified = true;
-    return 1;
+    return 0;
 }

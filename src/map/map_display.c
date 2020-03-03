@@ -74,7 +74,8 @@ int map_display(window_t *w, map_t *map)
                 display_line(w->window, map, x, y);
             if (w->state.map_display_mode != LINE)
                 display_texture(w, map, (sfVector2i){x, y}, 2);
-            if (w->map.map_3d[y][x] < w->map_water.map_3d[y][x])
+            if (w->state.map_display_mode != LINE &&
+                w->map.map_3d[y][x] < w->map_water.map_3d[y][x])
                 display_texture_water(w, &w->map_water, (sfVector2i){x, y});
         }
     }
