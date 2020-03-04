@@ -7,6 +7,11 @@
 
 #include "my_world.h"
 
+extern const int WIN_WIDTH;
+extern const sfVector3f MAP_INIT_SAMP;
+extern const sfVector2f MAP_INIT_ANGL;
+extern const sfVector2f MAP_INIT_ORIG;
+
 int check_event_button_toolbar(window_t *w, enum button_status status,
 sfVector2i mouse)
 {
@@ -71,15 +76,18 @@ int check_event_button_view(window_t *w, enum button_status status,
 sfVector2i mouse)
 {
     if (button_poll_event(&w->ui.scale, mouse, status, ACTIVE)) {
-
+        w->map.sampling = MAP_INIT_SAMP;
+        w->map.modified = sfTrue;
         return 1;
     }
     if (button_poll_event(&w->ui.translate, mouse, status, ACTIVE)) {
-
+        w->map.origin = MAP_INIT_ORIG;
+        w->map.modified = sfTrue;
         return 1;
     }
     if (button_poll_event(&w->ui.rotate, mouse, status, ACTIVE)) {
-
+        w->map.angle = MAP_INIT_ANGL;
+        w->map.modified = sfTrue;
         return 1;
     }
     return 0;
