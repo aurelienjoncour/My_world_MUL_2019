@@ -73,6 +73,10 @@ SRC	=	$(DSRC)main.c										\
 		$(DSRC)input/button/button_set_position.c			\
 		$(DSRC)input/button/button_set_size.c				\
 		$(DSRC)input/button/button_set_status.c				\
+		$(DSRC)input/slider/slider_create_destroy.c			\
+		$(DSRC)input/slider/slider_display.c				\
+		$(DSRC)input/slider/slider_poll_event.c				\
+		$(DSRC)input/slider/slider_get_value.c				\
 		$(DSRC)input/text/text_input_create_destroy.c		\
 		$(DSRC)input/text/text_input_config_char.c			\
 		$(DSRC)input/text/text_input_config.c				\
