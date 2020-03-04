@@ -77,16 +77,19 @@ sfVector2i mouse)
 {
     if (button_poll_event(&w->ui.scale, mouse, status, ACTIVE)) {
         w->map.sampling = MAP_INIT_SAMP;
+        w->map_water.sampling = MAP_INIT_SAMP;
         w->map.modified = sfTrue;
         return 1;
     }
     if (button_poll_event(&w->ui.translate, mouse, status, ACTIVE)) {
         w->map.origin = MAP_INIT_ORIG;
+        w->map_water.origin = MAP_INIT_ORIG;
         w->map.modified = sfTrue;
         return 1;
     }
     if (button_poll_event(&w->ui.rotate, mouse, status, ACTIVE)) {
         w->map.angle = MAP_INIT_ANGL;
+        w->map_water.angle = MAP_INIT_ANGL;
         w->map.modified = sfTrue;
         return 1;
     }
