@@ -14,7 +14,7 @@ static int map_edit_call_mode(window_t *w, sfVector2f *mouse)
     if (w->state.select_mode == CORNER)
         return texture_corner_mode(&w->map, mouse);
     if (w->state.select_mode == AREA)
-        return texture_area_mode(&w->map, mouse);
+        return texture_area_mode(&w->map, mouse, &w->ui.slider);
     return 0;
 }
 
