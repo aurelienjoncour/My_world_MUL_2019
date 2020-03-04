@@ -7,9 +7,11 @@
 
 #include "my_world.h"
 
-static bool map_is_point_inrange_coord(sfVector2f *map_point, sfVector2f *coord,
-float range)
+static bool map_is_point_inrange_coord(sfVector2f *map_point,
+sfVector2f *coord, slider_t *slider, float sampling)
 {
+    float coef = (slider_get_value(slider) + 0.1);
+    float range = (sampling * (coef * 10));
     float pow_x = pow((map_point->x - coord->x), 2);
     float pow_y = pow((map_point->y - coord->y), 2);
     float distance = sqrt(pow_x + pow_y);
@@ -21,11 +23,12 @@ float range)
 }
 
 static int map_edit_area(map_t *map, sfVector2f *coord,
-sfVector2i indice)
+sfVector2i indice, slider_t *slider)
 {
     sfVector2f *map_point = &map->map_2d[indice.y][indice.x];
+    float sampling = map->sampling.x;
 
-    if (map_is_point_inrange_coord(map_point, coord, map->sampling.x * 2)) {
+    if (map_is_point_inrange_coord(map_point, coord, slider, sampling)) {
         map->texture_const[indice.y][indice.x] = map->selected_texture;
         map->modified = sfTrue;
         return 1;
@@ -33,7 +36,7 @@ sfVector2i indice)
     return 0;
 }
 
-int texture_area_mode(map_t *map, sfVector2f *mouse)
+int texture_area_mode(map_t *map, sfVector2f *mouse, slider_t *slider)
 {
     int exit_status = 0;
     int ret = 0;
@@ -43,7 +46,7 @@ int texture_area_mode(map_t *map, sfVector2f *mouse)
         for (int x = 0; x < map->width; x++) {
             indice.x = x;
             indice.y = y;
-            ret = map_edit_area(map, mouse, indice);
+            ret = map_edit_area(map, mouse, indice, slider);
             exit_status = (ret == 1) ? (1) : exit_status;
         }
     }

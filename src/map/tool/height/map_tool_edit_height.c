@@ -39,6 +39,6 @@ int map_edit_height(window_t *w, float x, float y)
         coefficient = -1;
     else
         coefficient = 0;
-    coefficient *= slider_get_value(&w->ui.slider);
+    coefficient *= ((slider_get_value(&w->ui.slider) * 10) * 1);
     return map_edit_call_mode(w, &mouse, coefficient);
 }
