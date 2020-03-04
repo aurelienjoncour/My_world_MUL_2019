@@ -40,6 +40,9 @@ static void set_button_help_label(window_t *w)
     button_set_help_label(&w->ui.lower, "Decrease points height");
     button_set_help_label(&w->ui.texture, "Set texture of tiles");
     button_set_help_label(&w->ui.level, "Flattens points");
+    button_set_help_label(&w->ui.translate, "Reset origin");
+    button_set_help_label(&w->ui.rotate, "Reset angle");
+    button_set_help_label(&w->ui.scale, "Reset scale");
 }
 
 void set_button_config(window_t *w)
