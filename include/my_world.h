@@ -34,6 +34,7 @@
 #include "sound_manager.h"
 #include "window.h"
 #include "button.h"
+#include "slider.h"
 #include "texture_menu.h"
 #include "text_input.h"
 #include "image_viewer.h"
@@ -52,6 +53,7 @@ void soft_state_init(state_t *state);
 
 // MATH
 bool point_is_on_triangle(sfVector2f a, sfVector2f b, sfVector2f c, sfVector2f p);
+bool point_is_on_circle(sfVector2i point, float radius, sfVector2f position);
 float point_length(sfVector2f a, sfVector2f b);
 
 // TOOLS FUNCTIONS
