@@ -7,21 +7,6 @@
 
 #include "my_world.h"
 
-static int check_event_button_toolbar_sub(window_t *w,
-enum button_status status, int x, int y)
-{
-    sfVector2i mouse = {.x = x, .y = y};
-    if (button_poll_event(&w->ui.level, mouse, status, ACTIVE)) {
-        action_gui_button_tool(&w->ui.level, &w->state, &w->ui, LEVEL);
-        return 1;
-    }
-    if (button_poll_event(&w->ui.texture, mouse, status, ACTIVE)) {
-        action_gui_button_tool(&w->ui.texture, &w->state, &w->ui, TEXTURE);
-        return 1;
-    }
-    return 0;
-}
-
 int check_event_button_toolbar(window_t *w, enum button_status status,
 sfVector2i mouse)
 {
@@ -33,12 +18,18 @@ sfVector2i mouse)
         action_gui_button_tool(&w->ui.lower, &w->state, &w->ui, LOWER);
         return 1;
     }
-    if (check_event_button_toolbar_sub(w, status, mouse.x, mouse.y) != 0)
+    if (button_poll_event(&w->ui.level, mouse, status, ACTIVE)) {
+        action_gui_button_tool(&w->ui.level, &w->state, &w->ui, LEVEL);
         return 1;
+    }
+    if (button_poll_event(&w->ui.texture, mouse, status, ACTIVE)) {
+        action_gui_button_tool(&w->ui.texture, &w->state, &w->ui, TEXTURE);
+        return 1;
+    }
     return 0;
 }
 
-static int check_event_button_leftbar_sub(window_t *w,
+static int check_event_button_leftbar_down(window_t *w,
 enum button_status status, sfVector2i mouse)
 {
     if (button_poll_event(&w->ui.select_mode, mouse, status, ACTIVE)) {
@@ -71,7 +62,25 @@ sfVector2i mouse)
         map_resize_all(w, (sfVector2i){1, 0});
         return 1;
     }
-    if (check_event_button_leftbar_sub(w, status, mouse) != 0)
+    if (check_event_button_leftbar_down(w, status, mouse) != 0)
         return 1;
+    return 0;
+}
+
+int check_event_button_view(window_t *w, enum button_status status,
+sfVector2i mouse)
+{
+    if (button_poll_event(&w->ui.scale, mouse, status, ACTIVE)) {
+
+        return 1;
+    }
+    if (button_poll_event(&w->ui.translate, mouse, status, ACTIVE)) {
+
+        return 1;
+    }
+    if (button_poll_event(&w->ui.rotate, mouse, status, ACTIVE)) {
+
+        return 1;
+    }
     return 0;
 }

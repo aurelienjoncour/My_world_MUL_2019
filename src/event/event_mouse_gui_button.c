@@ -7,83 +7,54 @@
 
 #include "my_world.h"
 
-static int check_event_button_headbar_beta(window_t *w,
-enum button_status status, sfVector2i mouse)
+static int event_button_pressed(window_t *w, sfEvent *event)
 {
-    if (button_poll_event(&w->ui.change_map_name, mouse, status, NONE)) {
-        text_input_run(&w->ui.edit_map_name, w->window);
-        update_mape_name(w, text_input_get_input(&w->ui.edit_map_name));
-        return 1;
-    }
-    if (button_poll_event(&w->ui.generate_random, mouse, status, ACTIVE)) {
-        map_generator(&w->map);
-        return 1;
-    }
-    return 0;
-}
-
-static int check_event_button_headbar_alpha(window_t *w,
-enum button_status status, sfVector2i mouse)
-{
-    if (button_poll_event(&w->ui.save, mouse, status, ACTIVE)) {
-        action_map_save(w);
-        return 1;
-    }
-    if (button_poll_event(&w->ui.reset, mouse, status, ACTIVE)) {
-        map_reset(&w->map);
-        return 1;
-    }
-    if (button_poll_event(&w->ui.load, mouse, status, NONE)) {
-        action_map_load(w);
-        return 1;
-    }
-    return 0;
-}
-
-static int check_event_button_rightbar(window_t *w, enum button_status status,
-sfVector2i mouse)
-{
-    if (button_poll_event(&w->ui.help_menu, mouse, status, ACTIVE)) {
-        image_viewer_status(&w->ui.help_menu_viewer, &w->state.help_menu);
-        return 1;
-    }
-    if (button_poll_event(&w->ui.scale, mouse, status, ACTIVE)) {
-
-        return 1;
-    }
-    if (button_poll_event(&w->ui.translate, mouse, status, ACTIVE)) {
-
-        return 1;
-    }
-    if (button_poll_event(&w->ui.rotate, mouse, status, ACTIVE)) {
-
-        return 1;
-    }
-    return 0;
-}
-
-static int event_mouse_button_guibutton(window_t *w, sfEvent *event)
-{
-    sfMouseButton button = event->mouseButton.button;
+    int ret = 0;
     sfMouseButtonEvent button_evt = event->mouseButton;
     sfVector2i mouse = {.x = button_evt.x, .y = button_evt.y};
-    int ret = 0;
+    sfMouseButton button = event->mouseButton.button;
 
     if (event->type == sfEvtMouseButtonPressed && button == sfMouseLeft) {
         ret += check_event_slider(&w->ui.slider, ACTIVE, mouse, w);
-        ret += check_event_button_headbar_alpha(w, ACTIVE, mouse);
-        ret += check_event_button_headbar_beta(w, ACTIVE, mouse);
-        ret += check_event_button_rightbar(w, ACTIVE, mouse);
+        ret += check_event_button_topbar(w, ACTIVE, mouse);
+        ret += check_event_button_view(w, ACTIVE, mouse);
         ret += check_event_button_toolbar(w, ACTIVE, mouse);
         ret += check_event_button_leftbar(w, ACTIVE, mouse);
     }
+    return ret;
+}
+
+static int event_button_released(window_t *w, sfEvent *event)
+{
+    int ret = 0;
+    sfMouseButtonEvent button_evt = event->mouseButton;
+    sfVector2i mouse = {.x = button_evt.x, .y = button_evt.y};
+    sfMouseButton button = event->mouseButton.button;
+
     if (event->type == sfEvtMouseButtonReleased && button == sfMouseLeft) {
         ret += check_event_slider(&w->ui.slider, NONE, mouse, w);
-        ret += check_event_button_headbar_alpha(w, NONE, mouse);
-        ret += check_event_button_headbar_beta(w, NONE, mouse);
-        ret += check_event_button_toolbar(w, NONE, mouse);
-        ret += check_event_button_rightbar(w, NONE, mouse);
+        ret += check_event_button_topbar(w, NONE, mouse);
+        ret += check_event_button_view(w, NONE, mouse);
         ret += check_event_button_leftbar(w, NONE, mouse);
+        ret += check_event_button_toolbar(w, NONE, mouse);
+    }
+    return ret;
+}
+
+static int event_button_hover(window_t *w, sfEvent *event)
+{
+    sfMouseMoveEvent move_evt = event->mouseMove;
+    sfVector2i mouse = {0};
+    int ret = 0;
+
+    if (event->type == sfEvtMouseMoved && w->evt.cursor_in_window) {
+        mouse.x = move_evt.x;
+        mouse.y = move_evt.y;
+        ret += check_event_slider(&w->ui.slider, HOVER, mouse, w);
+        ret += check_event_button_topbar(w, HOVER, mouse);
+        ret += check_event_button_view(w, HOVER, mouse);
+        ret += check_event_button_toolbar(w, HOVER, mouse);
+        ret += check_event_button_leftbar(w, HOVER, mouse);
     }
     return ret;
 }
@@ -91,19 +62,9 @@ static int event_mouse_button_guibutton(window_t *w, sfEvent *event)
 int event_mouse_guibutton(window_t *w, sfEvent *event)
 {
     int ret = 0;
-    sfMouseMoveEvent move_evt = event->mouseMove;
-    sfVector2i mouse = {0};
 
-    if (event->type == sfEvtMouseMoved && w->evt.cursor_in_window) {
-        mouse.x = move_evt.x;
-        mouse.y = move_evt.y;
-        ret += check_event_slider(&w->ui.slider, HOVER, mouse, w);
-        ret += check_event_button_headbar_alpha(w, HOVER, mouse);
-        ret += check_event_button_headbar_beta(w, HOVER, mouse);
-        ret += check_event_button_rightbar(w, HOVER, mouse);
-        ret += check_event_button_toolbar(w, HOVER, mouse);
-        ret += check_event_button_leftbar(w, HOVER, mouse);
-    }
-    ret += event_mouse_button_guibutton(w, event);
+    ret += event_button_pressed(w, event);
+    ret += event_button_released(w, event);
+    ret += event_button_hover(w, event);
     return ret;
 }

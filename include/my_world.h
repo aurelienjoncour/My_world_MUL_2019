@@ -41,7 +41,6 @@
 #include "gui.h"
 #include "event_action.h"
 #include "map.h"
-#include "object.h"
 
 // WINDOW
 int window_create(window_t *w);
@@ -52,7 +51,8 @@ int window_reload(window_t *w);
 void soft_state_init(state_t *state);
 
 // MATH
-bool point_is_on_triangle(sfVector2f a, sfVector2f b, sfVector2f c, sfVector2f p);
+bool point_is_on_triangle(sfVector2f a, sfVector2f b, sfVector2f c,
+sfVector2f p);
 bool point_is_on_circle(sfVector2i point, float radius, sfVector2f position);
 float point_length(sfVector2f a, sfVector2f b);
 

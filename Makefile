@@ -54,7 +54,8 @@ SRC	=	$(DSRC)main.c										\
 		$(DSRC)event/event_mouse.c							\
 		$(DSRC)event/event_keyboard.c						\
 		$(DSRC)event/event_mouse_gui_button.c				\
-		$(DSRC)event/event_gui_button_leftbutton.c 			\
+		$(DSRC)event/event_gui_button_left.c	 			\
+		$(DSRC)event/event_gui_button_top.c		 			\
 		$(DSRC)event/resize_shortcut.c						\
 		$(DSRC)event_action/action_mouse_clicked.c			\
 		$(DSRC)event_action/action_show_click.c				\
