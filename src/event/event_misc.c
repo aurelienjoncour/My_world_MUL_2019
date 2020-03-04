@@ -14,15 +14,14 @@ void event_window_close(window_t *w)
 
 void event_resize_window(window_t *w, sfEvent *event)
 {
-    static sfBool first = sfTrue;
+    static sfBool apply = sfTrue;
 
-    if (!first) {
+    if (!apply) {
+        apply = sfTrue;
         w->width = (int)event->size.width;
         w->height = (int)event->size.height;
-        first = sfTrue;
         w->reload_window = sfTrue;
-        event_window_close(w);
     } else {
-        first = sfTrue;
+        apply = sfFalse;
     }
 }
