@@ -12,6 +12,7 @@
 #include "text_input.h"
 #include "image_viewer.h"
 #include "texture_menu.h"
+#include "slider.h"
 
 typedef struct user_interface {
     img_view_t help_menu_viewer;
@@ -46,6 +47,7 @@ typedef struct user_interface {
     sfText *txt_scale;
     sfText *txt_size;
     sfFont *font;
+    slider_t slider;
 } ui_t;
 
 #endif

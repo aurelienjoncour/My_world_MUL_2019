@@ -70,6 +70,7 @@ static int event_mouse_button_guibutton(window_t *w, sfEvent *event)
     int ret = 0;
 
     if (event->type == sfEvtMouseButtonPressed && button == sfMouseLeft) {
+        ret += check_event_slider(&w->ui.slider, ACTIVE, mouse, w);
         ret += check_event_button_headbar_alpha(w, ACTIVE, mouse);
         ret += check_event_button_headbar_beta(w, ACTIVE, mouse);
         ret += check_event_button_rightbar(w, ACTIVE, mouse);
@@ -77,6 +78,7 @@ static int event_mouse_button_guibutton(window_t *w, sfEvent *event)
         ret += check_event_button_leftbar(w, ACTIVE, mouse);
     }
     if (event->type == sfEvtMouseButtonReleased && button == sfMouseLeft) {
+        ret += check_event_slider(&w->ui.slider, NONE, mouse, w);
         ret += check_event_button_headbar_alpha(w, NONE, mouse);
         ret += check_event_button_headbar_beta(w, NONE, mouse);
         ret += check_event_button_toolbar(w, NONE, mouse);
@@ -95,6 +97,7 @@ int event_mouse_guibutton(window_t *w, sfEvent *event)
     if (event->type == sfEvtMouseMoved && w->evt.cursor_in_window) {
         mouse.x = move_evt.x;
         mouse.y = move_evt.y;
+        ret += check_event_slider(&w->ui.slider, HOVER, mouse, w);
         ret += check_event_button_headbar_alpha(w, HOVER, mouse);
         ret += check_event_button_headbar_beta(w, HOVER, mouse);
         ret += check_event_button_rightbar(w, HOVER, mouse);

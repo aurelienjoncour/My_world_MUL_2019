@@ -90,5 +90,6 @@ int gui_create(window_t *w)
     gui_mouse_shapes_create(w);
     if (gui_label_create(w) == EXIT_FAILURE)
         return EXIT_FAILURE;
+    slider_create(&w->ui.slider, (sfVector2f){1400, 20}, 300);
     return EXIT_SUCCESS;
 }

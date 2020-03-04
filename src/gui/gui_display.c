@@ -44,5 +44,6 @@ int gui_display(window_t *w)
 {
     gui_display_button(w);
     gui_display_text(&w->ui, w->window);
+    slider_display(&w->ui.slider, w->window);
     return EXIT_SUCCESS;
 }

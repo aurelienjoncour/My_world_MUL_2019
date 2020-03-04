@@ -50,5 +50,6 @@ int gui_destroy(ui_t *ui)
     text_input_destroy(&ui->load_map_file);
     image_viewer_destroy(&ui->help_menu_viewer);
     sfFont_destroy(ui->font);
+    slider_destroy(&ui->slider);
     return 0;
 }
