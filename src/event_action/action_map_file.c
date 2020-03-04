@@ -39,6 +39,8 @@ void action_map_load(window_t *w)
             my_printf("Error : fail to load map file :: (%s)\n", map_file);
             free(map_file);
         } else {
+            map_destroy(&w->map_water);
+            map_create(&w->map_water, w->map.height, w->map.width);
             update_mape_name(w, map_name);
         }
     } else {
