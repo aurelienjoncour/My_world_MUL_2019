@@ -9,12 +9,12 @@
 
 int get_dynamical_coefficient(int point_height)
 {
-    if (point_height > 0)
-        return -1;
-    else if (point_height < 0)
-        return 1;
-    else
-        return 0;
+    int coef = 0;
+
+    coef = (-point_height) / 2;
+    if (coef && abs(coef) <= 4)
+        coef = -point_height;
+    return coef;
 }
 
 static int map_edit_call_mode(window_t *w, sfVector2f *mouse, int coefficient)
@@ -39,6 +39,6 @@ int map_edit_height(window_t *w, float x, float y)
         coefficient = -1;
     else
         coefficient = 0;
-    coefficient *= ((slider_get_value(&w->ui.slider) * 10) * 1);
+    coefficient *= ((slider_get_value(&w->ui.slider) * 10) + 1);
     return map_edit_call_mode(w, &mouse, coefficient);
 }

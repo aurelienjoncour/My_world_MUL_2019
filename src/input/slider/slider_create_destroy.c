@@ -14,6 +14,7 @@ int slider_create(slider_t *slider, sfVector2f position, float length)
     slider->rect_pos = position;
     slider->rect_size = (sfVector2f){length, 8};
     slider->circle_radius = 15;
+    slider->circle_pos.x += ((length / 2) - slider->circle_radius);
     slider->isPressed = sfFalse;
     slider->rect = sfRectangleShape_create();
     slider->min = position.x;
