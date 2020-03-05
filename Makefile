@@ -9,11 +9,11 @@ DSRC	=	./src/
 
 SRC	=	$(DSRC)main.c										\
 		$(DSRC)constant.c									\
-		$(DSRC)math.c										\
-		$(DSRC)tool.c										\
-		$(DSRC)schr_extension.c								\
-		$(DSRC)perlin_noise.c								\
-		$(DSRC)read_file.c									\
+		$(DSRC)utility/math.c								\
+		$(DSRC)utility/tool.c								\
+		$(DSRC)utility/schr_extension.c						\
+		$(DSRC)utility/perlin_noise.c						\
+		$(DSRC)utility/read_file.c							\
 		$(DSRC)window/window_create_destroy.c				\
 		$(DSRC)window/window_reload.c						\
 		$(DSRC)window/window_run.c							\
@@ -50,13 +50,13 @@ SRC	=	$(DSRC)main.c										\
 		$(DSRC)map/map_resize.c								\
 		$(DSRC)event/event_manager.c						\
 		$(DSRC)event/event_init.c							\
-		$(DSRC)event/event_misc.c							\
 		$(DSRC)event/event_mouse.c							\
 		$(DSRC)event/event_keyboard.c						\
-		$(DSRC)event/event_mouse_gui_button.c				\
-		$(DSRC)event/event_gui_button_left.c	 			\
-		$(DSRC)event/event_gui_button_top.c		 			\
-		$(DSRC)event/resize_shortcut.c						\
+		$(DSRC)event/event_window.c							\
+		$(DSRC)event_action/action_mouse_gui_button.c		\
+		$(DSRC)event_action/action_gui_button_left.c		\
+		$(DSRC)event_action/action_gui_button_top.c			\
+		$(DSRC)event_action/action_resize_shortcut.c		\
 		$(DSRC)event_action/action_mouse_clicked.c			\
 		$(DSRC)event_action/action_show_click.c				\
 		$(DSRC)event_action/action_texture.c				\

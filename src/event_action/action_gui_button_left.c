@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** MUL_my_world_2019
 ** File description:
-** event manager
+** Action GUI Buttons on the left
 */
 
 #include "my_world.h"

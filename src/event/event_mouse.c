@@ -26,7 +26,7 @@ void event_mouse_button_pressed(window_t *w, sfEvent *event)
     if (event->mouseButton.button == sfMouseMiddle) {
         w->evt.mouse_wheel_is_clicked = sfTrue;
     } else if (event->mouseButton.button == sfMouseLeft) {
-        if (event_mouse_guibutton(w, event)) {
+        if (action_mouse_guibutton(w, event)) {
             sound_manager_play(&w->sm, SOUND_CLICK);
             return;
         }
@@ -50,7 +50,7 @@ void event_mouse_button_released(window_t *w, sfEvent *event)
         w->evt.mouse_wheel_is_clicked = sfFalse;
     } else if (evt.button == sfMouseLeft) {
         w->evt.mouse_left_is_clicked = sfFalse;
-        event_mouse_guibutton(w, event);
+        action_mouse_guibutton(w, event);
     }
 }
 
@@ -68,5 +68,5 @@ void event_mouse_move(window_t *w, sfEvent *event)
 
     w->evt.mouse_coord.x = evt.x;
     w->evt.mouse_coord.y = evt.y;
-    event_mouse_guibutton(w, event);
+    action_mouse_guibutton(w, event);
 }

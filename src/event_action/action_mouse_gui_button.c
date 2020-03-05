@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** MUL_my_world_2019
 ** File description:
-** event manager
+** Action GUI buttons
 */
 
 #include "my_world.h"
@@ -59,7 +59,7 @@ static int event_button_hover(window_t *w, sfEvent *event)
     return ret;
 }
 
-int event_mouse_guibutton(window_t *w, sfEvent *event)
+int action_mouse_guibutton(window_t *w, sfEvent *event)
 {
     int ret = 0;
 
