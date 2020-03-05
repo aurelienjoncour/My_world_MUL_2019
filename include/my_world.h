@@ -41,6 +41,7 @@
 #include "gui.h"
 #include "event_action.h"
 #include "map.h"
+#include "object.h"
 
 // WINDOW
 int window_create(window_t *w);

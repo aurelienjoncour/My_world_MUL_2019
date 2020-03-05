@@ -18,6 +18,15 @@ SRC	=	$(DSRC)main.c										\
 		$(DSRC)window/window_reload.c						\
 		$(DSRC)window/window_run.c							\
 		$(DSRC)window/software_status_init.c				\
+		$(DSRC)object/object_create.c						\
+		$(DSRC)object/object_lines_create.c					\
+		$(DSRC)object/object_2d_matrix_create.c				\
+		$(DSRC)object/object_destroy.c						\
+		$(DSRC)object/object_display.c						\
+		$(DSRC)object/object_project_iso_point.c			\
+		$(DSRC)object/object_texture_create.c				\
+		$(DSRC)object/object_reload.c						\
+		$(DSRC)object/object_tools_view.c					\
 		$(DSRC)map/filemap/load_map.c						\
 		$(DSRC)map/filemap/save_map.c						\
 		$(DSRC)map/filemap/load_from_argv.c					\
