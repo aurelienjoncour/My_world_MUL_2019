@@ -27,6 +27,8 @@ SRC	=	$(DSRC)main.c										\
 		$(DSRC)object/object_texture_create.c				\
 		$(DSRC)object/object_reload.c						\
 		$(DSRC)object/object_tools_view.c					\
+		$(DSRC)object/object_on_map.c						\
+		$(DSRC)object/object_config.c						\
 		$(DSRC)map/filemap/load_map.c						\
 		$(DSRC)map/filemap/save_map.c						\
 		$(DSRC)map/filemap/load_from_argv.c					\

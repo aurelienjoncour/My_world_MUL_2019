@@ -30,6 +30,7 @@
 #include "map_t.h"
 #include "event_t.h"
 #include "ui_t.h"
+#include "object_t.h"
 
 #include "sound_manager.h"
 #include "window.h"

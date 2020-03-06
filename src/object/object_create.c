@@ -16,13 +16,14 @@ sfVector3f *sampling, const char **img_path)
     else
         obj->size = *sampling;
     obj->angle = (sfVector2f){0, 45};
-    if (!sampling)
+    if (!position)
         obj->origin = (sfVector2f){200, 400};
     else
         obj->origin = *position;
     obj->line_color = sfWhite;
     obj->path_img = img_path;
     obj->modified = sfFalse;
+    obj->coord_map = (sfVector2i){1, 1};
 }
 
 int object_create(object_t *obj, sfVector2f *position, sfVector3f *sampling,

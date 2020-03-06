@@ -22,11 +22,11 @@ static void object_display_lines_sub(object_t *obj, sfRenderWindow *win, int x,
 int y)
 {
     for (int z = 0; z < obj->width; z++) {
-        if (x < obj->width - 1 && (z || y))
+        if (x < obj->width - 1)
             sfRenderWindow_drawVertexArray(win, obj->vrtx_x[z][y][x], NULL);
-        if (z < obj->width - 1 && (x || y))
+        if (z < obj->width - 1)
             sfRenderWindow_drawVertexArray(win, obj->vrtx_z[z][y][x], NULL);
-        if (y < obj->width - 1 && (x || z))
+        if (y < obj->width - 1)
             sfRenderWindow_drawVertexArray(win, obj->vrtx_y[z][y][x], NULL);
     }
 }
