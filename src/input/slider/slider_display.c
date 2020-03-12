@@ -12,7 +12,8 @@ void slider_display(slider_t *slider, sfRenderWindow *window)
     if (slider->rect)
         sfRenderWindow_drawRectangleShape(window, slider->rect, NULL);
     if (slider->circle) {
-        sfCircleShape_setPosition(slider->circle, (sfVector2f){slider->circle_pos.x, slider->circle_pos.y});
+        sfCircleShape_setPosition(slider->circle,
+        (sfVector2f){slider->circle_pos.x, slider->circle_pos.y});
         sfRenderWindow_drawCircleShape(window, slider->circle, NULL);
     }
 }
