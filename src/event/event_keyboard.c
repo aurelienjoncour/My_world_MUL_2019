@@ -120,4 +120,5 @@ void event_keypressed(window_t *w, sfEvent *event)
     event->key.code == KEY_MAP_ROT_RIGHT) {
         event_key_arrow(w, event);
     }
+    action_object_move(w, event);
 }

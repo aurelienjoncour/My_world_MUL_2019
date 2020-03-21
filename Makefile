@@ -74,6 +74,7 @@ SRC	=	$(DSRC)main.c										\
 		$(DSRC)event_action/action_manager.c				\
 		$(DSRC)event_action/action_map_file.c				\
 		$(DSRC)event_action/action_update_text_gui.c		\
+		$(DSRC)event_action/action_object_move.c			\
 		$(DSRC)event_action/action_ui_button_tool.c 		\
 		$(DSRC)input/button/button_config_boolean.c			\
 		$(DSRC)input/button/button_config_char.c			\

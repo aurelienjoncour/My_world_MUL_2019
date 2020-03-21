@@ -23,6 +23,7 @@ int window_run(window_t *w)
             sound_manager_play(&w->sm, SOUND_MUSIC);
         }
     }
+    object_display(&w->player, w->window);
     sfRenderWindow_display(w->window);
     return EXIT_SUCCESS;
 }

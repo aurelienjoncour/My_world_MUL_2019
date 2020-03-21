@@ -9,6 +9,7 @@
 
 int map_update_all(window_t *w, map_t *map)
 {
+    object_on_map_refresh(&w->player, map);
     if (map_update(map) == EXIT_FAILURE)
         return EXIT_FAILURE;
     map->modified = sfFalse;

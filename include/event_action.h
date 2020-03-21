@@ -58,4 +58,6 @@ enum tools tool);
 
 void change_texture_display_mode(window_t *w);
 
+void action_object_move(window_t *w, sfEvent *event);
+
 #endif

@@ -17,6 +17,7 @@ enum projection {
 };
 
 typedef struct window {
+    object_t player;
     map_t map;
     map_t map_water;
     ui_t ui;
