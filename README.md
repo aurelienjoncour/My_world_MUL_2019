@@ -7,9 +7,9 @@
 
 # Subject
 
-An isometric world designer written in CSFML
-Create a terraformer program.
-Display a map and edit at runtime.
+An isometric world designer written in CSFML  
+Create a terraformer program.  
+Display a map and edit at runtime.  
 
 # Features
 - Display a map using a 3D projection (isometric)
